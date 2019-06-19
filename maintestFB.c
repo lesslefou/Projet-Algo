@@ -1,4 +1,3 @@
-#include "hMemories.h"
 #include "hTestFB.h"
 
 int main(int argc, char **argv)
@@ -300,5 +299,3 @@ void gestionEvenement(EvenementGfx evenement)
 			break;
 	}
 }
-
-
