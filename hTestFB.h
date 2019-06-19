@@ -2,6 +2,7 @@
 #include <stdio.h> // Pour pouvoir utiliser printf()
 #include <math.h> // Pour pouvoir utiliser sin() et cos()
 #include <time.h>
+#include <unistd.h>
 #include <string.h>
 #include "Librairie/GfxLib.h" // Seul cet include est necessaire pour faire du graphique
 #include "Librairie/BmpLib.h"
@@ -11,9 +12,6 @@
 #define HauteurFenetre 800
 
 
-void gestionEvenement(EvenementGfx evenement);
 
-
-void melangeColonne (int colonne[]);
-void melangeLigne (int ligne[]);
-int gereClicCarte (int clic, int abs,int ord,DonneesImageRGB *donneesImage);
+void afficheTEST (int suite);
+int afficheResultat(int chiffre1,int chiffre2,int suite,int resultat);
