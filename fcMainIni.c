@@ -1,5 +1,5 @@
-#include "hTestFB.h"
 #include "hMemories.h"
+#include "hTestFB.h"
 
 int main(int argc, char **argv)
 {
@@ -22,15 +22,6 @@ void gestionEvenement(EvenementGfx evenement)
 {
  	static bool pleinEcran = false; // Pour savoir si on est en mode plein ecran ou pas
    
-
-    
-	static DonneesImageRGB *test1FB = NULL;
-    static DonneesImageRGB *test2FB = NULL;
-    static int abs=0;
-	static int ord=0;
-	abs=abscisseSouris();
-	ord=ordonneeSouris();
-	static test fb;
    
 	
 	switch (evenement)
@@ -39,9 +30,6 @@ void gestionEvenement(EvenementGfx evenement)
 			// Configure le systeme pour generer un message Temporisation
 			// toutes les 20 millisecondes
 			demandeTemporisation(20);
-			test1FB = lisBMPRGB("test1FB.bmp");
-			test2FB = lisBMPRGB("test2FB.bmp");
-			fb = initStructTESTFB (fb);
 			break;
 		
 		case Temporisation:
@@ -51,10 +39,7 @@ void gestionEvenement(EvenementGfx evenement)
 		case Affichage:
 			// On part d'un fond d'ecran blanc
 			effaceFenetre (255, 255, 255);
-
-
-			fb = testFB(fb,test1FB,test2FB);
-
+			
 			break;
 			
 		case Clavier:
@@ -66,8 +51,6 @@ void gestionEvenement(EvenementGfx evenement)
 			{ quelque peu proprement du programme */
 				case 'q':
 					termineBoucleEvenements();
-					libereDonneesImageRGB(&test1FB);
-					libereDonneesImageRGB(&test2FB);
 					break;
 
 			
@@ -108,27 +91,6 @@ void gestionEvenement(EvenementGfx evenement)
 				case 'n':
 					break;
 
-				case '0':
-				case '1':
-				case '2':
-				case '3':
-				case '4':
-				case '5':
-				case '6':
-				case '7':
-				case '8':
-				case '9':
-					if (fb.lock==3)
-					{
-						fb.chiffre1 = caractereClavier()-48;
-						fb.lock =1;
-					}
-					else if (fb.lock==1)
-					{
-						fb.chiffre2 = caractereClavier()-48;
-						fb.lock=0;
-					}
-				break;
 				}
 			break;
 			
@@ -141,17 +103,7 @@ void gestionEvenement(EvenementGfx evenement)
 			if (etatBoutonSouris() == GaucheAppuye)
 			{
 				printf("Bouton gauche appuye en : (%d, %d)\n", abscisseSouris(), ordonneeSouris());
-				if (abs>=900 && abs<=1100 && ord>=70 && ord<=130)	
-				{
-					if (fb.start == 0) fb.start = 1;
-					else if (fb.start == 3)
-					{
-					 fb = initStructTESTFB(fb);
-					}
-					else;
-				}
-
-
+				
 				
 			}
 			
@@ -179,3 +131,5 @@ void gestionEvenement(EvenementGfx evenement)
 			break;
 	}
 }
+
+

@@ -11,7 +11,25 @@
 #define LargeurFenetre 1200
 #define HauteurFenetre 800
 
+typedef struct testFB
+{
+	int suite;
+	int chiffre1;
+	int chiffre2;
+	int lock;
+	int resultat;
+	int test1;
+	int test2;
+	int delay;
+	int tempo;
+	int cpt;
+	int temps;
+	int start;
+	int erreur;
+	FILE *fichier;
+}test;
 
 
-void afficheTEST (int suite);
-int afficheResultat(int chiffre1,int chiffre2,int suite,int resultat);
+test initStructTESTFB (test fb);
+test testFB (test fb,DonneesImageRGB *test1FB,DonneesImageRGB *test2FB);
+test afficheResultat(test fb);

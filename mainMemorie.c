@@ -65,11 +65,11 @@ void gestionEvenement(EvenementGfx evenement)
 			image1 = lisBMPRGB("chien.bmp");
 			image2 = lisBMPRGB("chien.bmp");
 
+			//Attribution des valeurs aléatoire des lignes/colonnesx
 			melangeColonne(colonne);
 			melangeLigne(ligne);
 
-			//Attribution des valeurs aléatoire des lignes/colonnesx
-
+			
 			break;
 		
 		case Temporisation:
@@ -117,14 +117,14 @@ void gestionEvenement(EvenementGfx evenement)
 			}/*
 			else if (lock ==1)
 			{
-				for (i=0; i<;i++)
+				for (i=0; i<LONGUEUR*HAUTEUR*3;i++)
 				{
 					if (image1->donneesRGB[i] == image2->donneesRGB)
 					{
 
 					}
 				}
-			}*/
+			}*/ 
 			
 			//Chrono, nombre d'essais et titre
 			couleurCourante (200,200,200);
