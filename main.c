@@ -1,5 +1,5 @@
 #include "hTestFB.h"
-#include "hMemories.h"
+#include "hMemory.h"
 
 int main(int argc, char **argv)
 {
@@ -94,7 +94,7 @@ void gestionEvenement(EvenementGfx evenement)
 			{ quelque peu proprement du programme */
 				case 'q':
 					termineBoucleEvenements();
-					
+
 					//TEST FB
 					libereDonneesImageRGB(&test1FB);
 					libereDonneesImageRGB(&test2FB);
