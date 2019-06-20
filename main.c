@@ -45,6 +45,9 @@ void gestionEvenement(EvenementGfx evenement)
     static DonneesImageRGB *image1 = NULL;
     static DonneesImageRGB *image2 = NULL;
     static int p;
+    static int lockeur=0;
+    static int clic1=0;
+    static int clic2=0;
     
 
 
@@ -86,6 +89,7 @@ void gestionEvenement(EvenementGfx evenement)
 
 			//fb = testFB(fb,test1FB,test2FB);
 			placementCarte(p,tableau,chien,chat,poulain,canard,oiseau,lapin);
+			placementDosDeCarte(carte,clic1,clic2);
 
 			break;
 			
@@ -193,11 +197,21 @@ void gestionEvenement(EvenementGfx evenement)
 					if (fb.start == 0) fb.start = 1;
 					else if (fb.start == 3)
 					{
-					 fb = initStructTESTFB(fb);
+						fb = initStructTESTFB(fb);
 					}
 					else;
 				}
 
+				if (lockeur == 0) 
+				{
+					clic1 = gereClicCarte(clic1,abs,ord);
+					lockeur = 1;
+				}
+				else if (lockeur ==1)
+				{
+					clic2 = gereClicCarte(clic2,abs,ord);
+					lockeur = 0;
+				}
 
 				
 			}

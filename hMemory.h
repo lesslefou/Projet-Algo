@@ -21,6 +21,8 @@ void gestionEvenement(EvenementGfx evenement);
 void initPosition (carte tableau[12]);
 void placementCarte (int p,carte tableau[12],DonneesImageRGB *chien,DonneesImageRGB *chat,DonneesImageRGB *poulain,DonneesImageRGB *canard,DonneesImageRGB *oiseau,DonneesImageRGB *lapin);
 void testCarte(carte tableau[12],int p,DonneesImageRGB *image);
+void placementDosDeCarte(DonneesImageRGB *carte,int clic1, int clic2);
+int gereClicCarte (int clic1,int abs,int ord);
 
 /*
 chien = 1

@@ -29,18 +29,10 @@ void melangeLigne (int ligne[])
 }
 
 
-int gereClicCarte (int clic,int abs,int ord,DonneesImageRGB *donneesImage)
+int gereClicCarte (int clic,int abs,int ord,int val)
 {
-	if (abs>=70 && abs<=320 && ord>=180 && ord<=340) 
-	{
-		clic=1;
-		lisImage(70,210,250,160,donneesImage->donneesRGB);
-	}
-	if (abs>=340 && abs<=590 && ord>=180 && ord<=340) 
-	{
-		clic=2;
-		lisImage(340,210,250,160,donneesImage->donneesRGB);
-	}
+	if (abs>=70 && abs<=320 && ord>=180 && ord<=340) clic=1;	
+	if (abs>=340 && abs<=590 && ord>=180 && ord<=340) clic=2;
 	if (abs>=610 && abs<=860 && ord>=180 && ord<=340) clic=3;
 	if (abs>=880 && abs<=1130 && ord>=180 && ord<=340) clic=4;
 
