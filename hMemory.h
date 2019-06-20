@@ -10,10 +10,30 @@
 #define LargeurFenetre 1200
 #define HauteurFenetre 800
 
-typedef struct CARTE
+typedef struct carte
 {
 	int position;
+	int numero;
 }carte;
 
 void gestionEvenement(EvenementGfx evenement);
 
+void initPosition (carte tableau[12]);
+void placementCarte (int p,carte tableau[12],DonneesImageRGB *chien,DonneesImageRGB *chat,DonneesImageRGB *poulain,DonneesImageRGB *canard,DonneesImageRGB *oiseau,DonneesImageRGB *lapin);
+void testCarte(carte tableau[12],int p,DonneesImageRGB *image);
+
+/*
+chien = 1
+chat = 2
+poulain = 3
+canard = 4 
+oiseau = 5
+lapin = 6
+
+chien1 = 7
+chat1 = 8
+poulain1 = 9
+canard1 = 10
+oiseau1 = 11
+lapin1 = 12
+*/

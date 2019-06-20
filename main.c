@@ -1,5 +1,6 @@
 #include "hTestFB.h"
 #include "hMemory.h"
+static carte tableau[12];
 
 int main(int argc, char **argv)
 {
@@ -20,6 +21,7 @@ int main(int argc, char **argv)
 des qu'une evenement survient */
 void gestionEvenement(EvenementGfx evenement)
 {
+ 	srand(time(NULL));
  	static bool pleinEcran = false; // Pour savoir si on est en mode plein ecran ou pas
    
  	static int abs=0;
@@ -42,7 +44,8 @@ void gestionEvenement(EvenementGfx evenement)
     static DonneesImageRGB *carte = NULL;
     static DonneesImageRGB *image1 = NULL;
     static DonneesImageRGB *image2 = NULL;
-    static carte ca;
+    static int p;
+    
 
 
 	
@@ -68,7 +71,7 @@ void gestionEvenement(EvenementGfx evenement)
 			carte = lisBMPRGB("carte.bmp");
 			image1 = lisBMPRGB("chien.bmp");
 			image2 = lisBMPRGB("chien.bmp");
-
+			initPosition (tableau);
 
 			break;
 		
@@ -81,7 +84,8 @@ void gestionEvenement(EvenementGfx evenement)
 			effaceFenetre (255, 255, 255);
 
 
-			fb = testFB(fb,test1FB,test2FB);
+			//fb = testFB(fb,test1FB,test2FB);
+			placementCarte(p,tableau,chien,chat,poulain,canard,oiseau,lapin);
 
 			break;
 			

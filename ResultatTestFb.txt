@@ -242,3 +242,7 @@ TEST :
 Chrono : 2
 Nombre d'erreur : 0
 
+TEST :
+Chrono : 9
+Nombre d'erreur : 3
+
