@@ -22,16 +22,29 @@ void gestionEvenement(EvenementGfx evenement)
 {
  	static bool pleinEcran = false; // Pour savoir si on est en mode plein ecran ou pas
    
-
-    
-	static DonneesImageRGB *test1FB = NULL;
-    static DonneesImageRGB *test2FB = NULL;
-    static int abs=0;
+ 	static int abs=0;
 	static int ord=0;
 	abs=abscisseSouris();
 	ord=ordonneeSouris();
-	static test fb;
-   
+
+    //TEST FB
+	static DonneesImageRGB *test1FB = NULL;
+    static DonneesImageRGB *test2FB = NULL;	
+    static test fb;
+
+    //MEMORY
+    static DonneesImageRGB *chien = NULL;
+    static DonneesImageRGB *chat = NULL;
+    static DonneesImageRGB *poulain = NULL;
+    static DonneesImageRGB *lapin = NULL;
+    static DonneesImageRGB *canard = NULL;
+    static DonneesImageRGB *oiseau = NULL;
+    static DonneesImageRGB *carte = NULL;
+    static DonneesImageRGB *image1 = NULL;
+    static DonneesImageRGB *image2 = NULL;
+    static carte ca;
+
+
 	
 	switch (evenement)
 	{
@@ -39,9 +52,24 @@ void gestionEvenement(EvenementGfx evenement)
 			// Configure le systeme pour generer un message Temporisation
 			// toutes les 20 millisecondes
 			demandeTemporisation(20);
+
+			//TEST FB
 			test1FB = lisBMPRGB("test1FB.bmp");
 			test2FB = lisBMPRGB("test2FB.bmp");
 			fb = initStructTESTFB (fb);
+
+			//MEMORY
+			chien = lisBMPRGB("chien.bmp");
+			poulain = lisBMPRGB("poulain.bmp");
+			chat = lisBMPRGB("chat.bmp");
+			canard = lisBMPRGB("canard.bmp");
+			lapin = lisBMPRGB("lapin.bmp");
+			oiseau = lisBMPRGB("oiseau.bmp");
+			carte = lisBMPRGB("carte.bmp");
+			image1 = lisBMPRGB("chien.bmp");
+			image2 = lisBMPRGB("chien.bmp");
+
+
 			break;
 		
 		case Temporisation:
@@ -66,8 +94,23 @@ void gestionEvenement(EvenementGfx evenement)
 			{ quelque peu proprement du programme */
 				case 'q':
 					termineBoucleEvenements();
+					
+					//TEST FB
 					libereDonneesImageRGB(&test1FB);
 					libereDonneesImageRGB(&test2FB);
+
+					//MEMORY
+					libereDonneesImageRGB(&chien);
+					libereDonneesImageRGB(&chat);
+					libereDonneesImageRGB(&poulain);
+					libereDonneesImageRGB(&canard);
+					libereDonneesImageRGB(&lapin);
+					libereDonneesImageRGB(&oiseau);
+					libereDonneesImageRGB(&carte);
+					libereDonneesImageRGB(&image1);
+					libereDonneesImageRGB(&image2);
+
+
 					break;
 
 			
