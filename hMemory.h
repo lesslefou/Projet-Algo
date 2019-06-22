@@ -10,19 +10,58 @@
 #define LargeurFenetre 1200
 #define HauteurFenetre 800
 
+
+typedef struct MEMORY
+{
+    int lockeur;
+    int clic1;
+    int clic2;
+    int validation[12];
+    int start;
+    int cpt;
+	int delay;
+	int temps;
+	int tempo;
+	int erreur;
+	FILE *fichier2;
+	int stop;
+}memory;
+
+
 typedef struct carte
 {
 	int position;
-	int numero;
 }carte;
 
-void gestionEvenement(EvenementGfx evenement);
 
-void initPosition (carte tableau[12]);
-void placementCarte (int p,carte tableau[12],DonneesImageRGB *chien,DonneesImageRGB *chat,DonneesImageRGB *poulain,DonneesImageRGB *canard,DonneesImageRGB *oiseau,DonneesImageRGB *lapin);
+static struct CoordCarte 
+{
+	int x, y, l, h;
+} CoordCarte[] = { 	{70, 170, 250, 160},
+					{340, 170, 250, 160},
+					{610, 170, 250, 160},
+					{880, 170, 250, 160},
+					{70, 350, 250, 160},
+					{340, 350, 250, 160},
+					{610, 350, 250, 160},
+					{880, 350, 250, 160},
+					{70, 530, 250, 160},
+					{340, 530, 250, 160},
+					{610, 530, 250, 160},
+					{880, 530, 250, 160}
+				};
+
+
+
+
+void gestionEvenement(EvenementGfx evenement);
+memory affichageMemory(int p,memory me,carte tableau[12],DonneesImageRGB *chien,DonneesImageRGB *chat,DonneesImageRGB *poulain,DonneesImageRGB *canard,DonneesImageRGB *oiseau,DonneesImageRGB *lapin,DonneesImageRGB *carte,DonneesImageRGB *image1,DonneesImageRGB *image2);
+memory initStructMemory(memory m);
+void initPosition(carte tableau[12]);
+void placementCarte(carte tableau[12],DonneesImageRGB *chien,DonneesImageRGB *chat,DonneesImageRGB *poulain,DonneesImageRGB *canard,DonneesImageRGB *oiseau,DonneesImageRGB *lapin);
 void testCarte(carte tableau[12],int p,DonneesImageRGB *image);
-void placementDosDeCarte(DonneesImageRGB *carte,int clic1, int clic2);
-int gereClicCarte (int clic1,int abs,int ord);
+memory placementDosDeCarte(DonneesImageRGB *carte,DonneesImageRGB *image1,DonneesImageRGB *image2,memory me);
+memory gereClicCarte (memory me,int abs,int ord);
 
 /*
 chien = 1

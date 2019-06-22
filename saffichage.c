@@ -2,33 +2,48 @@
 
 menu initMenu(menu m)
 {
-	choix=0;
-	choix1=0;
-	choix2=0;
-	choix3=0;
+	m.choix=0;
+	m.choix1=0;
+	m.choix2=0;
+	m.choix3=0;
+	m.start=0;
 	return m;
 }
-menu m.choixMenu(menu m)
+
+/*
+menu gereClicStart(menu m)
+{
+	if (abs>=900 && abs<=1100 && ord>=60 && ord<=120)	
+	{
+		if (m.start == 0) m.start = 1;
+		else if (m.start == 3)
+		{
+			m = initStructTESTFB(m);
+		}
+		else;
+	}
+}
+*/
+
+
+
+menu choixMenu(menu m, test fb, memory me,DonneesImageRGB *test1FB,DonneesImageRGB *test2FB)
 {
 	switch (m.choix)
 	{
 		case 0: 
+			m = initMenu(m);
 			affichage1();
 			break;
 		case 1:
 			affichageMemoire();
 			switch (m.choix1)
 			{
-				case 0: 
-					m.choix = 0;
-					break;
 				case 1:
 					break;
 				case 2:
 					break;
 				case 3:
-					placementCarte(p,tableau,chien,chat,poulain,canard,oiseau,lapin);
-					placementDosDeCarte(carte,image1,image2,clic1,clic2);
 					break;
 			}
 			break;
@@ -36,9 +51,6 @@ menu m.choixMenu(menu m)
 			affichageAnalyse();
 			switch (m.choix2)
 			{
-				case 0:
-					m.choix = 0;
-					break;
 				case 1:
 					break;
 				case 2:
@@ -52,9 +64,6 @@ menu m.choixMenu(menu m)
 			affichageLateralite();
 			switch (m.choix3)
 			{
-				case 0:
-					m.choix = 0;
-					break;
 				case 1:
 					break;
 				case 2:
@@ -68,7 +77,7 @@ menu m.choixMenu(menu m)
 	}
 	return m;
 }
-
+*/
 void affichage1(void)
 {
 	couleurCourante(255,0,0);
@@ -162,25 +171,25 @@ void affichageLateralite(void)
 	afficheChaine("Retour",30,1080,40);
 }
 
-menu gereClicMenu (menu m)
+menu gereClicMenu (menu m,int abs,int ord)
 {
 	if (abs>=170 && abs<=340 && ord>=470 && ord<=630) m.choix = 1;
 	else if (abs>=510 && abs<=680 && ord>=470 && ord<=630) m.choix = 2;
 	else if (abs>=850 && abs<=1020 && ord>=470 && ord<=630) m.choix = 3;
-	else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 4
+	else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 4;
 	return m;	
 }
 
-menu gereClicMemoire (menu m)
+menu gereClicMemoire (menu m,int abs,int ord)
 {
 	if (abs>=400 && abs<=800 && ord>=170 && ord<=330) m.choix1 = 1;
 	else if (abs>=240 && abs<=480 && ord>=480 && ord<=640) m.choix1 = 2;
 	else if (abs>=720 && abs<=480 && ord>=960 && ord<=640) m.choix1 = 3;
-	else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix1 = 0;
+	else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 0;
 	return m;
 }
 
-menu gereClicAnalyse (menu m)
+menu gereClicAnalyse (menu m,int abs,int ord)
 {
 	if (abs>=240 && abs<=160 && ord>=480 && ord<=320) m.choix2 = 1;
 	else if (abs>=720 && abs<=160 && ord>=960 && ord<=320) m.choix2 = 2;
@@ -190,7 +199,7 @@ menu gereClicAnalyse (menu m)
 	return m;
 }
 
-menu gereClicLateralite (menu m)
+menu gereClicLateralite (menu m,int abs,int ord)
 {
 	if (abs>=230 && abs<=280 && ord>=500 && ord<=520) m.choix3 = 1;
 	else if (abs>=710 && abs<=280 && ord>=500 && ord<=520) m.choix3 = 2;

@@ -12,8 +12,8 @@ test initStructTESTFB(test fb)
 	fb.delay=0;
 	fb.tempo=0;
 	fb.cpt=0;
-	fb.temps=0;
 	fb.start=0;
+	fb.temps=0;
 	fb.erreur=0;
 	FILE *fichier=NULL;
 	return fb;
@@ -22,15 +22,15 @@ test initStructTESTFB(test fb)
 test testFB(test fb,DonneesImageRGB *test1FB,DonneesImageRGB *test2FB)
 {
 	couleurCourante (200,200,200);
-	rectangle(170,70,420,130);
-	rectangle(540,70,810,130);
-	rectangle(900,70,1100,130);
+	rectangle(170,60,420,120);
+	rectangle(540,60,810,120);
+	rectangle(900,60,1100,120);
 	rectangle(895,355,1090,400);
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(1);
-	afficheChaine("Chronometre : ",20,190,90);
-	afficheChaine("nb d'erreur : ",20,580,90);
-	afficheChaine("S T A R T",20,930,90);
+	afficheChaine("Chronometre : ",20,190,80);
+	afficheChaine("nb d'erreur : ",20,580,80);
+	afficheChaine("S T A R T",20,930,80);
 	afficheChaine("Reponse : ",20,905,370);
 	couleurCourante(255,0,0);
 	epaisseurDeTrait(5);
@@ -116,7 +116,7 @@ test testFB(test fb,DonneesImageRGB *test1FB,DonneesImageRGB *test2FB)
 	epaisseurDeTrait(2);
 	sprintf(chrono,"%d s",fb.temps);
 	epaisseurDeTrait(2);
-	afficheChaine(chrono,20,350,90);
+	afficheChaine(chrono,20,350,80);
 
 
 	char pourcentage[] = "00";
@@ -124,7 +124,7 @@ test testFB(test fb,DonneesImageRGB *test1FB,DonneesImageRGB *test2FB)
 	epaisseurDeTrait(2);
 	sprintf(pourcentage,"%d",fb.erreur);
 	epaisseurDeTrait(2);
-	afficheChaine(pourcentage,20,730,90);
+	afficheChaine(pourcentage,20,730,80);
 
 	if (fb.start == 2)
 	{

@@ -6,6 +6,7 @@
 #include <string.h>
 #include "Librairie/GfxLib.h" // Seul cet include est necessaire pour faire du graphique
 #include "Librairie/BmpLib.h"
+//#include "haffichage.h"
 
 // Largeur et hauteur par defaut d'une image correspondant a nos criteres
 #define LargeurFenetre 1200
@@ -23,10 +24,11 @@ typedef struct testFB
 	int delay;
 	int tempo;
 	int cpt;
-	int temps;
 	int start;
+	int temps;
 	int erreur;
 	FILE *fichier;
+	//menu m;
 }test;
 
 

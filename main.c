@@ -1,5 +1,7 @@
 #include "hTestFB.h"
 #include "hMemory.h"
+#include "haffichage.h"
+
 static carte tableau[12];
 
 int main(int argc, char **argv)
@@ -29,6 +31,9 @@ void gestionEvenement(EvenementGfx evenement)
 	abs=abscisseSouris();
 	ord=ordonneeSouris();
 
+	//MENU
+	static menu m;
+
     //TEST FB
 	static DonneesImageRGB *test1FB = NULL;
     static DonneesImageRGB *test2FB = NULL;	
@@ -44,11 +49,11 @@ void gestionEvenement(EvenementGfx evenement)
     static DonneesImageRGB *carte = NULL;
     static DonneesImageRGB *image1 = NULL;
     static DonneesImageRGB *image2 = NULL;
-    static int p;
-    static int lockeur=0;
-    static int clic1=0;
-    static int clic2=0;
+    static memory me;
+    static int p=0;
     
+    //SI TABLEAU D'IMAGES
+	//static DonneesImageRGB *Images[12];
 
 
 	
@@ -59,12 +64,17 @@ void gestionEvenement(EvenementGfx evenement)
 			// toutes les 20 millisecondes
 			demandeTemporisation(20);
 
+			//Menu
+			m = initMenu(m);
+
 			//TEST FB
 			test1FB = lisBMPRGB("test1FB.bmp");
 			test2FB = lisBMPRGB("test2FB.bmp");
 			fb = initStructTESTFB (fb);
 
 			//MEMORY
+			//SI TABLEAU D'IMAGES
+			//Images[0] = chien = lisBMPRGB("chien.bmp");
 			chien = lisBMPRGB("chien.bmp");
 			poulain = lisBMPRGB("poulain.bmp");
 			chat = lisBMPRGB("chat.bmp");
@@ -72,8 +82,10 @@ void gestionEvenement(EvenementGfx evenement)
 			lapin = lisBMPRGB("lapin.bmp");
 			oiseau = lisBMPRGB("oiseau.bmp");
 			carte = lisBMPRGB("carte.bmp");
+
 			image1 = lisBMPRGB("chien.bmp");
 			image2 = lisBMPRGB("chien.bmp");
+			me = initStructMemory(me);
 			initPosition (tableau);
 
 			break;
@@ -86,10 +98,12 @@ void gestionEvenement(EvenementGfx evenement)
 			// On part d'un fond d'ecran blanc
 			effaceFenetre (255, 255, 255);
 
+			//m = choixMenu(m,fb,me,test1FB,test2FB);
 
+			//me = affichageMemory(p,me,tableau,chien,chat,poulain,canard,oiseau,lapin,carte,image1,image2);
 			//fb = testFB(fb,test1FB,test2FB);
-			placementCarte(p,tableau,chien,chat,poulain,canard,oiseau,lapin);
-			placementDosDeCarte(carte,clic1,clic2);
+						
+			
 
 			break;
 			
@@ -192,7 +206,15 @@ void gestionEvenement(EvenementGfx evenement)
 			if (etatBoutonSouris() == GaucheAppuye)
 			{
 				printf("Bouton gauche appuye en : (%d, %d)\n", abscisseSouris(), ordonneeSouris());
-				if (abs>=900 && abs<=1100 && ord>=70 && ord<=130)	
+
+				//MENU
+				m = gereClicMenu(m,abs,ord);
+				m = gereClicMemoire(m,abs,ord);
+				m = gereClicAnalyse(m,abs,ord);
+				m = gereClicLateralite(m,abs,ord);
+
+				//m = gereClicStart(m);
+				if (abs>=900 && abs<=1100 && ord>=60 && ord<=120)	
 				{
 					if (fb.start == 0) fb.start = 1;
 					else if (fb.start == 3)
@@ -202,15 +224,29 @@ void gestionEvenement(EvenementGfx evenement)
 					else;
 				}
 
-				if (lockeur == 0) 
+				if (abs>=900 && abs<=1100 && ord>=60 && ord<=120)	
 				{
-					clic1 = gereClicCarte(clic1,abs,ord);
-					lockeur = 1;
+					if (me.start == 0) me.start = 1;
+					else if (me.start == 3)
+					{
+						me = initStructMemory(me);
+					}
+					else;
 				}
-				else if (lockeur ==1)
+
+
+				//MEMORY
+				if (me.lockeur == 0) 
 				{
-					clic2 = gereClicCarte(clic2,abs,ord);
-					lockeur = 0;
+					me = gereClicCarte(me,abs,ord);
+					me.clic2 = 0;
+					me.lockeur = 1;
+				}
+				else if (me.lockeur ==1)
+				{
+					me = gereClicCarte(me,abs,ord);
+					me.lockeur = 0;
+					me.stop=1;
 				}
 
 				

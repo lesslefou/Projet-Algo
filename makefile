@@ -2,11 +2,11 @@ run: projet
 	@./projet
 
 
-projet: main.o sMemory.o sTestFB.o Librairie/libisentlib.a
-	gcc main.o sMemory.o  sTestFB.o -o projet   Librairie/libisentlib.a -lm -lglut -lGL -lX11
+projet: main.o sMemory.o sTestFB.o saffichage.o Librairie/libisentlib.a
+	gcc main.o sMemory.o  sTestFB.o saffichage.o -o projet   Librairie/libisentlib.a -lm -lglut -lGL -lX11
 
 
-main.o: main.c Librairie/BmpLib.h Librairie/GfxLib.h hMemory.h hTestFB.h
+main.o: main.c Librairie/BmpLib.h Librairie/GfxLib.h hMemory.h hTestFB.h haffichage.h
 	gcc -Wall -c main.c
 
 sMemories.o: sMemory.c hMemory.h
@@ -15,6 +15,9 @@ sMemories.o: sMemory.c hMemory.h
 sTestFB.o: sTestFB.c hTestFB.h
 	gcc -Wall -c sTestFB.c
 
+saffichage.o: saffichage.c haffichage.h
+	gcc -Wall -c saffichage.c
+
 clean: 
-	rm main.o sMemory.o sTestFB.o projet
+	rm main.o sMemory.o sTestFB.o saffichage.o projet
 	
