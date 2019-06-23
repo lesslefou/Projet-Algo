@@ -1,46 +1,119 @@
 #include "VisionSpatial.h"
-	static int c1=0;
-	static int c2=0;
-	static int c3=0;
-	static int c4=0;
-	static int c5=0;
-	static int c6=0;
-	static int c7=0;
-	static int c8=0;
-	static int c9=0;
-	static int c10=0;
-	static int c11=0;
-	static int c12=0;
-	static int resultat=0;
-	static int i=0;
 	
-int VisionSpatial(void){
-	int i;
+
 	
-		i=rand()%4;
-		
-		if(i==0)
-		{
-			figure1();
-		}
-		else if(i==1)
-		{
-			figure2();	
-		}
-		else if(i==2)
-		{
-			figure3();	
-		}
-		else if(i==3)
-		{
-			figure4();
-		}
-		else;
+mcolor m;
+
+
+int VisionSpatial(i){
+	
+	for(i=0; i<4; i++){
+	DessineCarreMultiColorRandom(Coord[], Mcolor[], i);
+}
+	ChoisirPatternSol(s);
+	DessineCarreMulticolorOG(Coord[], Mcolor[], s);
+}
+
+int DessineCarreNoir(Coord[], Mcolor[]){
+	couleurCourante(Mcolor[i].c1, Mcolor[i].c2, Mcolor[i].c3);
+	rectangle(Coord[i].xD, Coord[i].yD, Coord[i].xF, Coord[i].yF);
+}
+
+
+
+int DessineCellule1(Coord[], Mcolor[]){
+	couleurCourante(Mcolor[A[i]].c1, Mcolor[A[i]].c2, Mcolor[A[i]].c3);
+	rectangle(Coord[i].xD+10, Coord[i].yD-10, Coord[i].xF+40, Coord[i].yF-40);
+}
+
+int DessineCellule2(Coord[], Mcolor[]){
+	couleurCourante(Mcolor[B[i]].c1, Mcolor[B[i]].c2, Mcolor[B[i]].c3);
+	rectangle(Coord[i].xD+50, Coord[i].yD-10, Coord[i].xF+80, Coord[i].yF-40);
+}
+
+int DessineCellule3(Coord[],Mcolor[]){
+	couleurCourante(Mcolor[C[i]].c1, Mcolor[C[i]].c2, Mcolor[C[i]].c3);
+	rectangle(Coord[i].xD+50, Coord[i].yD-50, Coord[i].xF+80, Coord[i].yF-80);
+}
+
+int DessineCellule4(Coord[], Mcolor[]){
+	couleurCourante(Mcolor[D[i]].c1, Mcolor[D[i]].c2, Mcolor[D[i]].c3);
+	rectangle(Coord[i].xD+10, Coord[i].yD-50, Coord[i].xF+40, Coord[i].yF-80);
+}
+
+
+
+
+int DessineCarreMulticolorRandom(Coord[], Mcolor[]){
+	
+	
+	DessineCarreNoir(Coord[], Mcolor[]);
+	A[i]= rand()%4;
+	DessineCellule1(Coord[], Mcolor[]);
+	B[i]= rand()%4;
+	DessineCellule2(Coord[], Mcolor[]);
+	C[i]= rand()%4;
+	DessineCellule3(Coord[], Mcolor[]);
+	D[i]= rand()%4;
+	DessineCellule4(Coord[], Mcolor[]);
+	
+}
+
+int ChoisirPatternSol(s){
+	s=rand()%4;
+}
+
+
+int DessineCarreMulticolorOG(Coord[], Mcolor[]){
+	
+	
+	DessineCarreNoir(Coord[4], Mcolor[]);
+	
+	DessineCellule1OG(Coord[4], Mcolor[]);
+	
+	DessineCellule2OG(Coord[4], Mcolor[]);
+	
+	DessineCellule3OG(Coord[4], Mcolor[]);
+	
+	DessineCellule4OG(Coord[4], Mcolor[]);
 	
 }
 
 
-int figure1(void){
+
+int DessineCellule1OG(Coord[], Mcolor[]){
+	couleurCourante(Mcolor[D[s]].c1, Mcolor[D[s]].c2, Mcolor[D[s]].c3);
+	rectangle(Coord[4].xD+10, Coord[4].yD-10, Coord[4].xF+40, Coord[4].yF-40);
+}
+
+int DessineCellule2OG(Coord[], Mcolor[]){
+	couleurCourante(Mcolor[C[s]].c1, Mcolor[C[s]].c2, Mcolor[C[s]].c3);
+	rectangle(Coord[4].xD+50, Coord[4].yD-10, Coord[4].xF+80, Coord[4].yF-40);
+}
+
+int DessineCellule3OG(Coord[],Mcolor[]){
+	couleurCourante(Mcolor[B[s]].c1, Mcolor[B[s]].c2, Mcolor[B[s]].c3);
+	rectangle(Coord[4].xD+50, Coord[4].yD-50, Coord[4].xF+80, Coord[4].yF-80);
+}
+
+int DessineCellule4OG(Coord[], Mcolor[]){
+	couleurCourante(Mcolor[A[s]].c1, Mcolor[A[s]].c2, Mcolor[A[s]].c3);
+	rectangle(Coord[4].xD+10, Coord[4].yD-50, Coord[4].xF+40, Coord[4].yF-80);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*int figure1(void){
 	
 	
 	
@@ -895,3 +968,4 @@ int validation(void){
 		else;
 }
 }
+*/
