@@ -5,6 +5,23 @@
 #include "Projet-Algo/Librairie/BmpLib.h" // Cet include permet de manipuler des fichiers BMP
 #include "time.h"
 
+static struct Coord
+{
+	int xD;
+	int yD;
+	int xF;
+	int yF;	
+}
+Coord[]= {{100, 400, 400, 200},{100, 400, 400, 200},{100, 400, 400, 200},{100, 400, 400, 200},{100, 400, 400, 200}};
+
+static struct Mcolor
+{
+	int c1;
+	int c2;
+	int c3;
+}
+Mcolor[] = {{rand()%255,rand()%255, rand()%255},{rand()%255,rand()%255, rand()%255},{rand()%255,rand()%255, rand()%255},{rand()%255,rand()%255, rand()%255}};
+	
 
 int VisionSpatial(void);
 //int figure1(void);
@@ -25,7 +42,4 @@ int DessineCellule3OG(Coord[], Mcolor[]);
 int DessineCellule4OG(Coord[], Mcolor[]);
 
 
-A[3]={0,0,0,0};
-B[3]={0,0,0,0};
-C[3]={0,0,0,0};
-D[3]={0,0,0,0};
+

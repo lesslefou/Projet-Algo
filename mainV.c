@@ -39,23 +39,10 @@ void gestionEvenement(EvenementGfx evenement)
 	static bool pleinEcran = false; // Pour savoir si on est en mode plein ecran ou pas
 	static int i;
 	static int s;
-	static struct Coord
-	{
-	int xD;
-	int yD;
-	int xF;
-	int yF;	
-	}
-	Coord[]= {{100, 400, 400, 200},{100, 400, 400, 200},{100, 400, 400, 200},{100, 400, 400, 200},{100, 400, 400, 200}};
-
-	static struct Mcolor
-	{
-		int c1;
-		int c2;
-		int c3;
-	}
-	Mcolor[] = {{rand()%255,rand()%255, rand()%255},{rand()%255,rand()%255, rand()%255},{rand()%255,rand()%255, rand()%255},{rand()%255,rand()%255, rand()%255}};
-	
+	static int A[3]={0,0,0,0};
+	static int B[3]={0,0,0,0};
+	static int C[3]={0,0,0,0};
+	static int D[3]={0,0,0,0};
 	
 	switch (evenement)
 	{

@@ -246,3 +246,11 @@ TEST :
 Chrono : 9
 Nombre d'erreur : 3
 
+TEST :
+Chrono : 3
+Nombre d'erreur : 0
+
+TEST :
+Chrono : 4
+Nombre d'erreur : 0
+

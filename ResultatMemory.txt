@@ -1,56 +1,12 @@
-TEST :
-Chrono : 2
-Nombre d'erreur : 0
-
-TEST :
-Chrono : 7
+TEST de  :
+Chrono : 12
 Nombre d'erreur : 3
 
-TEST :
-Chrono : 14
+TEST de  :
+Chrono : 16
 Nombre d'erreur : 4
 
-TEST :
-Chrono : 11
-Nombre d'erreur : 3
-
-TEST :
-Chrono : 8
-Nombre d'erreur : 5
-
-TEST :
-Chrono : 7
-Nombre d'erreur : 4
-
-TEST :
-Chrono : 5
-Nombre d'erreur : 3
-
-TEST :
-Chrono : 5
-Nombre d'erreur : 2
-
-TEST :
-Chrono : 3
-Nombre d'erreur : 0
-
-TEST :
-Chrono : 2
-Nombre d'erreur : 0
-
-TEST :
-Chrono : 2
-Nombre d'erreur : 0
-
-TEST :
-Chrono : 26
-Nombre d'erreur : 7
-
-TEST :
-Chrono : 3
-Nombre d'erreur : 1
-
-TEST :
-Chrono : 3
-Nombre d'erreur : 1
+TEST de  :
+Chrono : 77
+Nombre d'erreur : 10
 

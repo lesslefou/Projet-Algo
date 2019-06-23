@@ -1,3 +1,6 @@
+#ifndef HTESTFB_H_ 
+#define HTESTFB_H_
+
 #include <stdlib.h> // Pour pouvoir utiliser exit()
 #include <stdio.h> // Pour pouvoir utiliser printf()
 #include <math.h> // Pour pouvoir utiliser sin() et cos()
@@ -28,10 +31,13 @@ typedef struct testFB
 	int temps;
 	int erreur;
 	FILE *fichier;
+	DonneesImageRGB *test1FB;
+    DonneesImageRGB *test2FB;	
 	//menu m;
 }test;
 
 
 test initStructTESTFB (test fb);
-test testFB (test fb,DonneesImageRGB *test1FB,DonneesImageRGB *test2FB);
+test testFB (test fb);
 test afficheResultat(test fb);
+#endif  /* !HTESTFB_H_ */

@@ -1,23 +1,31 @@
 #include "hMemory.h"
 
-memory affichageMemory(int p,memory me,carte tableau[12],DonneesImageRGB *chien,DonneesImageRGB *chat,DonneesImageRGB *poulain,DonneesImageRGB *canard,DonneesImageRGB *oiseau,DonneesImageRGB *lapin,DonneesImageRGB *carte,DonneesImageRGB *image1,DonneesImageRGB *image2)
+memory affichageMemory(int p,memory me,carte tableau[12])
 {
 	int i=0;					
-		
+	effaceFenetre (255, 255, 255);	
 	couleurCourante (200,200,200);
 	rectangle(170,60,420,120);
 	rectangle(540,60,810,120);
 	rectangle(900,60,1100,120);
+	rectangle(0,0,100,70);
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(1);
 	afficheChaine("Chronometre : ",20,190,80);
 	afficheChaine("nb d'erreur : ",20,580,80);
 	afficheChaine("S T A R T",20,930,80);
+	afficheChaine("Retour",20,20,30);
 	couleurCourante(255,0,0);
 	epaisseurDeTrait(5);
 	afficheChaine("M E M O R I E S",40,380,720);
 
-	if (me.start == 1)
+	if (me.start == 0)
+	{
+		epaisseurDeTrait(3);
+		couleurCourante(0,0,0);
+		afficheChaine("Entrer votre nom :",30,400,440);
+	}
+	if (me.start == 2)
 	{
 		me.delay ++;
 		if (me.delay == 45)	
@@ -26,30 +34,30 @@ memory affichageMemory(int p,memory me,carte tableau[12],DonneesImageRGB *chien,
 			me.delay=0;
 		}
 
-		placementCarte(tableau,chien,chat,poulain,canard,oiseau,lapin);
+		placementCarte(tableau,me);
 		 
 		if (me.cpt == 12)
 		{
 			me.tempo++;
 			if (me.tempo > 50)	
 			{
-				me.start = 2;
+				me.start = 3;
 				me.tempo=0;
 			}
 		}
-		else me = placementDosDeCarte(carte,image1,image2,me);
+		else me = placementDosDeCarte(me);
 	}
 	
-	if (me.start == 2)
+	if (me.start == 3)
 	{
 		me.fichier2=fopen("ResultatMemory.txt","r+");
 		fseek(me.fichier2,0,SEEK_END);
-		fprintf(me.fichier2, "TEST :\nChrono : %d\nNombre d'erreur : %d\n\n",me.temps,me.erreur);
+		fprintf(me.fichier2, "TEST de %s :\nChrono : %d\nNombre d'erreur : %d\n\n",me.prenom,me.temps,me.erreur);
 		fclose(me.fichier2);
-		me.start = 3;
+		me.start = 4;
 	}	
 
-	if (me.start ==3)
+	if (me.start ==4)
 	{
 		couleurCourante(120,120,120);
 		rectangle(100,180,1100,680);
@@ -72,7 +80,6 @@ memory affichageMemory(int p,memory me,carte tableau[12],DonneesImageRGB *chien,
 	epaisseurDeTrait(2);
 	afficheChaine(pourcentage,20,730,80);
 
-
 	return me;
 }
 
@@ -92,6 +99,20 @@ memory initStructMemory(memory me)
 	me.erreur=0;
 	FILE *fichier2=NULL;
 	me.stop=0;
+
+	for (i=0; i<20; i++)	me.prenom[i] = 0;
+	//SI TABLEAU D'IMAGES
+	//Images[0] = chien = lisBMPRGB("chien.bmp");
+	me.chien = lisBMPRGB("chien.bmp");
+	me.poulain = lisBMPRGB("poulain.bmp");
+	me.chat = lisBMPRGB("chat.bmp");
+	me.canard = lisBMPRGB("canard.bmp");
+	me.lapin = lisBMPRGB("lapin.bmp");
+	me.oiseau = lisBMPRGB("oiseau.bmp");
+	me.carte = lisBMPRGB("carte.bmp");
+
+	me.image1 = lisBMPRGB("chien.bmp");
+	me.image2 = lisBMPRGB("chien.bmp");
     return me;
 }
 
@@ -135,7 +156,7 @@ void initPosition (carte tableau[12])
 
 
 
-void placementCarte (carte tableau[12],DonneesImageRGB *chien,DonneesImageRGB *chat,DonneesImageRGB *poulain,DonneesImageRGB *canard,DonneesImageRGB *oiseau,DonneesImageRGB *lapin)
+void placementCarte (carte tableau[12],memory me)
 {
 	int i=0;
 	for (i=0; i<12; i++)
@@ -143,40 +164,40 @@ void placementCarte (carte tableau[12],DonneesImageRGB *chien,DonneesImageRGB *c
 		switch (i+1) 
 		{
 			case 1:	
-				testCarte(tableau,i,chien);
+				testCarte(tableau,i,me.chien);
 				break;
 			case 2:
-				testCarte(tableau,i,chat);
+				testCarte(tableau,i,me.chat);
 				break;
 			case 3:	
-				testCarte(tableau,i,poulain);
+				testCarte(tableau,i,me.poulain);
 				break;
 			case 4:
-				testCarte(tableau,i,canard);
+				testCarte(tableau,i,me.canard);
 				break;
 			case 5:	
-				testCarte(tableau,i,oiseau);
+				testCarte(tableau,i,me.oiseau);
 				break;
 			case 6:
-				testCarte(tableau,i,lapin);
+				testCarte(tableau,i,me.lapin);
 				break;
 			case 7:	
-				testCarte(tableau,i,chien);
+				testCarte(tableau,i,me.chien);
 				break;
 			case 8:
-				testCarte(tableau,i,chat);
+				testCarte(tableau,i,me.chat);
 				break;
 			case 9:	
-				testCarte(tableau,i,poulain);
+				testCarte(tableau,i,me.poulain);
 				break;
 			case 10:
-				testCarte(tableau,i,canard);
+				testCarte(tableau,i,me.canard);
 				break;
 			case 11:	
-				testCarte(tableau,i,oiseau);
+				testCarte(tableau,i,me.oiseau);
 				break;
 			case 12:
-				testCarte(tableau,i,lapin);
+				testCarte(tableau,i,me.lapin);
 				break;
 		}
 	}
@@ -186,12 +207,12 @@ void placementCarte (carte tableau[12],DonneesImageRGB *chien,DonneesImageRGB *c
 void testCarte(carte tableau[12],int p,DonneesImageRGB *image)
 {
 	int n = tableau[p].position;
-	ecrisImage(CoordCarte[n-1].x, CoordCarte[n-1].y, CoordCarte[n-1].l, CoordCarte[n-1].h, image->donneesRGB);
+	ecrisImage(CoordCarte[n-1].x, CoordCarte[n-1].y,  CoordCarte[n-1].l,  CoordCarte[n-1].h, image->donneesRGB);
 }
 
 
 
-memory placementDosDeCarte(DonneesImageRGB *carte,DonneesImageRGB *image1,DonneesImageRGB *image2,memory me)
+memory placementDosDeCarte(memory me)
 {
 	int i=0,c=0,j=0,n=0;
 	DonneesImageRGB *image;
@@ -202,20 +223,20 @@ memory placementDosDeCarte(DonneesImageRGB *carte,DonneesImageRGB *image1,Donnee
 		{
 			if (me.clic1 == j+1) 
 			{
-				image = image1;
+				image = me.image1;
 			}
 			if (me.clic2 == j+1) 
 			{
-				image = image2;
+				image = me.image2;
 			}
 			if (me.clic1 == j+1 || me.clic2 == j+1)
 			{
-				lisImage(CoordCarte[j].x, CoordCarte[j].y,CoordCarte[j].l, CoordCarte[j].h,image->donneesRGB);
+				lisImage( CoordCarte[j].x,  CoordCarte[j].y, CoordCarte[j].l,  CoordCarte[j].h,image->donneesRGB);
 			}
 		}
 		else if (me.validation[j] == 0)	
 		{
-			ecrisImage(CoordCarte[j].x, CoordCarte[j].y, carte->largeurImage, carte->hauteurImage, carte->donneesRGB);
+			ecrisImage( CoordCarte[j].x,  CoordCarte[j].y, me.carte->largeurImage, me.carte->hauteurImage, me.carte->donneesRGB);
 		}
 		else;
 	}
@@ -224,7 +245,7 @@ memory placementDosDeCarte(DonneesImageRGB *carte,DonneesImageRGB *image1,Donnee
 	{
 		for (i=0; i<(image->largeurImage)*(image->hauteurImage)*3; i++)
 		{
-			if (image1->donneesRGB[i] == image2->donneesRGB[i]) c++;
+			if (me.image1->donneesRGB[i] == me.image2->donneesRGB[i]) c++;
 		}
 		if (c == (image->largeurImage)*(image->hauteurImage)*3) 
 		{

@@ -1,4 +1,6 @@
 #include "haffichage.h"
+#include "hTestFB.h"
+#include "hMemory.h"
 
 menu initMenu(menu m)
 {
@@ -27,7 +29,7 @@ menu gereClicStart(menu m)
 
 
 
-menu choixMenu(menu m, test fb, memory me,DonneesImageRGB *test1FB,DonneesImageRGB *test2FB)
+menu choixMenu(menu m, test fb, memory me,carte tableau[12],int p,int abs, int ord)
 {
 	switch (m.choix)
 	{
@@ -40,10 +42,14 @@ menu choixMenu(menu m, test fb, memory me,DonneesImageRGB *test1FB,DonneesImageR
 			switch (m.choix1)
 			{
 				case 1:
+					//Boule
 					break;
 				case 2:
+					//Mnémonique
 					break;
 				case 3:
+					me = affichageMemory(p,me,tableau);
+					
 					break;
 			}
 			break;
@@ -54,10 +60,13 @@ menu choixMenu(menu m, test fb, memory me,DonneesImageRGB *test1FB,DonneesImageR
 				case 1:
 					break;
 				case 2:
-					fb = testFB(fb,test1FB,test2FB);
+					fb = testFB(fb);
 					break;
 				case 3:
 					break;
+				case 4: 
+					break;
+
 			}
 			break;
 		case 3 : 
@@ -68,8 +77,6 @@ menu choixMenu(menu m, test fb, memory me,DonneesImageRGB *test1FB,DonneesImageR
 					break;
 				case 2:
 					break;
-				case 3:
-					break;
 			}
 			break;
 		case 4:
@@ -77,7 +84,7 @@ menu choixMenu(menu m, test fb, memory me,DonneesImageRGB *test1FB,DonneesImageR
 	}
 	return m;
 }
-*/
+
 void affichage1(void)
 {
 	couleurCourante(255,0,0);
@@ -98,14 +105,14 @@ void affichage1(void)
 	afficheChaine("Analyse",30,540,540);
 	afficheChaine("Lateralite",30,875,540);
 	afficheChaine("TEST GENERAL",30,460,230);
-	afficheChaine("Score",30,35,40);
+	afficheChaine("Resultat",30,20,40);
 	afficheChaine("Quitter",30,1080,40);	
 }
 
 void affichageMemoire(void)
 {
 	couleurCourante(125,125,125);
-	rectangle(400,170,800,330);
+	rectangle(490,220,720,390);
 	rectangle(240,480,480,640);
 	rectangle(720,480,960,640);
 	rectangle(0,0,150,100);
@@ -118,8 +125,8 @@ void affichageMemoire(void)
 	epaisseurDeTrait(1);
 	afficheChaine("Mnemonique",30,270,550);
 	afficheChaine("Memory",30,780,550);
-	afficheChaine("Tri Tes Nombres !",30,450,240);
-	afficheChaine("Score",30,35,40);
+	afficheChaine("Boules",30,550,290);
+	afficheChaine("Resultat",30,20,40);
 	afficheChaine("Retour",30,1080,40);
 }
 
@@ -140,10 +147,10 @@ void affichageAnalyse(void)
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(3);
 	afficheChaine("Couleur",30,300,550);
-	afficheChaine("Syllabene",30,775,550);
+	afficheChaine("Hector",30,775,550);
 	afficheChaine("Calcul Mental",30,260,230);
 	afficheChaine("Test FB",30,770,230);
-	afficheChaine("Score",30,35,40);
+	afficheChaine("Resultat",30,20,40);
 	afficheChaine("Retour",30,1080,40);
 }
 
@@ -164,46 +171,58 @@ void affichageLateralite(void)
 	epaisseurDeTrait(3);
 	afficheChaine("Vision",40,260,430);
 	afficheChaine("Spaciale",40,300,350);
-	afficheChaine("Points",40,750,430);
-	afficheChaine("Relies",40,820,350);
+	afficheChaine("Evite",40,750,430);
+	afficheChaine("Blocs",40,820,350);
 	
-	afficheChaine("Score",30,35,40);
+	afficheChaine("Resultat",30,20,40);
 	afficheChaine("Retour",30,1080,40);
 }
 
 menu gereClicMenu (menu m,int abs,int ord)
 {
-	if (abs>=170 && abs<=340 && ord>=470 && ord<=630) m.choix = 1;
-	else if (abs>=510 && abs<=680 && ord>=470 && ord<=630) m.choix = 2;
-	else if (abs>=850 && abs<=1020 && ord>=470 && ord<=630) m.choix = 3;
-	else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 4;
+	if (m.choix == 0)
+	{
+		if (abs>=170 && abs<=340 && ord>=470 && ord<=630) m.choix = 1;
+		else if (abs>=510 && abs<=680 && ord>=470 && ord<=630) m.choix = 2;
+		else if (abs>=850 && abs<=1020 && ord>=470 && ord<=630) m.choix = 3;
+		else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 4;
+	}
 	return m;	
 }
 
 menu gereClicMemoire (menu m,int abs,int ord)
 {
-	if (abs>=400 && abs<=800 && ord>=170 && ord<=330) m.choix1 = 1;
-	else if (abs>=240 && abs<=480 && ord>=480 && ord<=640) m.choix1 = 2;
-	else if (abs>=720 && abs<=480 && ord>=960 && ord<=640) m.choix1 = 3;
-	else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 0;
+	if (m.choix == 1)
+	{
+		if (abs>=490 && abs<=720 && ord>=220 && ord<=390) m.choix1 = 1;
+		else if (abs>=240 && abs<=480 && ord>=480 && ord<=640) m.choix1 = 2;
+		else if (abs>=720 && abs<=960 && ord>=480 && ord<=640) m.choix1 = 3;
+		else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 0;
+	}
 	return m;
 }
 
 menu gereClicAnalyse (menu m,int abs,int ord)
 {
-	if (abs>=240 && abs<=160 && ord>=480 && ord<=320) m.choix2 = 1;
-	else if (abs>=720 && abs<=160 && ord>=960 && ord<=320) m.choix2 = 2;
-	else if (abs>=240 && abs<=480 && ord>=480 && ord<=640) m.choix2 = 3;
-	else if (abs>=720 && abs<=480 && ord>=960 && ord<=640) m.choix2 = 4;
-	else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 0;
+	if (m.choix == 2)		
+	{
+		if (abs>=240 && abs<=480 && ord>=160 && ord<=320) m.choix2 = 1;
+		else if (abs>=720 && abs<=960 && ord>=160 && ord<=320) m.choix2 = 2;
+		else if (abs>=240 && abs<=480 && ord>=480 && ord<=640) m.choix2 = 3;
+		else if (abs>=720 && abs<=960 && ord>=480 && ord<=640) m.choix2 = 4;
+		else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 0;
+	}
 	return m;
 }
 
 menu gereClicLateralite (menu m,int abs,int ord)
 {
-	if (abs>=230 && abs<=280 && ord>=500 && ord<=520) m.choix3 = 1;
-	else if (abs>=710 && abs<=280 && ord>=500 && ord<=520) m.choix3 = 2;
-	else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 0;
+	if (m.choix == 3)		
+	{
+		if (abs>=230 && abs<=500 && ord>=280 && ord<=520) m.choix3 = 1;
+		else if (abs>=710 && abs<=980 && ord>=280 && ord<=520) m.choix3 = 2;
+		else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 0;
+	}
 	return m;
 }
 

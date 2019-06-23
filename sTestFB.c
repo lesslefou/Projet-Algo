@@ -16,21 +16,27 @@ test initStructTESTFB(test fb)
 	fb.temps=0;
 	fb.erreur=0;
 	FILE *fichier=NULL;
+	fb.test1FB = lisBMPRGB("test1FB.bmp");
+	fb.test2FB = lisBMPRGB("test2FB.bmp");
+	
 	return fb;
 }
 
-test testFB(test fb,DonneesImageRGB *test1FB,DonneesImageRGB *test2FB)
+test testFB(test fb)
 {
+	effaceFenetre (255, 255, 255);
 	couleurCourante (200,200,200);
 	rectangle(170,60,420,120);
 	rectangle(540,60,810,120);
 	rectangle(900,60,1100,120);
 	rectangle(895,355,1090,400);
+	rectangle(0,0,100,70);
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(1);
 	afficheChaine("Chronometre : ",20,190,80);
 	afficheChaine("nb d'erreur : ",20,580,80);
 	afficheChaine("S T A R T",20,930,80);
+	afficheChaine("Retour",20,20,30);
 	afficheChaine("Reponse : ",20,905,370);
 	couleurCourante(255,0,0);
 	epaisseurDeTrait(5);
@@ -50,7 +56,7 @@ test testFB(test fb,DonneesImageRGB *test1FB,DonneesImageRGB *test2FB)
 		}
 		if (fb.suite == 0)
 		{
-			ecrisImage(50, 180, test1FB->largeurImage, test1FB->hauteurImage, test1FB->donneesRGB);
+			ecrisImage(50, 180, fb.test1FB->largeurImage, fb.test1FB->hauteurImage, fb.test1FB->donneesRGB);
 		
 			if (fb.lock ==0) 
 			{
@@ -77,7 +83,7 @@ test testFB(test fb,DonneesImageRGB *test1FB,DonneesImageRGB *test2FB)
 		}
 		else if (fb.suite ==1)
 		{
-			ecrisImage(50, 180, test2FB->largeurImage, test2FB->hauteurImage, test2FB->donneesRGB);
+			ecrisImage(50, 180, fb.test2FB->largeurImage, fb.test2FB->hauteurImage, fb.test2FB->donneesRGB);
 			
 			if (fb.lock ==0 ) 
 			{

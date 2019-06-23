@@ -1,3 +1,6 @@
+#ifndef HMEMORY_H_
+#define HMEMORY_H_ 
+
 #include <stdlib.h> // Pour pouvoir utiliser exit()
 #include <stdio.h> // Pour pouvoir utiliser printf()
 #include <math.h> // Pour pouvoir utiliser sin() et cos()
@@ -23,8 +26,20 @@ typedef struct MEMORY
 	int temps;
 	int tempo;
 	int erreur;
-	FILE *fichier2;
 	int stop;
+	char prenom[20];
+
+	FILE *fichier2;
+
+	DonneesImageRGB *chien ;
+    DonneesImageRGB *chat ;
+    DonneesImageRGB *poulain ;
+    DonneesImageRGB *lapin ;
+    DonneesImageRGB *canard ;
+    DonneesImageRGB *oiseau ;
+    DonneesImageRGB *carte ;
+    DonneesImageRGB *image1 ;
+    DonneesImageRGB *image2 ;
 }memory;
 
 
@@ -55,26 +70,12 @@ static struct CoordCarte
 
 
 void gestionEvenement(EvenementGfx evenement);
-memory affichageMemory(int p,memory me,carte tableau[12],DonneesImageRGB *chien,DonneesImageRGB *chat,DonneesImageRGB *poulain,DonneesImageRGB *canard,DonneesImageRGB *oiseau,DonneesImageRGB *lapin,DonneesImageRGB *carte,DonneesImageRGB *image1,DonneesImageRGB *image2);
+void placementCarte(carte tableau[12],memory me);
+memory affichageMemory(int p,memory me,carte tableau[12]);
 memory initStructMemory(memory m);
 void initPosition(carte tableau[12]);
-void placementCarte(carte tableau[12],DonneesImageRGB *chien,DonneesImageRGB *chat,DonneesImageRGB *poulain,DonneesImageRGB *canard,DonneesImageRGB *oiseau,DonneesImageRGB *lapin);
 void testCarte(carte tableau[12],int p,DonneesImageRGB *image);
-memory placementDosDeCarte(DonneesImageRGB *carte,DonneesImageRGB *image1,DonneesImageRGB *image2,memory me);
+memory placementDosDeCarte(memory me);
 memory gereClicCarte (memory me,int abs,int ord);
 
-/*
-chien = 1
-chat = 2
-poulain = 3
-canard = 4 
-oiseau = 5
-lapin = 6
-
-chien1 = 7
-chat1 = 8
-poulain1 = 9
-canard1 = 10
-oiseau1 = 11
-lapin1 = 12
-*/
+#endif  /* !HMEMORY_H_ */

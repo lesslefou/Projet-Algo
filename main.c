@@ -28,6 +28,8 @@ void gestionEvenement(EvenementGfx evenement)
    
  	static int abs=0;
 	static int ord=0;
+	static int block=0;
+	static int i=0;
 	abs=abscisseSouris();
 	ord=ordonneeSouris();
 
@@ -35,20 +37,9 @@ void gestionEvenement(EvenementGfx evenement)
 	static menu m;
 
     //TEST FB
-	static DonneesImageRGB *test1FB = NULL;
-    static DonneesImageRGB *test2FB = NULL;	
     static test fb;
 
     //MEMORY
-    static DonneesImageRGB *chien = NULL;
-    static DonneesImageRGB *chat = NULL;
-    static DonneesImageRGB *poulain = NULL;
-    static DonneesImageRGB *lapin = NULL;
-    static DonneesImageRGB *canard = NULL;
-    static DonneesImageRGB *oiseau = NULL;
-    static DonneesImageRGB *carte = NULL;
-    static DonneesImageRGB *image1 = NULL;
-    static DonneesImageRGB *image2 = NULL;
     static memory me;
     static int p=0;
     
@@ -68,23 +59,9 @@ void gestionEvenement(EvenementGfx evenement)
 			m = initMenu(m);
 
 			//TEST FB
-			test1FB = lisBMPRGB("test1FB.bmp");
-			test2FB = lisBMPRGB("test2FB.bmp");
 			fb = initStructTESTFB (fb);
 
 			//MEMORY
-			//SI TABLEAU D'IMAGES
-			//Images[0] = chien = lisBMPRGB("chien.bmp");
-			chien = lisBMPRGB("chien.bmp");
-			poulain = lisBMPRGB("poulain.bmp");
-			chat = lisBMPRGB("chat.bmp");
-			canard = lisBMPRGB("canard.bmp");
-			lapin = lisBMPRGB("lapin.bmp");
-			oiseau = lisBMPRGB("oiseau.bmp");
-			carte = lisBMPRGB("carte.bmp");
-
-			image1 = lisBMPRGB("chien.bmp");
-			image2 = lisBMPRGB("chien.bmp");
 			me = initStructMemory(me);
 			initPosition (tableau);
 
@@ -98,10 +75,9 @@ void gestionEvenement(EvenementGfx evenement)
 			// On part d'un fond d'ecran blanc
 			effaceFenetre (255, 255, 255);
 
-			//m = choixMenu(m,fb,me,test1FB,test2FB);
+			//m = choixMenu(m,fb,me,tableau,p,abs,ord);
 
-			//me = affichageMemory(p,me,tableau,chien,chat,poulain,canard,oiseau,lapin,carte,image1,image2);
-			//fb = testFB(fb,test1FB,test2FB);
+			me = affichageMemory(p,me,tableau);		
 						
 			
 
@@ -114,30 +90,28 @@ void gestionEvenement(EvenementGfx evenement)
 			{
 				case 'Q': /* Pour sortir
 			{ quelque peu proprement du programme */
-				case 'q':
 					termineBoucleEvenements();
 
 					//TEST FB
-					libereDonneesImageRGB(&test1FB);
-					libereDonneesImageRGB(&test2FB);
+					libereDonneesImageRGB(&fb.test1FB);
+					libereDonneesImageRGB(&fb.test2FB);
 
 					//MEMORY
-					libereDonneesImageRGB(&chien);
-					libereDonneesImageRGB(&chat);
-					libereDonneesImageRGB(&poulain);
-					libereDonneesImageRGB(&canard);
-					libereDonneesImageRGB(&lapin);
-					libereDonneesImageRGB(&oiseau);
-					libereDonneesImageRGB(&carte);
-					libereDonneesImageRGB(&image1);
-					libereDonneesImageRGB(&image2);
+					libereDonneesImageRGB(&me.chien);
+					libereDonneesImageRGB(&me.chat);
+					libereDonneesImageRGB(&me.poulain);
+					libereDonneesImageRGB(&me.canard);
+					libereDonneesImageRGB(&me.lapin);
+					libereDonneesImageRGB(&me.oiseau);
+					libereDonneesImageRGB(&me.carte);
+					libereDonneesImageRGB(&me.image1);
+					libereDonneesImageRGB(&me.image2);
 
 
 					break;
 
 			
 				case 'F':
-				case 'f':
 					pleinEcran = !pleinEcran; // Changement de mode plein ecran
 					if (pleinEcran)
 						modePleinEcran();
@@ -146,31 +120,67 @@ void gestionEvenement(EvenementGfx evenement)
 					break;
 
 				case 'R':
-				case 'r':
 					// Configure le systeme pour generer un message Temporisation
 					// toutes les 20 millisecondes (rapide)
 					demandeTemporisation(20);
 					break;
 
 				case 'L':
-				case 'l':
 					// Configure le systeme pour generer un message Temporisation
 					// toutes les 100 millisecondes (lent)
 					demandeTemporisation(100);
 					break;
 
 				case 'S':
-				case 's':
 					// Configure le systeme pour ne plus generer de message Temporisation
 					demandeTemporisation(-1);
 					break;
-
-				case 'B':
+				case 'a':
 				case 'b':
-					break;
-
-				case 'N':
+				case 'c':
+				case 'd':
+				case 'e':
+				case 'f':
+				case 'g':
+				case 'h':
+				case 'i':
+				case 'j':
+				case 'k':
+				case 'l':
+				case 'm':
 				case 'n':
+				case 'o':
+				case 'p':
+				case 'q':
+				case 'r':
+				case 's':
+				case 't':
+				case 'u':
+				case 'v':
+				case 'w':
+				case 'x':
+				case 'y':
+				case 'z':
+
+					if (me.start == 0)
+					{
+						for (i=0; i<20; i++)
+						{
+							printf ("me.prenom[%d] = %s\n",i,me.prenom[i]);
+							
+							if (me.prenom[i] == 0) me.prenom[i] = caractereClavier();
+							else 
+							{
+								while (me.prenom[i] != 0)
+								{
+									i++;
+									printf ("me.prenom[%d] = %s\n",i,me.prenom[i]);
+									 if (me.prenom[i] == 0) me.prenom[i] = caractereClavier();
+								}
+							}
+						}
+					}
+					
 					break;
 
 				case '0':
@@ -199,6 +209,7 @@ void gestionEvenement(EvenementGfx evenement)
 			
 		case ClavierSpecial:
 			printf("ASCII %d\n", toucheClavier());
+			if (caractereClavier() == 13) me.start = 1;
 			break;
 
 		case BoutonSouris:
@@ -216,23 +227,27 @@ void gestionEvenement(EvenementGfx evenement)
 				//m = gereClicStart(m);
 				if (abs>=900 && abs<=1100 && ord>=60 && ord<=120)	
 				{
+					//TEST FB
 					if (fb.start == 0) fb.start = 1;
 					else if (fb.start == 3)
 					{
 						fb = initStructTESTFB(fb);
 					}
 					else;
-				}
 
-				if (abs>=900 && abs<=1100 && ord>=60 && ord<=120)	
-				{
-					if (me.start == 0) me.start = 1;
-					else if (me.start == 3)
+					//MEMORY
+					if (me.start == 1) 
+					{
+						me.start = 2;
+					}
+					else if (me.start == 4)
 					{
 						me = initStructMemory(me);
 					}
 					else;
 				}
+
+				
 
 
 				//MEMORY
