@@ -13,7 +13,19 @@
 #define LargeurFenetre 1200
 #define HauteurFenetre 800
 
+/**
+ * \file hMemory.h
+ * \author : Lisa DUTERTE
+ * \brief Bibliotheque pour utiliser les fonctions permettant de faire fonctionner le Memory\n
+ * # Affichage tableau : 
+ * \n12 images vont s'afficher face caché à l'écran
+ *
+ */
 
+
+/**
+ * \brief      Toutes la variables du test Memory
+ */
 typedef struct MEMORY
 {
     int lockeur;
@@ -42,13 +54,19 @@ typedef struct MEMORY
     DonneesImageRGB *image2 ;
 }memory;
 
-
+/**
+ * \brief      Attribution d'un numéro de position des cartes
+ * \details   La table de correspondance de couleurs est disponible en modification par les accesseurs.
+ */
 typedef struct carte
 {
 	int position;
 }carte;
 
-
+/**
+ * \brief      Coordonnées des cartes (premier point +largeur/hauteur)
+ * \details   La table de correspondance de couleurs est disponible en modification par les accesseurs.
+ */
 static struct CoordCarte 
 {
 	int x, y, l, h;

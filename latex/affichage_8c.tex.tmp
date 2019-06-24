@@ -1,0 +1,101 @@
+\hypertarget{affichage_8c}{}\section{Référence du fichier affichage.\+c}
+\label{affichage_8c}\index{affichage.\+c@{affichage.\+c}}
+{\ttfamily \#include \char`\"{}haffichage.\+h\char`\"{}}\\*
+Graphe des dépendances par inclusion de affichage.\+c\+:
+% FIG 0
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{haffichage_8h_ab6204e50631ce782041d97e1b32986c2}{menu} \hyperlink{affichage_8c_a9f38dbdb1b68713c7dcba325798fd759}{init\+Menu} (\hyperlink{haffichage_8h_ab6204e50631ce782041d97e1b32986c2}{menu} m)
+\item 
+\hyperlink{haffichage_8h_ab6204e50631ce782041d97e1b32986c2}{menu} m \hyperlink{affichage_8c_abf3206938d8c718c0babe9cd793ace9f}{choix\+Menu} (\hyperlink{haffichage_8h_ab6204e50631ce782041d97e1b32986c2}{menu} m)
+\item 
+void \hyperlink{affichage_8c_a02a71efb64005733c57ab3669c2e4abd}{affichage1} (void)
+\item 
+void \hyperlink{affichage_8c_a971c371a7c2420a01a1c494438f88c80}{affichage\+Memoire} (void)
+\item 
+void \hyperlink{affichage_8c_a297da3647f8457589aff5bba062534d5}{affichage\+Analyse} (void)
+\item 
+void \hyperlink{affichage_8c_a68aee9b0749ba61b9856d0520079d627}{affichage\+Lateralite} (void)
+\item 
+\hyperlink{haffichage_8h_ab6204e50631ce782041d97e1b32986c2}{menu} \hyperlink{affichage_8c_ad942dd712ab9a44b534f35bb61c88995}{gere\+Clic\+Menu} (\hyperlink{haffichage_8h_ab6204e50631ce782041d97e1b32986c2}{menu} m)
+\item 
+\hyperlink{haffichage_8h_ab6204e50631ce782041d97e1b32986c2}{menu} \hyperlink{affichage_8c_a82465a40dbd1caf7960fbbe102fd2ef1}{gere\+Clic\+Memoire} (\hyperlink{haffichage_8h_ab6204e50631ce782041d97e1b32986c2}{menu} m)
+\item 
+\hyperlink{haffichage_8h_ab6204e50631ce782041d97e1b32986c2}{menu} \hyperlink{affichage_8c_a7cd62109db8f2271c665aae7d941d146}{gere\+Clic\+Analyse} (\hyperlink{haffichage_8h_ab6204e50631ce782041d97e1b32986c2}{menu} m)
+\item 
+\hyperlink{haffichage_8h_ab6204e50631ce782041d97e1b32986c2}{menu} \hyperlink{affichage_8c_a62104930ce1902a3dad45a4cc4650523}{gere\+Clic\+Lateralite} (\hyperlink{haffichage_8h_ab6204e50631ce782041d97e1b32986c2}{menu} m)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\index{affichage.\+c@{affichage.\+c}!affichage1@{affichage1}}
+\index{affichage1@{affichage1}!affichage.\+c@{affichage.\+c}}
+\subsubsection[{\texorpdfstring{affichage1(void)}{affichage1(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void affichage1 (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{affichage_8c_a02a71efb64005733c57ab3669c2e4abd}{}\label{affichage_8c_a02a71efb64005733c57ab3669c2e4abd}
+\index{affichage.\+c@{affichage.\+c}!affichage\+Analyse@{affichage\+Analyse}}
+\index{affichage\+Analyse@{affichage\+Analyse}!affichage.\+c@{affichage.\+c}}
+\subsubsection[{\texorpdfstring{affichage\+Analyse(void)}{affichageAnalyse(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void affichage\+Analyse (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{affichage_8c_a297da3647f8457589aff5bba062534d5}{}\label{affichage_8c_a297da3647f8457589aff5bba062534d5}
+\index{affichage.\+c@{affichage.\+c}!affichage\+Lateralite@{affichage\+Lateralite}}
+\index{affichage\+Lateralite@{affichage\+Lateralite}!affichage.\+c@{affichage.\+c}}
+\subsubsection[{\texorpdfstring{affichage\+Lateralite(void)}{affichageLateralite(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void affichage\+Lateralite (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{affichage_8c_a68aee9b0749ba61b9856d0520079d627}{}\label{affichage_8c_a68aee9b0749ba61b9856d0520079d627}
+\index{affichage.\+c@{affichage.\+c}!affichage\+Memoire@{affichage\+Memoire}}
+\index{affichage\+Memoire@{affichage\+Memoire}!affichage.\+c@{affichage.\+c}}
+\subsubsection[{\texorpdfstring{affichage\+Memoire(void)}{affichageMemoire(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void affichage\+Memoire (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{affichage_8c_a971c371a7c2420a01a1c494438f88c80}{}\label{affichage_8c_a971c371a7c2420a01a1c494438f88c80}
+\index{affichage.\+c@{affichage.\+c}!choix\+Menu@{choix\+Menu}}
+\index{choix\+Menu@{choix\+Menu}!affichage.\+c@{affichage.\+c}}
+\subsubsection[{\texorpdfstring{choix\+Menu(menu m)}{choixMenu(menu m)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf menu} m choix\+Menu (
+\begin{DoxyParamCaption}
+\item[{{\bf menu}}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{affichage_8c_abf3206938d8c718c0babe9cd793ace9f}{}\label{affichage_8c_abf3206938d8c718c0babe9cd793ace9f}
+\index{affichage.\+c@{affichage.\+c}!gere\+Clic\+Analyse@{gere\+Clic\+Analyse}}
+\index{gere\+Clic\+Analyse@{gere\+Clic\+Analyse}!affichage.\+c@{affichage.\+c}}
+\subsubsection[{\texorpdfstring{gere\+Clic\+Analyse(menu m)}{gereClicAnalyse(menu m)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf menu} gere\+Clic\+Analyse (
+\begin{DoxyParamCaption}
+\item[{{\bf menu}}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{affichage_8c_a7cd62109db8f2271c665aae7d941d146}{}\label{affichage_8c_a7cd62109db8f2271c665aae7d941d146}
+\index{affichage.\+c@{affichage.\+c}!gere\+Clic\+Lateralite@{gere\+Clic\+Lateralite}}
+\index{gere\+Clic\+Lateralite@{gere\+Clic\+Lateralite}!affichage.\+c@{affichage.\+c}}
+\subsubsection[{\texorpdfstring{gere\+Clic\+Lateralite(menu m)}{gereClicLateralite(menu m)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf menu} gere\+Clic\+Lateralite (
+\begin{DoxyParamCaption}
+\item[{{\bf menu}}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{affichage_8c_a62104930ce1902a3dad45a4cc4650523}{}\label{affichage_8c_a62104930ce1902a3dad45a4cc4650523}
+\index{affichage.\+c@{affichage.\+c}!gere\+Clic\+Memoire@{gere\+Clic\+Memoire}}
+\index{gere\+Clic\+Memoire@{gere\+Clic\+Memoire}!affichage.\+c@{affichage.\+c}}
+\subsubsection[{\texorpdfstring{gere\+Clic\+Memoire(menu m)}{gereClicMemoire(menu m)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf menu} gere\+Clic\+Memoire (
+\begin{DoxyParamCaption}
+\item[{{\bf menu}}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{affichage_8c_a82465a40dbd1caf7960fbbe102fd2ef1}{}\label{affichage_8c_a82465a40dbd1caf7960fbbe102fd2ef1}
+\index{affichage.\+c@{affichage.\+c}!gere\+Clic\+Menu@{gere\+Clic\+Menu}}
+\index{gere\+Clic\+Menu@{gere\+Clic\+Menu}!affichage.\+c@{affichage.\+c}}
+\subsubsection[{\texorpdfstring{gere\+Clic\+Menu(menu m)}{gereClicMenu(menu m)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf menu} {\bf gere\+Clic\+Menu} (
+\begin{DoxyParamCaption}
+\item[{{\bf menu}}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{affichage_8c_ad942dd712ab9a44b534f35bb61c88995}{}\label{affichage_8c_ad942dd712ab9a44b534f35bb61c88995}
+\index{affichage.\+c@{affichage.\+c}!init\+Menu@{init\+Menu}}
+\index{init\+Menu@{init\+Menu}!affichage.\+c@{affichage.\+c}}
+\subsubsection[{\texorpdfstring{init\+Menu(menu m)}{initMenu(menu m)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf menu} init\+Menu (
+\begin{DoxyParamCaption}
+\item[{{\bf menu}}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{affichage_8c_a9f38dbdb1b68713c7dcba325798fd759}{}\label{affichage_8c_a9f38dbdb1b68713c7dcba325798fd759}

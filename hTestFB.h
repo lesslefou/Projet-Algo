@@ -9,12 +9,25 @@
 #include <string.h>
 #include "Librairie/GfxLib.h" // Seul cet include est necessaire pour faire du graphique
 #include "Librairie/BmpLib.h"
-//#include "haffichage.h"
 
 // Largeur et hauteur par defaut d'une image correspondant a nos criteres
 #define LargeurFenetre 1200
 #define HauteurFenetre 800
 
+/**
+ * \file hTestFB.h
+ * \author : Lisa DUTERTE
+ * \brief Bibliotheque pour utiliser les fonctions permettant de faire fonctionner le testFB\n
+ * # Affichage enigme : 
+ * \n2 enigmes vont s'afficher l'une après l'autre à l'écran
+ *
+ */
+
+
+
+/**
+ * \brief      Toutes la variables du testFB
+ */
 typedef struct testFB
 {
 	int suite;
@@ -33,7 +46,8 @@ typedef struct testFB
 	FILE *fichier;
 	DonneesImageRGB *test1FB;
     DonneesImageRGB *test2FB;	
-	//menu m;
+
+    char prenom[20];
 }test;
 
 

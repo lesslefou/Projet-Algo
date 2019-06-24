@@ -8,7 +8,7 @@ test initStructTESTFB(test fb)
 	fb.lock=3;
 	fb.resultat=0;
 	fb.test1=15;
-	fb.test2=14;
+	fb.test2=11;
 	fb.delay=0;
 	fb.tempo=0;
 	fb.cpt=0;
@@ -18,6 +18,9 @@ test initStructTESTFB(test fb)
 	FILE *fichier=NULL;
 	fb.test1FB = lisBMPRGB("test1FB.bmp");
 	fb.test2FB = lisBMPRGB("test2FB.bmp");
+
+
+	memset(fb.prenom,0,20);
 	
 	return fb;
 }
@@ -29,7 +32,6 @@ test testFB(test fb)
 	rectangle(170,60,420,120);
 	rectangle(540,60,810,120);
 	rectangle(900,60,1100,120);
-	rectangle(895,355,1090,400);
 	rectangle(0,0,100,70);
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(1);
@@ -37,14 +39,24 @@ test testFB(test fb)
 	afficheChaine("nb d'erreur : ",20,580,80);
 	afficheChaine("S T A R T",20,930,80);
 	afficheChaine("Retour",20,20,30);
-	afficheChaine("Reponse : ",20,905,370);
 	couleurCourante(255,0,0);
 	epaisseurDeTrait(5);
 	afficheChaine("T E S T  F B",40,380,720);
 
 	
-	if (fb.start == 1)	
+	if (fb.start == 0)
 	{
+		epaisseurDeTrait(3);
+		couleurCourante(0,0,0);
+		afficheChaine("Entrer votre nom :",30,400,440);
+	}
+	if (fb.start == 2)	
+	{
+		couleurCourante (200,200,200);
+		rectangle(895,355,1090,400);
+		couleurCourante(0,0,0);
+		epaisseurDeTrait(1);
+		afficheChaine("Reponse : ",20,905,370);
 		fb = afficheResultat(fb);
 	
 		fb.delay ++;
@@ -112,7 +124,7 @@ test testFB(test fb)
 		}
 		else 
 		{
-			fb.start=2;
+			fb.start=3;
 		}
 	}
 	
@@ -132,16 +144,16 @@ test testFB(test fb)
 	epaisseurDeTrait(2);
 	afficheChaine(pourcentage,20,730,80);
 
-	if (fb.start == 2)
+	if (fb.start == 3)
 	{
 		fb.fichier=fopen("ResultatTestFb.txt","r+");
 		fseek(fb.fichier,0,SEEK_END);
 		fprintf(fb.fichier, "TEST :\nChrono : %d\nNombre d'erreur : %d\n\n",fb.temps,fb.erreur);
 		fclose(fb.fichier);
-		fb.start = 3;
+		fb.start = 4;
 	}	
 
-	if (fb.start ==3)
+	if (fb.start == 4)
 	{
 		couleurCourante(120,120,120);
 		rectangle(50,180,850,680);
@@ -175,10 +187,10 @@ test afficheResultat(test fb)
 	}
 	else if (fb.suite == 1)
 	{
-		if (fb.chiffre1 == 1 && fb.chiffre2 == 4)		
+		if (fb.chiffre1 == 1 && fb.chiffre2 == 1)		
 		{
 			afficheChaine("BRAVO",20,905,270);
-			fb.resultat = 14;
+			fb.resultat = 11;
 		}
 		else 
 		{

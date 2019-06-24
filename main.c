@@ -28,8 +28,8 @@ void gestionEvenement(EvenementGfx evenement)
    
  	static int abs=0;
 	static int ord=0;
-	static int block=0;
 	static int i=0;
+	static int a=0;
 	abs=abscisseSouris();
 	ord=ordonneeSouris();
 
@@ -56,13 +56,13 @@ void gestionEvenement(EvenementGfx evenement)
 			demandeTemporisation(20);
 
 			//Menu
-			m = initMenu(m);
+			//m = initMenu(m);
 
 			//TEST FB
 			fb = initStructTESTFB (fb);
 
 			//MEMORY
-			me = initStructMemory(me);
+			//me = initStructMemory(me);
 			initPosition (tableau);
 
 			break;
@@ -77,9 +77,10 @@ void gestionEvenement(EvenementGfx evenement)
 
 			//m = choixMenu(m,fb,me,tableau,p,abs,ord);
 
-			me = affichageMemory(p,me,tableau);		
+			//me = affichageMemory(p,me,tableau);		
 						
-			
+			fb = testFB(fb);
+					
 
 			break;
 			
@@ -166,22 +167,42 @@ void gestionEvenement(EvenementGfx evenement)
 					{
 						for (i=0; i<20; i++)
 						{
-							printf ("me.prenom[%d] = %s\n",i,me.prenom[i]);
-							
-							if (me.prenom[i] == 0) me.prenom[i] = caractereClavier();
-							else 
+							if (a == 0)
 							{
-								while (me.prenom[i] != 0)
+								if (me.prenom[i] == 0) 
 								{
-									i++;
-									printf ("me.prenom[%d] = %s\n",i,me.prenom[i]);
-									 if (me.prenom[i] == 0) me.prenom[i] = caractereClavier();
+									me.prenom[i] = caractereClavier();
+									a++;
 								}
 							}
 						}
+						a=0;
+					}
+
+					if (fb.start == 0)
+					{
+						for (i=0; i<20; i++)
+						{
+							if (a == 0)
+							{
+								if (fb.prenom[i] == 0) 
+								{
+									fb.prenom[i] = caractereClavier();
+									a++;
+								}
+							}
+						}
+						a=0;
 					}
 					
+
+					//for (i=0; i<20; i++) 	printf ("me.prenom[%d] = %d\n",i,me.prenom[i]);
 					break;
+
+				case 13:
+					if (me.start == 0) 	me.start = 1;
+					if (fb.start == 0)  fb.start = 1;
+			printf("statrt = %d\n",me.start);
 
 				case '0':
 				case '1':
@@ -193,12 +214,12 @@ void gestionEvenement(EvenementGfx evenement)
 				case '7':
 				case '8':
 				case '9':
-					if (fb.lock==3)
+					if (fb.lock == 3)
 					{
 						fb.chiffre1 = caractereClavier()-48;
 						fb.lock =1;
 					}
-					else if (fb.lock==1)
+					else if (fb.lock == 1)
 					{
 						fb.chiffre2 = caractereClavier()-48;
 						fb.lock=0;
@@ -209,7 +230,6 @@ void gestionEvenement(EvenementGfx evenement)
 			
 		case ClavierSpecial:
 			printf("ASCII %d\n", toucheClavier());
-			if (caractereClavier() == 13) me.start = 1;
 			break;
 
 		case BoutonSouris:
@@ -228,18 +248,15 @@ void gestionEvenement(EvenementGfx evenement)
 				if (abs>=900 && abs<=1100 && ord>=60 && ord<=120)	
 				{
 					//TEST FB
-					if (fb.start == 0) fb.start = 1;
-					else if (fb.start == 3)
+					if (fb.start == 1) 		fb.start = 2;
+					else if (fb.start == 4)
 					{
 						fb = initStructTESTFB(fb);
 					}
 					else;
 
 					//MEMORY
-					if (me.start == 1) 
-					{
-						me.start = 2;
-					}
+					if (me.start == 1) 		me.start = 2;
 					else if (me.start == 4)
 					{
 						me = initStructMemory(me);

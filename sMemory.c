@@ -1,5 +1,48 @@
 #include "hMemory.h"
 
+/**
+ * \file CMemory.C
+ * \author : Lisa DUTERTE
+ * \brief Toutes les fonctions permettant de faire fonctionner le Memory
+ *
+ */
+
+/** 
+	\brief Appel des fonctions du Memory avec emploie du chrono, du nombre d'erreur.
+	\details Enregistrement des résultats dans un fichier avec le nom du patient.
+	\param memory-me 	Appel de toutes les variables servant à faire fonctionner le programme
+	\param carte-tableau[12]	Permet d'attribuer des positions aux cartes
+	\return La structure memory me
+
+	\details
+				Description détaillée du code suivant la condition.
+
+
+				"if (me.start == 0)"
+				Condition obligeant l'utilisateur d'entrer son prénom avant d'appuyer sur le bouton star
+
+				"if (me.start == 2)
+				Condition permettant au chrono de commencer uniquement quand le patient clique sur start.
+				A ce moment là le tableau de carte apparait.
+
+				"me.delay ++"
+				Incrémentation du chrono en ms
+				
+				"if (me.delay == 45)"
+				Lorsque delay = 45, 1 seconde c'est écoulée
+
+				"if (me.cpt == 12)"	
+				Permet d'arreter le chrono lorsque les 6 paires d'images a été découverte
+				Laisse les images un micro temps avant l'affichage de fin
+
+				"if (me.start == 3)"
+				Enregistrer les données dans un fichier 1 seule fois.
+
+				"if (me.start == 4)"
+				Affiche l'affichage de fin
+	
+**/
+
 memory affichageMemory(int p,memory me,carte tableau[12])
 {
 	int i=0;					
@@ -25,6 +68,7 @@ memory affichageMemory(int p,memory me,carte tableau[12])
 		couleurCourante(0,0,0);
 		afficheChaine("Entrer votre nom :",30,400,440);
 	}
+	
 	if (me.start == 2)
 	{
 		me.delay ++;
@@ -35,7 +79,7 @@ memory affichageMemory(int p,memory me,carte tableau[12])
 		}
 
 		placementCarte(tableau,me);
-		 
+
 		if (me.cpt == 12)
 		{
 			me.tempo++;
@@ -47,7 +91,6 @@ memory affichageMemory(int p,memory me,carte tableau[12])
 		}
 		else me = placementDosDeCarte(me);
 	}
-	
 	if (me.start == 3)
 	{
 		me.fichier2=fopen("ResultatMemory.txt","r+");
@@ -56,7 +99,7 @@ memory affichageMemory(int p,memory me,carte tableau[12])
 		fclose(me.fichier2);
 		me.start = 4;
 	}	
-
+	
 	if (me.start ==4)
 	{
 		couleurCourante(120,120,120);
@@ -71,7 +114,6 @@ memory affichageMemory(int p,memory me,carte tableau[12])
 	sprintf(chrono,"%d s",me.temps);
 	epaisseurDeTrait(2);
 	afficheChaine(chrono,20,350,80);
-
 
 	char pourcentage[] = "00";
 	couleurCourante(0,0,0);
@@ -100,7 +142,9 @@ memory initStructMemory(memory me)
 	FILE *fichier2=NULL;
 	me.stop=0;
 
-	for (i=0; i<20; i++)	me.prenom[i] = 0;
+	memset(me.prenom,0,20);
+
+
 	//SI TABLEAU D'IMAGES
 	//Images[0] = chien = lisBMPRGB("chien.bmp");
 	me.chien = lisBMPRGB("chien.bmp");
@@ -115,7 +159,22 @@ memory initStructMemory(memory me)
 	me.image2 = lisBMPRGB("chien.bmp");
     return me;
 }
+/**
+	\brief Initialise la position des cartes de manière aléatoire
+	\param carte-tableau[12]	Permet d'attribuer des positions aux cartes
+	\return La structure memory me
 
+	\details
+				"première boucle for"
+				Initialise un tableau de 12 cases de 0 à 12 et la variable position d'un tableau de structure à 0.
+
+				"deuxième boucle for"
+				Parcours ce tableau de 12 cases aléatoirement
+				Si la valeur est différente de 40 alors on l'attribue à la position et on la remplace par 40
+				Sinon on parcourt la case d'après.
+				Dans le cas de la dernière case, on retourne au début du tableau.
+	
+**/
 void initPosition (carte tableau[12])
 {
 	int alea=0,i=0,j=0;
@@ -211,7 +270,21 @@ void testCarte(carte tableau[12],int p,DonneesImageRGB *image)
 }
 
 
+/**
+	\brief Affiche ou non les dos de cartes
+	\param memory-me 	Appel de toutes les variables servant à faire fonctionner le programme
+	\return La structure memory me
 
+	\details
+				"première boucle for"
+				Analyse de l'image sélectionnée et enregistrement d'un tableau RGB
+				Si validation =0 et pas de clique sur l'image alors la carte reste retournée
+
+				"deuxième boucle for"
+				Une fois les deux clics effectués, la variable me.stop = 1.
+				Ainsi on parcourt les deux tableaux RGB des deux images sélectionnées.
+				Si identique alors les images ne peuvent plus se retourner.
+**/
 memory placementDosDeCarte(memory me)
 {
 	int i=0,c=0,j=0,n=0;
@@ -241,7 +314,7 @@ memory placementDosDeCarte(memory me)
 		else;
 	}
 
-	if (me.clic1 !=0 && me.clic2 != 0 && me.stop == 1)
+if (me.clic1 !=0 && me.clic2 != 0 && me.stop == 1)
 	{
 		for (i=0; i<(image->largeurImage)*(image->hauteurImage)*3; i++)
 		{
@@ -268,7 +341,6 @@ memory placementDosDeCarte(memory me)
 memory gereClicCarte (memory me,int abs,int ord)
 {
 	int clic1=0;
-
 	if (abs>=70 && abs<=320 && ord>=170 && ord<=330) clic1=1;	
 	if (abs>=340 && abs<=590 && ord>=170 && ord<=330) clic1=2;
 	if (abs>=610 && abs<=860 && ord>=170 && ord<=330) clic1=3;
