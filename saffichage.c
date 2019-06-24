@@ -9,6 +9,7 @@ menu initMenu(menu m)
 	m.choix2=0;
 	m.choix3=0;
 	m.start=0;
+	m.retour=0;
 	return m;
 }
 
@@ -29,7 +30,7 @@ menu gereClicStart(menu m)
 
 
 
-menu choixMenu(menu m, test fb, memory me,carte tableau[12],int p,int abs, int ord)
+menu choixMenu(menu m, test *fb, memory *me,carte tableau[12],int p,int abs, int ord)
 {
 	switch (m.choix)
 	{
@@ -48,8 +49,11 @@ menu choixMenu(menu m, test fb, memory me,carte tableau[12],int p,int abs, int o
 					//Mnémonique
 					break;
 				case 3:
-					me = affichageMemory(p,me,tableau);
-					
+					if (m.retour == 0) affichageMemory(p,me,tableau);
+					else
+					{
+						m.choix = 1;
+					}
 					break;
 			}
 			break;
@@ -60,7 +64,11 @@ menu choixMenu(menu m, test fb, memory me,carte tableau[12],int p,int abs, int o
 				case 1:
 					break;
 				case 2:
-					fb = testFB(fb);
+					if (m.retour == 0) testFB(fb);
+					else	
+					{
+						m.choix = 2;
+					}
 					break;
 				case 3:
 					break;
@@ -89,7 +97,7 @@ void affichage1(void)
 {
 	couleurCourante(255,0,0);
 	epaisseurDeTrait(5);
-	afficheChaine("NOM DE LA PLATEFORME",40,350,720);
+	afficheChaine("CogniNB",50,500,720);
 	couleurCourante(125,125,125);
 	rectangle(170,470,340,630);
 	rectangle(510,470,680,630);
@@ -194,6 +202,7 @@ menu gereClicMemoire (menu m,int abs,int ord)
 {
 	if (m.choix == 1)
 	{
+		m.retour=0;
 		if (abs>=490 && abs<=720 && ord>=220 && ord<=390) m.choix1 = 1;
 		else if (abs>=240 && abs<=480 && ord>=480 && ord<=640) m.choix1 = 2;
 		else if (abs>=720 && abs<=960 && ord>=480 && ord<=640) m.choix1 = 3;
@@ -206,11 +215,13 @@ menu gereClicAnalyse (menu m,int abs,int ord)
 {
 	if (m.choix == 2)		
 	{
+		m.retour=0;
 		if (abs>=240 && abs<=480 && ord>=160 && ord<=320) m.choix2 = 1;
 		else if (abs>=720 && abs<=960 && ord>=160 && ord<=320) m.choix2 = 2;
 		else if (abs>=240 && abs<=480 && ord>=480 && ord<=640) m.choix2 = 3;
 		else if (abs>=720 && abs<=960 && ord>=480 && ord<=640) m.choix2 = 4;
 		else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 0;
+		printf ("choix2 = %d",m.choix2);
 	}
 	return m;
 }
@@ -219,6 +230,7 @@ menu gereClicLateralite (menu m,int abs,int ord)
 {
 	if (m.choix == 3)		
 	{
+		m.retour=0;
 		if (abs>=230 && abs<=500 && ord>=280 && ord<=520) m.choix3 = 1;
 		else if (abs>=710 && abs<=980 && ord>=280 && ord<=520) m.choix3 = 2;
 		else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 0;

@@ -88,12 +88,12 @@ static struct CoordCarte
 
 
 void gestionEvenement(EvenementGfx evenement);
-void placementCarte(carte tableau[12],memory me);
-memory affichageMemory(int p,memory me,carte tableau[12]);
-memory initStructMemory(memory m);
+void placementCarte(carte tableau[12],memory *me);
+void affichageMemory(int p,memory *me,carte tableau[12]);
+void initStructMemory(memory *me);
 void initPosition(carte tableau[12]);
 void testCarte(carte tableau[12],int p,DonneesImageRGB *image);
-memory placementDosDeCarte(memory me);
-memory gereClicCarte (memory me,int abs,int ord);
+void placementDosDeCarte(memory *me);
+void gereClicCarte (memory *me,int abs,int ord);
 
 #endif  /* !HMEMORY_H_ */

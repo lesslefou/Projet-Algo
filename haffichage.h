@@ -22,13 +22,15 @@ typedef struct gereClicMenu
 	int choix2;
 	int choix3;
 	int start;
+	int retour;
+	
 }menu;
 
 
 void gestionEvenement(EvenementGfx evenement);
 
 menu initMenu(menu m);
-menu choixMenu(menu m, test fb, memory me,carte tableau[12],int p,int abs, int ord);
+menu choixMenu(menu m, test *fb, memory *me,carte tableau[12],int p,int abs, int ord);
 void affichage1(void);
 void affichageMemoire(void);
 void affichageAnalyse(void);

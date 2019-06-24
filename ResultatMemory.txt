@@ -1,8 +1,4 @@
-TEST de llllllllllllllllllll :
-Chrono : 17
-Nombre d'erreur : 4
-
 TEST de lisa :
-Chrono : 14
-Nombre d'erreur : 4
+Chrono : 19
+Nombre d'erreur : 6
 

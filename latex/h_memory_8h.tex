@@ -47,19 +47,19 @@ typedef struct \hyperlink{structcarte}{carte} \hyperlink{h_memory_8h_a9f5a41d652
 \item 
 void \hyperlink{h_memory_8h_af99bca1dd29e2d28d9aa01ae22400f05}{gestion\+Evenement} (\hyperlink{_gfx_lib_8h_a075d46fafd3b5a6a9c0d925fe4385bd8}{Evenement\+Gfx} evenement)
 \item 
-void \hyperlink{h_memory_8h_aadde8ad2b33b65c99e8f278ed383b80d}{placement\+Carte} (\hyperlink{structcarte}{carte} tableau\mbox{[}12\mbox{]}, \hyperlink{h_memory_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} me)
+void \hyperlink{h_memory_8h_a537722d853a6c8569edc1b01ab094334}{placement\+Carte} (\hyperlink{structcarte}{carte} tableau\mbox{[}12\mbox{]}, \hyperlink{header_m_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} $\ast$me)
 \item 
-\hyperlink{h_memory_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} \hyperlink{h_memory_8h_a692a060af7b74ab2e21e72601c8764ce}{affichage\+Memory} (int p, \hyperlink{h_memory_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} me, \hyperlink{structcarte}{carte} tableau\mbox{[}12\mbox{]})
+void \hyperlink{h_memory_8h_aed19557f4634dd553611f1a00b04f68a}{affichage\+Memory} (int p, \hyperlink{header_m_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} $\ast$me, \hyperlink{structcarte}{carte} tableau\mbox{[}12\mbox{]})
 \begin{DoxyCompactList}\small\item\em Appel des fonctions du Memory avec emploie du chrono, du nombre d\textquotesingle{}erreur. \end{DoxyCompactList}\item 
-\hyperlink{h_memory_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} \hyperlink{h_memory_8h_aff808833bd953a0417014d6e5d79a5be}{init\+Struct\+Memory} (\hyperlink{h_memory_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} m)
+void \hyperlink{h_memory_8h_a2b48488962df2627df9bdcae9985fe69}{init\+Struct\+Memory} (\hyperlink{header_m_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} $\ast$me)
 \item 
 void \hyperlink{h_memory_8h_aba29a417cdb223fa6f1bbdc17f1b6519}{init\+Position} (\hyperlink{structcarte}{carte} tableau\mbox{[}12\mbox{]})
 \begin{DoxyCompactList}\small\item\em Initialise la position des cartes de manière aléatoire. \end{DoxyCompactList}\item 
 void \hyperlink{h_memory_8h_a5f89475c14a8c93522bb9b59b56696cb}{test\+Carte} (\hyperlink{structcarte}{carte} tableau\mbox{[}12\mbox{]}, int p, \hyperlink{struct_donnees_image_r_g_b}{Donnees\+Image\+R\+GB} $\ast$image)
 \item 
-\hyperlink{h_memory_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} \hyperlink{h_memory_8h_a6700429a3143a81ce5fd9488bbf2793c}{placement\+Dos\+De\+Carte} (\hyperlink{h_memory_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} me)
+void \hyperlink{h_memory_8h_a6dde2fa890a8c1bfb45612d0081f4b6b}{placement\+Dos\+De\+Carte} (\hyperlink{header_m_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} $\ast$me)
 \begin{DoxyCompactList}\small\item\em Affiche ou non les dos de cartes. \end{DoxyCompactList}\item 
-\hyperlink{h_memory_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} \hyperlink{h_memory_8h_aa8390d3a9488ddd6ebe8d709d0af8c14}{gere\+Clic\+Carte} (\hyperlink{h_memory_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} me, int abs, int ord)
+void \hyperlink{h_memory_8h_aee1629ecac1a3229ab6431ae0a617cab}{gere\+Clic\+Carte} (\hyperlink{header_m_8h_a0fdc389443ce81c0be455162bf893d6c}{memory} $\ast$me, int abs, int ord)
 \end{DoxyCompactItemize}
 
 
@@ -103,13 +103,13 @@ Toutes la variables du test Memory.
 \subsection{Documentation des fonctions}
 \index{h\+Memory.\+h@{h\+Memory.\+h}!affichage\+Memory@{affichage\+Memory}}
 \index{affichage\+Memory@{affichage\+Memory}!h\+Memory.\+h@{h\+Memory.\+h}}
-\subsubsection[{\texorpdfstring{affichage\+Memory(int p, memory me, carte tableau[12])}{affichageMemory(int p, memory me, carte tableau[12])}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf memory} affichage\+Memory (
+\subsubsection[{\texorpdfstring{affichage\+Memory(int p, memory $\ast$me, carte tableau[12])}{affichageMemory(int p, memory *me, carte tableau[12])}}]{\setlength{\rightskip}{0pt plus 5cm}void affichage\+Memory (
 \begin{DoxyParamCaption}
 \item[{int}]{p, }
-\item[{{\bf memory}}]{me, }
+\item[{{\bf memory} $\ast$}]{me, }
 \item[{{\bf carte}}]{tableau\mbox{[}12\mbox{]}}
 \end{DoxyParamCaption}
-)}\hypertarget{h_memory_8h_a692a060af7b74ab2e21e72601c8764ce}{}\label{h_memory_8h_a692a060af7b74ab2e21e72601c8764ce}
+)}\hypertarget{h_memory_8h_aed19557f4634dd553611f1a00b04f68a}{}\label{h_memory_8h_aed19557f4634dd553611f1a00b04f68a}
 
 
 Appel des fonctions du Memory avec emploie du chrono, du nombre d\textquotesingle{}erreur. 
@@ -124,40 +124,40 @@ Enregistrement des résultats dans un fichier avec le nom du patient.
 \begin{DoxyReturn}{Renvoie}
 La structure memory me
 \end{DoxyReturn}
-\begin{DoxyVerb}        Description détaillée du code suivant la condition.
+\begin{DoxyVerb}        Descrimeion détaillée du code suivant la condition.
 
 
-        "if (me.start == 0)"
+        "if (me->start == 0)"
         Condition obligeant l'utilisateur d'entrer son prénom avant d'appuyer sur le bouton star
 
-        "if (me.start == 2)
+        "if (me->start == 2)
         Condition permettant au chrono de commencer uniquement quand le patient clique sur start.
         A ce moment là le tableau de carte apparait.
 
-        "me.delay ++"
+        "me->delay ++"
         Incrémentation du chrono en ms
 
-        "if (me.delay == 45)"
+        "if (me->delay == 45)"
         Lorsque delay = 45, 1 seconde c'est écoulée
 
-        "if (me.cpt == 12)" 
+        "if (me->cpt == 12)"    
         Permet d'arreter le chrono lorsque les 6 paires d'images a été découverte
         Laisse les images un micro temps avant l'affichage de fin
 
-        "if (me.start == 3)"
+        "if (me->start == 3)"
         Enregistrer les données dans un fichier 1 seule fois.
 
-        "if (me.start == 4)"
+        "if (me->start == 4)"
         Affiche l'affichage de fin\end{DoxyVerb}
  \index{h\+Memory.\+h@{h\+Memory.\+h}!gere\+Clic\+Carte@{gere\+Clic\+Carte}}
 \index{gere\+Clic\+Carte@{gere\+Clic\+Carte}!h\+Memory.\+h@{h\+Memory.\+h}}
-\subsubsection[{\texorpdfstring{gere\+Clic\+Carte(memory me, int abs, int ord)}{gereClicCarte(memory me, int abs, int ord)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf memory} gere\+Clic\+Carte (
+\subsubsection[{\texorpdfstring{gere\+Clic\+Carte(memory $\ast$me, int abs, int ord)}{gereClicCarte(memory *me, int abs, int ord)}}]{\setlength{\rightskip}{0pt plus 5cm}void gere\+Clic\+Carte (
 \begin{DoxyParamCaption}
-\item[{{\bf memory}}]{me, }
+\item[{{\bf memory} $\ast$}]{me, }
 \item[{int}]{abs, }
 \item[{int}]{ord}
 \end{DoxyParamCaption}
-)}\hypertarget{h_memory_8h_aa8390d3a9488ddd6ebe8d709d0af8c14}{}\label{h_memory_8h_aa8390d3a9488ddd6ebe8d709d0af8c14}
+)}\hypertarget{h_memory_8h_aee1629ecac1a3229ab6431ae0a617cab}{}\label{h_memory_8h_aee1629ecac1a3229ab6431ae0a617cab}
 \index{h\+Memory.\+h@{h\+Memory.\+h}!gestion\+Evenement@{gestion\+Evenement}}
 \index{gestion\+Evenement@{gestion\+Evenement}!h\+Memory.\+h@{h\+Memory.\+h}}
 \subsubsection[{\texorpdfstring{gestion\+Evenement(\+Evenement\+Gfx evenement)}{gestionEvenement(EvenementGfx evenement)}}]{\setlength{\rightskip}{0pt plus 5cm}void gestion\+Evenement (
@@ -194,26 +194,26 @@ La structure memory me
         Dans le cas de la dernière case, on retourne au début du tableau.\end{DoxyVerb}
  \index{h\+Memory.\+h@{h\+Memory.\+h}!init\+Struct\+Memory@{init\+Struct\+Memory}}
 \index{init\+Struct\+Memory@{init\+Struct\+Memory}!h\+Memory.\+h@{h\+Memory.\+h}}
-\subsubsection[{\texorpdfstring{init\+Struct\+Memory(memory m)}{initStructMemory(memory m)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf memory} init\+Struct\+Memory (
+\subsubsection[{\texorpdfstring{init\+Struct\+Memory(memory $\ast$me)}{initStructMemory(memory *me)}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Struct\+Memory (
 \begin{DoxyParamCaption}
-\item[{{\bf memory}}]{m}
+\item[{{\bf memory} $\ast$}]{me}
 \end{DoxyParamCaption}
-)}\hypertarget{h_memory_8h_aff808833bd953a0417014d6e5d79a5be}{}\label{h_memory_8h_aff808833bd953a0417014d6e5d79a5be}
+)}\hypertarget{h_memory_8h_a2b48488962df2627df9bdcae9985fe69}{}\label{h_memory_8h_a2b48488962df2627df9bdcae9985fe69}
 \index{h\+Memory.\+h@{h\+Memory.\+h}!placement\+Carte@{placement\+Carte}}
 \index{placement\+Carte@{placement\+Carte}!h\+Memory.\+h@{h\+Memory.\+h}}
-\subsubsection[{\texorpdfstring{placement\+Carte(carte tableau[12], memory me)}{placementCarte(carte tableau[12], memory me)}}]{\setlength{\rightskip}{0pt plus 5cm}void placement\+Carte (
+\subsubsection[{\texorpdfstring{placement\+Carte(carte tableau[12], memory $\ast$me)}{placementCarte(carte tableau[12], memory *me)}}]{\setlength{\rightskip}{0pt plus 5cm}void placement\+Carte (
 \begin{DoxyParamCaption}
 \item[{{\bf carte}}]{tableau\mbox{[}12\mbox{]}, }
-\item[{{\bf memory}}]{me}
+\item[{{\bf memory} $\ast$}]{me}
 \end{DoxyParamCaption}
-)}\hypertarget{h_memory_8h_aadde8ad2b33b65c99e8f278ed383b80d}{}\label{h_memory_8h_aadde8ad2b33b65c99e8f278ed383b80d}
+)}\hypertarget{h_memory_8h_a537722d853a6c8569edc1b01ab094334}{}\label{h_memory_8h_a537722d853a6c8569edc1b01ab094334}
 \index{h\+Memory.\+h@{h\+Memory.\+h}!placement\+Dos\+De\+Carte@{placement\+Dos\+De\+Carte}}
 \index{placement\+Dos\+De\+Carte@{placement\+Dos\+De\+Carte}!h\+Memory.\+h@{h\+Memory.\+h}}
-\subsubsection[{\texorpdfstring{placement\+Dos\+De\+Carte(memory me)}{placementDosDeCarte(memory me)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf memory} placement\+Dos\+De\+Carte (
+\subsubsection[{\texorpdfstring{placement\+Dos\+De\+Carte(memory $\ast$me)}{placementDosDeCarte(memory *me)}}]{\setlength{\rightskip}{0pt plus 5cm}void placement\+Dos\+De\+Carte (
 \begin{DoxyParamCaption}
-\item[{{\bf memory}}]{me}
+\item[{{\bf memory} $\ast$}]{me}
 \end{DoxyParamCaption}
-)}\hypertarget{h_memory_8h_a6700429a3143a81ce5fd9488bbf2793c}{}\label{h_memory_8h_a6700429a3143a81ce5fd9488bbf2793c}
+)}\hypertarget{h_memory_8h_a6dde2fa890a8c1bfb45612d0081f4b6b}{}\label{h_memory_8h_a6dde2fa890a8c1bfb45612d0081f4b6b}
 
 
 Affiche ou non les dos de cartes. 
@@ -231,7 +231,7 @@ La structure memory me
         Si validation =0 et pas de clique sur l'image alors la carte reste retournée
 
         "deuxième boucle for"
-        Une fois les deux clics effectués, la variable me.stop = 1.
+        Une fois les deux clics effectués, la variable me->stop = 1.
         Ainsi on parcourt les deux tableaux RGB des deux images sélectionnées.
         Si identique alors les images ne peuvent plus se retourner.\end{DoxyVerb}
  \index{h\+Memory.\+h@{h\+Memory.\+h}!test\+Carte@{test\+Carte}}
