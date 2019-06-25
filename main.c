@@ -1,6 +1,6 @@
 //MACHINE A ETAT
 
-
+//probleme de retour
 
 #include "hTestFB.h"
 #include "hMemory.h"
@@ -46,9 +46,6 @@ void gestionEvenement(EvenementGfx evenement)
     static memory *const pt = &me;
     static int p=0;
     
-    //SI TABLEAU D'IMAGES
-	//static DonneesImageRGB *Images[12];
-
     //TEST FB
     static test fb;
     static test * const pt1 = &fb;
@@ -74,6 +71,9 @@ void gestionEvenement(EvenementGfx evenement)
 			//MEMORY
 			initStructMemory(pt);
 			initPosition(tableau);
+
+			//KONAMI
+			initStructKONAMI(pt2);
 
 			break;
 		
@@ -117,6 +117,9 @@ void gestionEvenement(EvenementGfx evenement)
 					libereDonneesImageRGB(&pt->carte);
 					libereDonneesImageRGB(&pt->image1);
 					libereDonneesImageRGB(&pt->image2);
+
+					//KONAMI
+					libereDonneesImageRGB(&pt2->imkonami);
 
 
 					break;
@@ -297,7 +300,13 @@ void gestionEvenement(EvenementGfx evenement)
 					m = gereClicResultat(m,abs,ord);
 				}
 
-				if (abs>=0 && abs<=100 && ord>=730 && ord<=800) m.retour=1;
+				if (abs>=0 && abs<=100 && ord>=730 && ord<=800) 
+				{
+					m.retour=1;
+					initStructTESTFB(pt1);
+					initStructMemory(pt);
+					initStructKONAMI(pt2);
+				}
 
 				//m = gereClicStart(m);
 				else if (abs>=900 && abs<=1100 && ord>=60 && ord<=120)	
@@ -338,11 +347,9 @@ void gestionEvenement(EvenementGfx evenement)
 
 				
 
-
 				//MEMORY
 				if (pt->lockeur == 0 && pt->delay > 0) 
 				{
-					printf ("coucou");
 					gereClicCarte(pt,abs,ord);
 					pt->clic2 = 0;
 					pt->lockeur = 1;
@@ -354,6 +361,14 @@ void gestionEvenement(EvenementGfx evenement)
 					pt->stop=1;
 				}
 
+
+				//KONAMI
+				if (pt2->delay > 0)
+				{
+					gereClicCode(pt2,abs,ord);
+					pt2->lockeurMi++;
+				}
+				
 				
 			}
 			/*

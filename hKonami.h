@@ -32,7 +32,9 @@ typedef struct KONAMI
 {
 	int suite;
 	int clic[6];
-	int lock;
+	int lockeurMi;
+	int ordre1[6];
+	int ordre2[6];
 	int resultat;
 	int test1;
 	int test2;
@@ -42,13 +44,15 @@ typedef struct KONAMI
 	int start;
 	int temps;
 	int erreur;
+	int a;
 	FILE *fichier3;
 	DonneesImageRGB *imkonami;
-
+	
     char prenom[20];
 }kona;
 
 
-void initStructKONAMI (kona *mi);
-void affichageKonami(kona *mi);
+void initStructKONAMI (kona *const mi);
+void affichageKonami(kona *const mi);
+void testCode(kona *const mi,int abs,int ord);
 #endif  /* !HTESTFB_H_ */

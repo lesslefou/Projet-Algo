@@ -1,11 +1,30 @@
 #include "hKonami.h"
 
-void initStructKONAMI(kona *mi)
+void initStructKONAMI(kona *const mi)
 {
 	int i=0;
 	mi->suite=0;
-	for (i=0; i<5; i++) 	mi->clic[i]=0;
-	mi->lock=3;
+	for (i=0; i<6; i++) 	mi->clic[i]=0;
+
+
+	//mi->ordre1[] = {2,7,6,4,5,3};
+	mi->ordre1[0]=2;
+	mi->ordre1[1]=7;
+	mi->ordre1[2]=6;
+	mi->ordre1[3]=4;
+	mi->ordre1[4]=5;
+	mi->ordre1[5]=3;
+	
+	//mi->ordre2[]= {6,2,1,5,4,3};
+	mi->ordre2[0]=6;
+	mi->ordre2[1]=2;
+	mi->ordre2[2]=1;
+	mi->ordre2[3]=5;
+	mi->ordre2[4]=4;
+	mi->ordre2[5]=3;
+
+
+	mi->lockeurMi=0;
 	mi->resultat=0;
 	mi->delay=0;
 	mi->tempo=0;
@@ -14,14 +33,16 @@ void initStructKONAMI(kona *mi)
 	mi->temps=0;
 	mi->erreur=0;
 	FILE *fichier=NULL;
-	mi->imkonami = lisBMPRGB("konami.bmp");
+	
+	mi->imkonami = lisBMPRGB("konamiCode.bmp");
 
 
 	memset(mi->prenom,0,20);
 }
 
-void affichageKonami(kona *mi)
+void affichageKonami(kona *const mi)
 {
+	int i=0;
 	effaceFenetre (255, 255, 255);
 	couleurCourante (200,200,200);
 	rectangle(170,60,420,120);
@@ -36,7 +57,7 @@ void affichageKonami(kona *mi)
 	afficheChaine("Retour",20,20,760);
 	couleurCourante(255,0,0);
 	epaisseurDeTrait(5);
-	afficheChaine("K O N A M I",40,380,720);
+	afficheChaine("K O N A M I",40,420,725);
 
 	
 	if (mi->start == 0)
@@ -47,8 +68,7 @@ void affichageKonami(kona *mi)
 	}
 	if (mi->start == 2)	
 	{
-		ecrisImage(50, 180, mi->imkonami->largeurImage, mi->imkonami->hauteurImage, mi->imkonami->donneesRGB);
-			
+		ecrisImage(200, 200, mi->imkonami->largeurImage, mi->imkonami->hauteurImage, mi->imkonami->donneesRGB);
 		mi->delay ++;
 		if (mi->tempo >= 2) mi->tempo++;
 		if (mi->delay == 45)	
@@ -56,16 +76,97 @@ void affichageKonami(kona *mi)
 			mi->temps++;
 			mi->delay=0;
 		}
+		epaisseurDeTrait(2);
+		
 		if (mi->suite == 0) 
 		{
-			afficheChaine("Start/Droite/Gauche/Haut/Bas/A",20,50,150);
+			afficheChaine("Start/Droite/Gauche/Haut/Bas/A",30,380,150);
+			if (mi->lockeurMi == 6) 
+			{
+				if (mi->a == 0)
+				{
+					for (i=0; i<6; i++)
+					{
+						if (mi->clic[i] == mi->ordre1[i]) mi->cpt++;
+						mi->clic[i] = 0;
+						mi->a=1;
+					}
+				}
+				if (mi->a == 1) 
+				{
+					printf ("coucou");
+					mi->tempo = 2;
+					mi->a = 2;
+				}
+
+				if (mi->cpt == 6 && mi->a >= 2)
+				{
+					couleurCourante(120,120,120);
+					rectangle(200,200,1000,700);
+					couleurCourante(0,0,0);
+					afficheChaine("B R A V O !  N E X T ",30,320,430);
+					printf("a= %d, tempo = %d, suite = %d\n",mi->a,mi->tempo,mi->suite);
+					if (mi->tempo > 30)	
+					{
+						mi->suite = 1;
+						mi->tempo = 0;
+						mi->temps -=2;
+						mi->cpt = 0;
+						mi->lockeurMi = 0;
+					}
+				}
+				else if (mi->a == 2)
+				{
+					couleurCourante(120,120,120);
+					rectangle(200,200,1000,700);
+					couleurCourante(0,0,0);
+					afficheChaine("P E R D U . . . ",30,320,430);
+					printf("tempo = %d, suite = %d\n",mi->tempo,mi->suite);
+					if (mi->tempo > 30)	
+					{
+						for (i=0; i<6; i++) mi->clic[i] = 0;
+						mi->lockeurMi = 0;
+						mi->tempo = 0;
+						mi->temps -=2;
+						mi->cpt = 0;
+						mi->a=0;
+					}
+				}
+
+				if (mi->tempo > 30)	
+				{
+					mi->suite = 1;
+					mi->tempo = 2;
+					mi->lockeurMi = 0;
+				}
+			}
+
 		}
+
 		else if (mi->suite == 1)
 		{
+			afficheChaine("Gauche/Start/B/Bas/Haut/A",30,380,150);
+			if (mi->lockeurMi == 6) 
+			{
+				for (i=0; i<6; i++)
+				{
+					if (mi->clic[i] == mi->ordre2[i]) mi->cpt++;
+					mi->clic[i] = 0;
+				}
+				if (mi->cpt == 6) 
+				{
+					mi->tempo=2;
+					mi->cpt=0;
+				}
+				if (mi->tempo > 30)	
+				{
+					mi->start = 3;
+					mi->tempo = 0;
+					mi->lockeurMi = 0;
+				}
+			}
 
-			afficheChaine("Gauche/Start/B/Bas/Haut/A",20,50,150);
 		}
-
 	}
 	
 
@@ -85,16 +186,14 @@ void affichageKonami(kona *mi)
 	sprintf(pourcentage,"%d",mi->erreur);
 	afficheChaine(pourcentage,20,730,80);
 
-	/*
 	
-	*/
 	if (mi->start == 3)
 	{
 		char nom[30];
 		strcpy(nom,mi->prenom);
 		strcat(nom,".txt");
 		mi->fichier3=fopen(nom,"at");
-		fprintf(mi->fichier3, "TEST Konami du DATE\nChrono : %d\nNombre d'erreur : %d\n\n",mi->temps,mi->erreur);
+		fprintf(mi->fichier3, "TEST KONAMI du DATE\nChrono : %d\nNombre d'erreur : %d\n\n",mi->temps,mi->erreur);
 		fclose(mi->fichier3);
 		mi->start = 4;
 	}	
@@ -102,25 +201,25 @@ void affichageKonami(kona *mi)
 	if (mi->start == 4)
 	{
 		couleurCourante(120,120,120);
-		rectangle(50,180,850,680);
+		rectangle(200,200,1000,700);
 		couleurCourante(0,0,0);
-		afficheChaine("F I N  D U  T E S T",30,230,400);
+		afficheChaine("F I N  D U  T E S T",30,320,430);
 	}
 }
 
-kona gereClicCode(kona *mi,int abs,int ord)
+void gereClicCode(kona *const mi,int abs,int ord)
 {
-	int clic=0;
-	if      (abs>=100 && abs<=340 && ord>=130 && ord<=290) clic = 1;
-	else if (abs>=360 && abs<=600 && ord>=130 && ord<=290) clic = 2;
-	else if (abs>=620 && abs<=840 && ord>=130 && ord<=290) clic = 3;
-	else if (abs>=860 && abs<=1100 && ord>=130 && ord<=290) clic = 4;
+	int clic=0,i=0;
+	if      (abs>=227 && abs<=427 && ord>=230 && ord<=430) clic = 1; //B
+	else if (abs>=447 && abs<=980 && ord>=230 && ord<=430) clic = 2; // START
+	else if (abs>=227 && abs<=427 && ord>=460 && ord<=660) clic = 3; //A
+	else if (abs>=435 && abs<=565 && ord>=500 && ord<=660) clic = 4; //haut
+	else if (abs>=580 && abs<=700 && ord>=500 && ord<=660) clic = 5; //haut
+	else if (abs>=720 && abs<=840 && ord>=500 && ord<=660) clic = 6; //haut
+	else if (abs>=860 && abs<=980 && ord>=500 && ord<=660) clic = 7; //haut
 
-	else if (abs>=100 && abs<=340 && ord>=310 && ord<=460) clic = 5;
-	else if (abs>=360 && abs<=600 && ord>=310 && ord<=460) clic = 6;
-
-	/*if (mi->lockeur == 0) mi->clic1 = clic1 ;
-	else if (mi.lockeur == 1) mi->clic2 = clic1;
-	else if (mi.)
-		*/
+	for (i=0; i<6; i++)
+	{
+		if (mi->lockeurMi == i) mi->clic[i] = clic ;
+	}
 }

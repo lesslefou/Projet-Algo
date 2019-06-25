@@ -14,31 +14,19 @@
 	
 	\details
 				Description détaillée du code suivant la condition.
+	
+				"memset(fb, 0, sizeof(*fb))"  
+				Initialise toute la structure à 0
 
 **/
-
 void initStructTESTFB(test *fb)
 {
 	memset(fb, 0, sizeof(*fb));
-	//fb->suite=0;
-	//fb->chiffre1=0;
-	//fb->chiffre2=0;
 	fb->lock=3;
-	//fb->resultat=0;
 	fb->test1=15;
 	fb->test2=11;
-	//fb->delay=0;
-	//fb->tempo=0;
-	//fb->cpt=0;
-	//fb->start=0;
-	//fb->temps=0;
-	//fb->erreur=0;
-	//FILE *fichier=NULL;
 	fb->test1FB = lisBMPRGB("test1FB.bmp");
 	fb->test2FB = lisBMPRGB("test2FB.bmp");
-
-
-	//memset(fb->prenom,0,20);
 	
 }
 
@@ -180,9 +168,9 @@ void testFB(test * const fb)
 	if (fb->start == 4)
 	{
 		couleurCourante(120,120,120);
-		rectangle(50,180,850,680);
+		rectangle(200,200,1000,700);
 		couleurCourante(0,0,0);
-		afficheChaine("F I N  D U  T E S T",30,230,400);
+		afficheChaine("F I N  D U  T E S T",30,320,430);
 	}
 }
 
