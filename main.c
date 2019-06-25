@@ -173,6 +173,7 @@ void gestionEvenement(EvenementGfx evenement)
 				case 'y':
 				case 'z':
 
+					//MEMORY
 					if (pt->start == 0)
 					{
 						for (i=0; i<20; i++)
@@ -189,6 +190,7 @@ void gestionEvenement(EvenementGfx evenement)
 						a=0;
 					}
 
+					//TESTFB
 					if (pt1->start == 0)
 					{
 						for (i=0; i<20; i++)
@@ -204,6 +206,24 @@ void gestionEvenement(EvenementGfx evenement)
 						}
 						a=0;
 					}
+
+
+					//KONAMI
+					if (pt2->start == 0)
+					{
+						for (i=0; i<20; i++)
+						{
+							if (a == 0)
+							{
+								if (pt2->prenom[i] == 0) 
+								{
+									pt2->prenom[i] = caractereClavier();
+									a++;
+								}
+							}
+						}
+						a=0;
+					}
 					
 
 					break;
@@ -211,6 +231,7 @@ void gestionEvenement(EvenementGfx evenement)
 				case 13:
 					if (pt->start == 0) 	pt->start = 1;
 					if (pt1->start == 0)    pt1->start = 1;
+					if (pt2->start == 0)    pt2->start = 1;
 					break;
 
 				case '0':
@@ -300,6 +321,17 @@ void gestionEvenement(EvenementGfx evenement)
 					else if (pt->start == 4)
 					{
 						initStructMemory(pt);
+					}
+					else;
+
+					//KONAMI
+					if (pt2->start == 1) 		
+					{
+						pt2->start = 2;
+					}
+					else if (pt2->start == 4)
+					{
+						initStructKONAMI(pt2);
 					}
 					else;
 				}
