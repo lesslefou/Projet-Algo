@@ -19,29 +19,30 @@
 
 void initStructTESTFB(test *fb)
 {
-	fb->suite=0;
-	fb->chiffre1=0;
-	fb->chiffre2=0;
+	memset(fb, 0, sizeof(*fb));
+	//fb->suite=0;
+	//fb->chiffre1=0;
+	//fb->chiffre2=0;
 	fb->lock=3;
-	fb->resultat=0;
+	//fb->resultat=0;
 	fb->test1=15;
 	fb->test2=11;
-	fb->delay=0;
-	fb->tempo=0;
-	fb->cpt=0;
-	fb->start=0;
-	fb->temps=0;
-	fb->erreur=0;
-	FILE *fichier=NULL;
+	//fb->delay=0;
+	//fb->tempo=0;
+	//fb->cpt=0;
+	//fb->start=0;
+	//fb->temps=0;
+	//fb->erreur=0;
+	//FILE *fichier=NULL;
 	fb->test1FB = lisBMPRGB("test1FB.bmp");
 	fb->test2FB = lisBMPRGB("test2FB.bmp");
 
 
-	memset(fb->prenom,0,20);
+	//memset(fb->prenom,0,20);
 	
 }
 
-void testFB(test *fb)
+void testFB(test * const fb)
 {
 	effaceFenetre (255, 255, 255);
 	couleurCourante (200,200,200);
@@ -83,7 +84,6 @@ void testFB(test *fb)
 			fb->temps++;
 			fb->delay=0;
 		}
-		if (fb->test1FB == 0) printf ("null\n");
 		if (fb->suite == 0)
 		{
 			ecrisImage(50, 180, fb->test1FB->largeurImage, fb->test1FB->hauteurImage, fb->test1FB->donneesRGB);
@@ -148,7 +148,7 @@ void testFB(test *fb)
 	
 
 
-	char chrono[5] ;	
+	char chrono[7] ;	
 	memset(chrono,0,sizeof(chrono));
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(2);
@@ -157,7 +157,7 @@ void testFB(test *fb)
 	afficheChaine(chrono,20,350,80);
 
 
-	char pourcentage[3];
+	char pourcentage[5];
 	memset(pourcentage,0,sizeof(pourcentage));
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(2);
@@ -165,14 +165,14 @@ void testFB(test *fb)
 	epaisseurDeTrait(2);
 	afficheChaine(pourcentage,20,730,80);
 
-	/*
-	
-	*/
+
 	if (fb->start == 3)
 	{
-		fb->fichier=fopen("ResultatTestFb.txt","r+");
-		fseek(fb->fichier,0,SEEK_END);
-		fprintf(fb->fichier, "TEST testFB de %s:\nChrono : %d\nNombre d'erreur : %d\n\n",fb->prenom,fb->temps,fb->erreur);
+		char nom[30];
+		strcpy(nom,fb->prenom);
+		strcat(nom,".txt");
+		fb->fichier=fopen(nom,"at");
+		fprintf(fb->fichier, "TEST testFB du DATE\nChrono : %d\nNombre d'erreur : %d\n\n",fb->temps,fb->erreur);
 		fclose(fb->fichier);
 		fb->start = 4;
 	}	
@@ -186,14 +186,14 @@ void testFB(test *fb)
 	}
 }
 
-void afficheResultat(test *fb)
+void afficheResultat(test * const fb)
 {
-	char txt[2];
+	char txt[3] = {0};
 	memset(txt,0,sizeof(txt));
 	couleurCourante(0,0,0);
 	printf ("1 : %d, 2: %d\n",fb->chiffre1,fb->chiffre2);
 	epaisseurDeTrait(2);
-	sprintf(txt,"%d%d",fb->chiffre1,fb->chiffre2);
+	sprintf(txt,"%1d%1d",fb->chiffre1,fb->chiffre2);
 	epaisseurDeTrait(2);
 	afficheChaine(txt,20,1030,370);
 

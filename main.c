@@ -1,11 +1,17 @@
+//MACHINE A ETAT
+
+
+
 #include "hTestFB.h"
 #include "hMemory.h"
 #include "haffichage.h"
+#include "hKonami.h"
 
 static carte tableau[12];
 
 int main(int argc, char **argv)
 {
+ 	srand(time(NULL));
 	initialiseGfx(argc, argv);
 	
 	prepareFenetreGraphique("GfxLib", LargeurFenetre, HauteurFenetre);
@@ -23,7 +29,6 @@ int main(int argc, char **argv)
 des qu'une evenement survient */
 void gestionEvenement(EvenementGfx evenement)
 {
- 	srand(time(NULL));
  	static bool pleinEcran = false; // Pour savoir si on est en mode plein ecran ou pas
    
  	static int abs=0;
@@ -36,18 +41,21 @@ void gestionEvenement(EvenementGfx evenement)
 	//MENU
 	static menu m;
 
-    //TEST FB
-    static test fb;
-    static test *pt1 = &fb;
-
     //MEMORY
     static memory me;
-    static memory *pt = &me;
+    static memory *const pt = &me;
     static int p=0;
     
     //SI TABLEAU D'IMAGES
 	//static DonneesImageRGB *Images[12];
 
+    //TEST FB
+    static test fb;
+    static test * const pt1 = &fb;
+
+    //Konami
+    static kona mi;
+    static kona *const pt2 = &mi;
 
 	
 	switch (evenement)
@@ -77,7 +85,7 @@ void gestionEvenement(EvenementGfx evenement)
 			// On part d'un fond d'ecran blanc
 			effaceFenetre (255, 255, 255);
 
-			m = choixMenu(m,pt1,pt,tableau,p,abs,ord);
+			m = choixMenu(m,pt1,pt,pt2,tableau,p,abs,ord);
 
 			//affichageMemory(p,pt,tableau);		
 						
@@ -198,12 +206,12 @@ void gestionEvenement(EvenementGfx evenement)
 					}
 					
 
-					//for (i=0; i<20; i++) 	printf ("pt->prenom[%d] = %d\n",i,pt->prenom[i]);
 					break;
 
 				case 13:
 					if (pt->start == 0) 	pt->start = 1;
 					if (pt1->start == 0)    pt1->start = 1;
+					break;
 
 				case '0':
 				case '1':
@@ -226,7 +234,9 @@ void gestionEvenement(EvenementGfx evenement)
 						pt1->lock=0;
 					}
 				break;
-				}
+
+
+			}
 			break;
 			
 		case ClavierSpecial:
@@ -239,24 +249,42 @@ void gestionEvenement(EvenementGfx evenement)
 			{
 				printf("Bouton gauche appuye en : (%d, %d)\n", abscisseSouris(), ordonneeSouris());
 
+
 				//MENU
-				m = gereClicMenu(m,abs,ord);
-				m = gereClicMemoire(m,abs,ord);
-				m = gereClicAnalyse(m,abs,ord);
-				m = gereClicLateralite(m,abs,ord);
+				if (m.choix == MenuPrincipal)
+				{
+					m = gereClicMenu(m,abs,ord);
+				}
+				else if (m.choix == Memoire)
+				{
+					m = gereClicMemoire(m,abs,ord);
+				}
+				else if (m.choix == Analyse)
+				{
+					m = gereClicAnalyse(m,abs,ord);
+				}
+				else if (m.choix == Lateralite)
+				{
+					m = gereClicLateralite(m,abs,ord);
+				}
+				/*else if (m.choix == General)
+				{
+					m = gereClicGeneral(m,abs,ord);
+				}*/
+				else if (m.choix == Resultat)
+				{
+					m = gereClicResultat(m,abs,ord);
+				}
 
 				if (abs>=0 && abs<=100 && ord>=730 && ord<=800) m.retour=1;
 
 				//m = gereClicStart(m);
-				if (abs>=900 && abs<=1100 && ord>=60 && ord<=120)	
+				else if (abs>=900 && abs<=1100 && ord>=60 && ord<=120)	
 				{
 					//TEST FB
 					if (pt1->start == 1) 		
 					{
 						pt1->start = 2;
-						pt1->chiffre1 = 0;
-						pt1->chiffre2 = 0;
-						pt1->lock = 3;
 					}
 					else if (pt1->start == 4)
 					{
@@ -268,9 +296,6 @@ void gestionEvenement(EvenementGfx evenement)
 					if (pt->start == 1) 		
 					{
 						pt->start = 2;
-						pt->clic1 = 0;
-						pt->clic2 = 0;
-						pt->lockeur = 0;
 					}
 					else if (pt->start == 4)
 					{
@@ -283,8 +308,9 @@ void gestionEvenement(EvenementGfx evenement)
 
 
 				//MEMORY
-				if (pt->lockeur == 0) 
+				if (pt->lockeur == 0 && pt->delay > 0) 
 				{
+					printf ("coucou");
 					gereClicCarte(pt,abs,ord);
 					pt->clic2 = 0;
 					pt->lockeur = 1;
@@ -298,7 +324,7 @@ void gestionEvenement(EvenementGfx evenement)
 
 				
 			}
-			
+			/*
 			if (etatBoutonSouris() == GaucheRelache)	activeGestionDeplacementPassifSouris();
 			if (etatBoutonSouris() == DroiteAppuye)
 			{
@@ -306,7 +332,7 @@ void gestionEvenement(EvenementGfx evenement)
 			}
 			if (etatBoutonSouris() == DroiteRelache)	activeGestionDeplacementPassifSouris();
 			
-				
+			*/	
 				
 			break;
 		

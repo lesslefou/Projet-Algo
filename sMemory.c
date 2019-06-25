@@ -44,7 +44,6 @@
 
 void affichageMemory(int p,memory *me,carte tableau[12])
 {
-	printf("lock = %d\n",me->lockeur);
 	int i=0;					
 	effaceFenetre (255, 255, 255);	
 	couleurCourante (200,200,200);
@@ -69,9 +68,8 @@ void affichageMemory(int p,memory *me,carte tableau[12])
 		afficheChaine("Entrer votre nom :",30,400,440);
 	}
 	
-	if (me->start == 2)
+	else if (me->start == 2)
 	{
-	printf("lock1 = %d\n",me->lockeur);
 		me->delay ++;
 		if (me->delay == 45)	
 		{
@@ -92,16 +90,18 @@ void affichageMemory(int p,memory *me,carte tableau[12])
 		}
 		else placementDosDeCarte(me);
 	}
-	if (me->start == 3)
+	else if (me->start == 3)
 	{
-		me->fichier2=fopen("ResultatMemory.txt","r+");
-		fseek(me->fichier2,0,SEEK_END);
-		fprintf(me->fichier2, "TEST Memory de %s :\nChrono : %d\nNombre d'erreur : %d\n\n",me->prenom,me->temps,me->erreur);
+		char nom[30];
+		strcpy(nom,me->prenom);
+		strcat(nom,".txt");
+		me->fichier2=fopen(nom,"at");
+		fprintf(me->fichier2, "TEST Memory du DATE\nChrono : %d\nNombre d'erreur : %d\n\n",me->temps,me->erreur);
 		fclose(me->fichier2);
 		me->start = 4;
 	}	
 	
-	if (me->start ==4)
+	else if (me->start ==4)
 	{
 		couleurCourante(120,120,120);
 		rectangle(100,180,1100,680);
@@ -109,26 +109,31 @@ void affichageMemory(int p,memory *me,carte tableau[12])
 		afficheChaine("F I N  D U  T E S T",30,430,400);
 	}
 
-	char chrono[] = "00";
+	char chrono[6] ;	
+	memset(chrono,0,sizeof(chrono));
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(2);
 	sprintf(chrono,"%d s",me->temps);
 	epaisseurDeTrait(2);
 	afficheChaine(chrono,20,350,80);
 
-	char pourcentage[] = "00";
+
+	char pourcentage[5];
+	memset(pourcentage,0,sizeof(pourcentage));
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(2);
 	sprintf(pourcentage,"%d",me->erreur);
 	epaisseurDeTrait(2);
 	afficheChaine(pourcentage,20,730,80);
 
+
 }
 
 
 void initStructMemory(memory *me)
 {
-	int i=0;
+	memset(me, 0, sizeof(*me));
+	/* int i=0;
     me->lockeur=0;
     me->clic1=0;
     me->clic2=0;
@@ -142,7 +147,7 @@ void initStructMemory(memory *me)
 	FILE *fichier2=NULL;
 	me->stop=0;
 
-	memset(me->prenom,0,20);
+	memset(me->prenom,0,20);*/
 
 
 	//SI TABLEAU D'IMAGES

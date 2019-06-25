@@ -1,0 +1,2300 @@
+TEST testFB du DATE
+Chrono : 3
+Nombre d'erreur : 0
+
+TEST testFB du DATE
+Chrono : 4
+Nombre d'erreur : 1
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 19
+Nombre d'erreur : 8
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 3
+
+TEST Memory du DATE
+Chrono : 15
+Nombre d'erreur : 6
+
+TEST Memory du DATE
+Chrono : 14
+Nombre d'erreur : 3
+

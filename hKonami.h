@@ -1,5 +1,5 @@
-#ifndef HTESTFB_H_ 
-#define HTESTFB_H_
+#ifndef HKONAMI_H_ 
+#define HKONAMI_H_
 
 #include <stdlib.h> // Pour pouvoir utiliser exit()
 #include <stdio.h> // Pour pouvoir utiliser printf()
@@ -15,24 +15,23 @@
 #define HauteurFenetre 800
 
 /**
- * \file hTestFB.h
+ * \file hKonami.h
  * \author : Lisa DUTERTE
- * \brief Bibliotheque pour utiliser les fonctions permettant de faire fonctionner le testFB\n
- * # Affichage enigme : 
- * \n2 enigmes vont s'afficher l'une après l'autre à l'écran
+ * \brief Bibliotheque pour utiliser les fonctions permettant de faire fonctionner le Konami\n
+ * # Affichage du plateau de test : 
+
  *
  */
 
 
 
 /**
- * \brief      Toutes la variables du testFB
+ * \brief      Toutes la variables du Konami
  */
-typedef struct testFB
+typedef struct KONAMI
 {
 	int suite;
-	int chiffre1;
-	int chiffre2;
+	int clic[6];
 	int lock;
 	int resultat;
 	int test1;
@@ -43,15 +42,13 @@ typedef struct testFB
 	int start;
 	int temps;
 	int erreur;
-	FILE *fichier;
-	DonneesImageRGB *test1FB;
-    DonneesImageRGB *test2FB;	
+	FILE *fichier3;
+	DonneesImageRGB *imkonami;
 
     char prenom[20];
-}test;
+}kona;
 
 
-void initStructTESTFB (test *fb);
-void testFB (test * const fb);
-void afficheResultat(test * const fb);
+void initStructKONAMI (kona *mi);
+void affichageKonami(kona *mi);
 #endif  /* !HTESTFB_H_ */
