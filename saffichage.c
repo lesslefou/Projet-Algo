@@ -89,6 +89,11 @@ menu choixMenu(menu m, test *fb, memory *me,carte tableau[12],int p,int abs, int
 			break;
 		case 4:
 			break;
+		case 5: 
+		//RESULTAT
+			effaceFenetre(255,255,255);
+			afficheChaine('ResultatMemory.txt',10,100,700);
+			break;
 	}
 	return m;
 }
@@ -186,6 +191,31 @@ void affichageLateralite(void)
 	afficheChaine("Retour",30,1080,40);
 }
 
+
+void affichageAnalyse(void)
+{
+	couleurCourante(125,125,125);
+	rectangle(240,160,480,320);
+	rectangle(720,160,960,320);
+	rectangle(240,480,480,640);
+	rectangle(720,480,960,640);
+	rectangle(0,0,150,100);
+	rectangle(1050,0,1200,100);
+	
+	couleurCourante(255,0,0);
+	epaisseurDeTrait(5);
+	afficheChaine("Resultat",40,510,720);
+	ligne(505,710,700,710);
+	couleurCourante(0,0,0);
+	epaisseurDeTrait(3);
+	afficheChaine("Couleur",30,300,550);
+	afficheChaine("Hector",30,775,550);
+	afficheChaine("Calcul Mental",30,260,230);
+	afficheChaine("Test FB",30,770,230);
+	afficheChaine("Resultat",30,20,40);
+	afficheChaine("Retour",30,1080,40);
+}
+
 menu gereClicMenu (menu m,int abs,int ord)
 {
 	if (m.choix == 0)
@@ -194,6 +224,7 @@ menu gereClicMenu (menu m,int abs,int ord)
 		else if (abs>=510 && abs<=680 && ord>=470 && ord<=630) m.choix = 2;
 		else if (abs>=850 && abs<=1020 && ord>=470 && ord<=630) m.choix = 3;
 		else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 4;
+		else if (abs>=0 && abs<=150 && ord>=0 && ord<=100) m.choix = 5;
 	}
 	return m;	
 }

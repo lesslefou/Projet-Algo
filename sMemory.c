@@ -96,7 +96,7 @@ void affichageMemory(int p,memory *me,carte tableau[12])
 	{
 		me->fichier2=fopen("ResultatMemory.txt","r+");
 		fseek(me->fichier2,0,SEEK_END);
-		fprintf(me->fichier2, "TEST de %s :\nChrono : %d\nNombre d'erreur : %d\n\n",me->prenom,me->temps,me->erreur);
+		fprintf(me->fichier2, "TEST Memory de %s :\nChrono : %d\nNombre d'erreur : %d\n\n",me->prenom,me->temps,me->erreur);
 		fclose(me->fichier2);
 		me->start = 4;
 	}	

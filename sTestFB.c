@@ -165,12 +165,14 @@ void testFB(test *fb)
 	epaisseurDeTrait(2);
 	afficheChaine(pourcentage,20,730,80);
 
+	/*
 	
+	*/
 	if (fb->start == 3)
 	{
 		fb->fichier=fopen("ResultatTestFb.txt","r+");
 		fseek(fb->fichier,0,SEEK_END);
-		fprintf(fb->fichier, "TEST de %s:\nChrono : %d\nNombre d'erreur : %d\n\n",fb->prenom,fb->temps,fb->erreur);
+		fprintf(fb->fichier, "TEST testFB de %s:\nChrono : %d\nNombre d'erreur : %d\n\n",fb->prenom,fb->temps,fb->erreur);
 		fclose(fb->fichier);
 		fb->start = 4;
 	}	
