@@ -1,0 +1,4 @@
+TEST testFB du DATE
+Chrono : 6
+Nombre d'erreur : 0
+

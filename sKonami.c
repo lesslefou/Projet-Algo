@@ -94,18 +94,16 @@ void affichageKonami(kona *const mi)
 				}
 				if (mi->a == 1) 
 				{
-					printf ("coucou");
 					mi->tempo = 2;
 					mi->a = 2;
 				}
 
-				if (mi->cpt == 6 && mi->a >= 2)
+				if (mi->cpt == 6 && mi->a == 2)
 				{
 					couleurCourante(120,120,120);
 					rectangle(200,200,1000,700);
 					couleurCourante(0,0,0);
 					afficheChaine("B R A V O !  N E X T ",30,320,430);
-					printf("a= %d, tempo = %d, suite = %d\n",mi->a,mi->tempo,mi->suite);
 					if (mi->tempo > 30)	
 					{
 						mi->suite = 1;
@@ -121,10 +119,11 @@ void affichageKonami(kona *const mi)
 					rectangle(200,200,1000,700);
 					couleurCourante(0,0,0);
 					afficheChaine("P E R D U . . . ",30,320,430);
-					printf("tempo = %d, suite = %d\n",mi->tempo,mi->suite);
+					
 					if (mi->tempo > 30)	
 					{
 						for (i=0; i<6; i++) mi->clic[i] = 0;
+						mi->erreur ++;
 						mi->lockeurMi = 0;
 						mi->tempo = 0;
 						mi->temps -=2;
@@ -142,7 +141,6 @@ void affichageKonami(kona *const mi)
 			}
 
 		}
-
 		else if (mi->suite == 1)
 		{
 			afficheChaine("Gauche/Start/B/Bas/Haut/A",30,380,150);

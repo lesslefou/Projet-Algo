@@ -67,41 +67,67 @@ void testFB(test * const fb)
 	
 		fb->delay ++;
 		if (fb->tempo >= 2) fb->tempo++;
+
 		if (fb->delay == 45)	
 		{
 			fb->temps++;
 			fb->delay=0;
 		}
+
 		if (fb->suite == 0)
 		{
-			ecrisImage(50, 180, fb->test1FB->largeurImage, fb->test1FB->hauteurImage, fb->test1FB->donneesRGB);
+			if (fb->a == 0)		ecrisImage(50, 180, fb->test1FB->largeurImage, fb->test1FB->hauteurImage, fb->test1FB->donneesRGB);
 			
 			if (fb->lock ==0) 
 			{
-				if (fb->resultat == fb->test1)		
+				if (fb->a == 0)
 				{
-					if (fb->cpt==0)
-					{
-						fb->tempo=2;
-						fb->cpt=1;
-					}
-					fb->lock=3;
+					fb->tempo = 2;
+					fb->a = 1;
 				}
-				if (fb->resultat == 2 ) 
+
+				if (fb->resultat == fb->test1 && fb->a == 1)		
 				{
-					fb->erreur++;
-					fb->lock=3;
+
+					couleurCourante(120,120,120);
+					rectangle(200,200,1000,700);
+					couleurCourante(255,255,255);
+					rectangle(1000,300,1100,400);
+					couleurCourante(0,0,0);
+					afficheChaine("B R A V O !  N E X T ",30,320,430);
+					
+					if (fb->tempo > 30)	
+					{
+						fb->lock=3;
+						fb->tempo = 0;
+						fb->temps -=2;
+						fb->suite = 1;
+						fb->cpt = 1;
+						fb->a=0;
+					}
+				}
+				else if (fb->resultat == 2 && fb->a == 1) 
+				{
+					couleurCourante(120,120,120);
+					rectangle(200,200,1000,700);
+					couleurCourante(0,0,0);
+					afficheChaine("P E R D U . . . ",30,320,430);
+					
+					if (fb->tempo > 30)	
+					{
+						fb->erreur++;
+						fb->lock=3;
+						fb->tempo = 0;
+						fb->temps -=2;
+						fb->a=0;
+
+					}
 				}
 			}	
-			if (fb->tempo > 30)	
-			{
-				fb->suite = 1;
-				fb->tempo=0;
-			}
 		}
-		else if (fb->suite ==1)
+		else if (fb->suite == 1)
 		{
-			ecrisImage(50, 180, fb->test2FB->largeurImage, fb->test2FB->hauteurImage, fb->test2FB->donneesRGB);
+			if (fb->a == 0)		ecrisImage(50, 180, fb->test2FB->largeurImage, fb->test2FB->hauteurImage, fb->test2FB->donneesRGB);
 			
 			if (fb->lock ==0 ) 
 			{
@@ -120,7 +146,6 @@ void testFB(test * const fb)
 					fb->lock=3;
 				}
 			}
-
 			if (fb->tempo > 30)	
 			{
 				fb->suite = 2;
@@ -179,7 +204,6 @@ void afficheResultat(test * const fb)
 	char txt[3] = {0};
 	memset(txt,0,sizeof(txt));
 	couleurCourante(0,0,0);
-	printf ("1 : %d, 2: %d\n",fb->chiffre1,fb->chiffre2);
 	epaisseurDeTrait(2);
 	sprintf(txt,"%1d%1d",fb->chiffre1,fb->chiffre2);
 	epaisseurDeTrait(2);

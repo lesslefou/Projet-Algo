@@ -14,3 +14,15 @@ TEST Memory du DATE
 Chrono : 12
 Nombre d'erreur : 3
 
+TEST testFB du DATE
+Chrono : 1
+Nombre d'erreur : 0
+
+TEST KONAMI du DATE
+Chrono : 17
+Nombre d'erreur : 0
+
+TEST testFB du DATE
+Chrono : 1
+Nombre d'erreur : 0
+

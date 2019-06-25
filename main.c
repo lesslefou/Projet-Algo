@@ -1,6 +1,6 @@
 //MACHINE A ETAT
 
-//probleme de retour
+//probleme de RESULTAT
 
 #include "hTestFB.h"
 #include "hMemory.h"

@@ -43,6 +43,7 @@ typedef struct testFB
 	int start;
 	int temps;
 	int erreur;
+	int a;
 	FILE *fichier;
 	DonneesImageRGB *test1FB;
     DonneesImageRGB *test2FB;	
