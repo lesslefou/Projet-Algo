@@ -7,8 +7,8 @@
 
 
 // Largeur et hauteur par defaut d'une image correspondant a nos criteres
-#define LargeurFenetre 800
-#define HauteurFenetre 600
+#define LargeurFenetre 1200
+#define HauteurFenetre 800
 
 
 
@@ -37,12 +37,7 @@ void gestionEvenement(EvenementGfx evenement)
 	
 	srand(time(NULL));
 	static bool pleinEcran = false; // Pour savoir si on est en mode plein ecran ou pas
-	static int i;
-	static int s;
-	static int A[3]={0,0,0,0};
-	static int B[3]={0,0,0,0};
-	static int C[3]={0,0,0,0};
-	static int D[3]={0,0,0,0};
+	
 	
 	switch (evenement)
 	{

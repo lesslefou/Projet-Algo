@@ -190,7 +190,7 @@ void affichageLateralite(void)
 	afficheChaine("Resultat",30,20,40);
 	afficheChaine("Retour",30,1080,40);
 }
-
+ 
 
 void affichageAnalyse(void)
 {
