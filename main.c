@@ -1,11 +1,17 @@
+//MACHINE A ETAT
+
+//probleme de retour
+
 #include "hTestFB.h"
 #include "hMemory.h"
 #include "haffichage.h"
+#include "hKonami.h"
 
 static carte tableau[12];
 
 int main(int argc, char **argv)
 {
+ 	srand(time(NULL));
 	initialiseGfx(argc, argv);
 	
 	prepareFenetreGraphique("GfxLib", LargeurFenetre, HauteurFenetre);
@@ -23,7 +29,6 @@ int main(int argc, char **argv)
 des qu'une evenement survient */
 void gestionEvenement(EvenementGfx evenement)
 {
- 	srand(time(NULL));
  	static bool pleinEcran = false; // Pour savoir si on est en mode plein ecran ou pas
    
  	static int abs=0;
@@ -36,16 +41,18 @@ void gestionEvenement(EvenementGfx evenement)
 	//MENU
 	static menu m;
 
-    //TEST FB
-    static test fb;
-
     //MEMORY
     static memory me;
+    static memory *const pt = &me;
     static int p=0;
     
-    //SI TABLEAU D'IMAGES
-	//static DonneesImageRGB *Images[12];
+    //TEST FB
+    static test fb;
+    static test * const pt1 = &fb;
 
+    //Konami
+    static kona mi;
+    static kona *const pt2 = &mi;
 
 	
 	switch (evenement)
@@ -56,14 +63,17 @@ void gestionEvenement(EvenementGfx evenement)
 			demandeTemporisation(20);
 
 			//Menu
-			//m = initMenu(m);
+			m = initMenu(m);
 
 			//TEST FB
-			fb = initStructTESTFB (fb);
+			initStructTESTFB(pt1);
 
 			//MEMORY
-			//me = initStructMemory(me);
-			initPosition (tableau);
+			initStructMemory(pt);
+			initPosition(tableau);
+
+			//KONAMI
+			initStructKONAMI(pt2);
 
 			break;
 		
@@ -75,11 +85,11 @@ void gestionEvenement(EvenementGfx evenement)
 			// On part d'un fond d'ecran blanc
 			effaceFenetre (255, 255, 255);
 
-			//m = choixMenu(m,fb,me,tableau,p,abs,ord);
+			m = choixMenu(m,pt1,pt,pt2,tableau,p,abs,ord);
 
-			//me = affichageMemory(p,me,tableau);		
+			//affichageMemory(p,pt,tableau);		
 						
-			fb = testFB(fb);
+			//testFB(pt1);
 					
 
 			break;
@@ -94,19 +104,22 @@ void gestionEvenement(EvenementGfx evenement)
 					termineBoucleEvenements();
 
 					//TEST FB
-					libereDonneesImageRGB(&fb.test1FB);
-					libereDonneesImageRGB(&fb.test2FB);
+					libereDonneesImageRGB(&pt1->test1FB);
+					libereDonneesImageRGB(&pt1->test2FB);
 
 					//MEMORY
-					libereDonneesImageRGB(&me.chien);
-					libereDonneesImageRGB(&me.chat);
-					libereDonneesImageRGB(&me.poulain);
-					libereDonneesImageRGB(&me.canard);
-					libereDonneesImageRGB(&me.lapin);
-					libereDonneesImageRGB(&me.oiseau);
-					libereDonneesImageRGB(&me.carte);
-					libereDonneesImageRGB(&me.image1);
-					libereDonneesImageRGB(&me.image2);
+					libereDonneesImageRGB(&pt->chien);
+					libereDonneesImageRGB(&pt->chat);
+					libereDonneesImageRGB(&pt->poulain);
+					libereDonneesImageRGB(&pt->canard);
+					libereDonneesImageRGB(&pt->lapin);
+					libereDonneesImageRGB(&pt->oiseau);
+					libereDonneesImageRGB(&pt->carte);
+					libereDonneesImageRGB(&pt->image1);
+					libereDonneesImageRGB(&pt->image2);
+
+					//KONAMI
+					libereDonneesImageRGB(&pt2->imkonami);
 
 
 					break;
@@ -163,15 +176,16 @@ void gestionEvenement(EvenementGfx evenement)
 				case 'y':
 				case 'z':
 
-					if (me.start == 0)
+					//MEMORY
+					if (pt->start == 0)
 					{
 						for (i=0; i<20; i++)
 						{
 							if (a == 0)
 							{
-								if (me.prenom[i] == 0) 
+								if (pt->prenom[i] == 0) 
 								{
-									me.prenom[i] = caractereClavier();
+									pt->prenom[i] = caractereClavier();
 									a++;
 								}
 							}
@@ -179,15 +193,34 @@ void gestionEvenement(EvenementGfx evenement)
 						a=0;
 					}
 
-					if (fb.start == 0)
+					//TESTFB
+					if (pt1->start == 0)
 					{
 						for (i=0; i<20; i++)
 						{
 							if (a == 0)
 							{
-								if (fb.prenom[i] == 0) 
+								if (pt1->prenom[i] == 0) 
 								{
-									fb.prenom[i] = caractereClavier();
+									pt1->prenom[i] = caractereClavier();
+									a++;
+								}
+							}
+						}
+						a=0;
+					}
+
+
+					//KONAMI
+					if (pt2->start == 0)
+					{
+						for (i=0; i<20; i++)
+						{
+							if (a == 0)
+							{
+								if (pt2->prenom[i] == 0) 
+								{
+									pt2->prenom[i] = caractereClavier();
 									a++;
 								}
 							}
@@ -196,13 +229,13 @@ void gestionEvenement(EvenementGfx evenement)
 					}
 					
 
-					//for (i=0; i<20; i++) 	printf ("me.prenom[%d] = %d\n",i,me.prenom[i]);
 					break;
 
 				case 13:
-					if (me.start == 0) 	me.start = 1;
-					if (fb.start == 0)  fb.start = 1;
-			printf("statrt = %d\n",me.start);
+					if (pt->start == 0) 	pt->start = 1;
+					if (pt1->start == 0)    pt1->start = 1;
+					if (pt2->start == 0)    pt2->start = 1;
+					break;
 
 				case '0':
 				case '1':
@@ -214,18 +247,20 @@ void gestionEvenement(EvenementGfx evenement)
 				case '7':
 				case '8':
 				case '9':
-					if (fb.lock == 3)
+					if (pt1->lock == 3)
 					{
-						fb.chiffre1 = caractereClavier()-48;
-						fb.lock =1;
+						pt1->chiffre1 = caractereClavier()-48;
+						pt1->lock =1;
 					}
-					else if (fb.lock == 1)
+					else if (pt1->lock == 1)
 					{
-						fb.chiffre2 = caractereClavier()-48;
-						fb.lock=0;
+						pt1->chiffre2 = caractereClavier()-48;
+						pt1->lock=0;
 					}
 				break;
-				}
+
+
+			}
 			break;
 			
 		case ClavierSpecial:
@@ -238,52 +273,105 @@ void gestionEvenement(EvenementGfx evenement)
 			{
 				printf("Bouton gauche appuye en : (%d, %d)\n", abscisseSouris(), ordonneeSouris());
 
+
 				//MENU
-				m = gereClicMenu(m,abs,ord);
-				m = gereClicMemoire(m,abs,ord);
-				m = gereClicAnalyse(m,abs,ord);
-				m = gereClicLateralite(m,abs,ord);
+				if (m.choix == MenuPrincipal)
+				{
+					m = gereClicMenu(m,abs,ord);
+				}
+				else if (m.choix == Memoire)
+				{
+					m = gereClicMemoire(m,abs,ord);
+				}
+				else if (m.choix == Analyse)
+				{
+					m = gereClicAnalyse(m,abs,ord);
+				}
+				else if (m.choix == Lateralite)
+				{
+					m = gereClicLateralite(m,abs,ord);
+				}
+				/*else if (m.choix == General)
+				{
+					m = gereClicGeneral(m,abs,ord);
+				}*/
+				else if (m.choix == Resultat)
+				{
+					m = gereClicResultat(m,abs,ord);
+				}
+
+				if (abs>=0 && abs<=100 && ord>=730 && ord<=800) 
+				{
+					m.retour=1;
+					initStructTESTFB(pt1);
+					initStructMemory(pt);
+					initStructKONAMI(pt2);
+				}
 
 				//m = gereClicStart(m);
-				if (abs>=900 && abs<=1100 && ord>=60 && ord<=120)	
+				else if (abs>=900 && abs<=1100 && ord>=60 && ord<=120)	
 				{
 					//TEST FB
-					if (fb.start == 1) 		fb.start = 2;
-					else if (fb.start == 4)
+					if (pt1->start == 1) 		
 					{
-						fb = initStructTESTFB(fb);
+						pt1->start = 2;
+					}
+					else if (pt1->start == 4)
+					{
+						initStructTESTFB(pt1);
 					}
 					else;
 
 					//MEMORY
-					if (me.start == 1) 		me.start = 2;
-					else if (me.start == 4)
+					if (pt->start == 1) 		
 					{
-						me = initStructMemory(me);
+						pt->start = 2;
+					}
+					else if (pt->start == 4)
+					{
+						initStructMemory(pt);
+					}
+					else;
+
+					//KONAMI
+					if (pt2->start == 1) 		
+					{
+						pt2->start = 2;
+					}
+					else if (pt2->start == 4)
+					{
+						initStructKONAMI(pt2);
 					}
 					else;
 				}
 
 				
 
-
 				//MEMORY
-				if (me.lockeur == 0) 
+				if (pt->lockeur == 0 && pt->delay > 0) 
 				{
-					me = gereClicCarte(me,abs,ord);
-					me.clic2 = 0;
-					me.lockeur = 1;
+					gereClicCarte(pt,abs,ord);
+					pt->clic2 = 0;
+					pt->lockeur = 1;
 				}
-				else if (me.lockeur ==1)
+				else if (pt->lockeur ==1)
 				{
-					me = gereClicCarte(me,abs,ord);
-					me.lockeur = 0;
-					me.stop=1;
+					gereClicCarte(pt,abs,ord);
+					pt->lockeur = 0;
+					pt->stop=1;
 				}
 
+
+				//KONAMI
+				if (pt2->delay > 0)
+				{
+					gereClicCode(pt2,abs,ord);
+					pt2->lockeurMi++;
+				}
+				
 				
 			}
-			
+			/*
 			if (etatBoutonSouris() == GaucheRelache)	activeGestionDeplacementPassifSouris();
 			if (etatBoutonSouris() == DroiteAppuye)
 			{
@@ -291,7 +379,7 @@ void gestionEvenement(EvenementGfx evenement)
 			}
 			if (etatBoutonSouris() == DroiteRelache)	activeGestionDeplacementPassifSouris();
 			
-				
+			*/	
 				
 			break;
 		

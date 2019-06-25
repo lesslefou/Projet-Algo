@@ -51,7 +51,7 @@ typedef struct testFB
 }test;
 
 
-test initStructTESTFB (test fb);
-test testFB (test fb);
-test afficheResultat(test fb);
+void initStructTESTFB (test *fb);
+void testFB (test * const fb);
+void afficheResultat(test * const fb);
 #endif  /* !HTESTFB_H_ */

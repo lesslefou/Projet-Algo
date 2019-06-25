@@ -21,7 +21,7 @@ digraph "haffichage.h"
   Node9 [label="Librairie/BmpLib.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_bmp_lib_8h.html"];
   Node9 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
   Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
-  Node10 [label="hTestFB.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$h_test_f_b_8h.html"];
+  Node10 [label="hTestFB.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$h_test_f_b_8h.html",tooltip="Bibliotheque pour utiliser les fonctions permettant de faire fonctionner le testFB Affichage enigme :..."];
   Node10 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
   Node10 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
   Node10 -> Node4 [color="midnightblue",fontsize="10",style="solid"];

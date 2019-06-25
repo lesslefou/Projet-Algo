@@ -1,0 +1,16 @@
+TEST Konami du DATE
+Chrono : 9
+Nombre d'erreur : 0
+
+TEST KONAMI du DATE
+Chrono : 14
+Nombre d'erreur : 0
+
+TEST testFB du DATE
+Chrono : 3
+Nombre d'erreur : 0
+
+TEST Memory du DATE
+Chrono : 12
+Nombre d'erreur : 3
+

@@ -12,34 +12,23 @@ static struct Coord
 	int xF;
 	int yF;	
 }
-Coord[]= {{100, 400, 400, 200},{100, 400, 400, 200},{100, 400, 400, 200},{100, 400, 400, 200},{100, 400, 400, 200}};
+Coord[]= {{740, 660, 890, 510},{910, 660, 1060, 510},{910, 490, 1060, 340},{740, 490, 890, 340},{100, 676, 400, 376}};
 
-static struct Mcolor
+	
+
+	static struct Mcolor2
 {
 	int c1;
 	int c2;
 	int c3;
 }
-Mcolor[] = {{rand()%255,rand()%255, rand()%255},{rand()%255,rand()%255, rand()%255},{rand()%255,rand()%255, rand()%255},{rand()%255,rand()%255, rand()%255}};
-	
+Mcolor2[4][4] =  {{{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0}}};
 
-int VisionSpatial(void);
-//int figure1(void);
-//int figure2(void);
-//int figure3(void);
-//int figure4(void);
-//int figure5(void);
-//int validation(void);
-int DessineCarre(Coord[], Mcolor[]);
-int DessineCellule1(Coord[], Mcolor[]);
-int DessineCellule2(Coord[], Mcolor[]);
-int DessineCellule3(Coord[], Mcolor[]);
-int DessineCellule4(Coord[], Mcolor[]);
-int DessineCarreMulticolorRandom(Coord[], Mcolor[]);
-int DessineCellule1OG(Coord[], Mcolor[]);
-int DessineCellule2OG(Coord[], Mcolor[]);
-int DessineCellule3OG(Coord[], Mcolor[]);
-int DessineCellule4OG(Coord[], Mcolor[]);
-
-
-
+void VisionSpatial();
+void DessineCarre(void);
+void DessineCellules(int SquareID);
+void DessineCarreMultiColorRandom(int SquareID);
+void DessineCellulesOriginal(int PatternID);
+void DessineCarreMultiColorOriginal(int PatternID);
+void initMcolor2(void);
+int ChoisirPatternSol();

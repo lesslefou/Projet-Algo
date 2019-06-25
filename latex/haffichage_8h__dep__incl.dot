@@ -6,7 +6,9 @@ digraph "haffichage.h"
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
   Node2 [label="affichage.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$affichage_8c.html"];
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
-  Node3 [label="main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html"];
+  Node3 [label="main M.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_01_m_8c.html"];
   Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
-  Node4 [label="saffichage.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$saffichage_8c.html"];
+  Node4 [label="main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="saffichage.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$saffichage_8c.html"];
 }
