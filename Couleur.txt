@@ -1,0 +1,52 @@
+TEST du DATE
+Chrono : 27
+Nombre d'erreur : 7
+
+TEST du DATE
+Chrono : 30
+Nombre d'erreur : 2
+
+TEST du DATE
+Chrono : 51
+Nombre d'erreur : 8
+
+TEST du DATE
+Chrono : 65
+Nombre d'erreur : 2
+
+TEST du DATE
+Chrono : 23
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 133
+Nombre d'erreur : 4
+
+TEST du DATE
+Chrono : 28
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 32
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 24
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 26
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 38
+Nombre d'erreur : 2
+
+TEST du DATE
+Chrono : 56
+Nombre d'erreur : 4
+
+TEST du DATE
+Chrono : 33
+Nombre d'erreur : 6
+

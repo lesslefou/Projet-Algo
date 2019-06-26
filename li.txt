@@ -2,3 +2,17 @@ TEST testFB du DATE
 Chrono : 6
 Nombre d'erreur : 0
 
+TEST testFB2 du DATE
+Chrono : 3
+Nombre d'erreur : 0
+
+TEST testFB3 du DATE
+Chrono : 4
+Nombre d'erreur : 0
+
+TEST testFB4 du DATE
+Chrono : 5
+Nombre d'erreur : 0
+
+
+//strlen = longueur chaine

@@ -94,9 +94,9 @@ void affichageMemory(int p,memory *me,carte tableau[12])
 	{
 		char nom[30];
 		strcpy(nom,me->prenom);
-		strcat(nom,".txt");
+		strcat(nom,"Memory.txt");
 		me->fichier2=fopen(nom,"at");
-		fprintf(me->fichier2, "TEST Memory du DATE\nChrono : %d\nNombre d'erreur : %d\n\n",me->temps,me->erreur);
+		fprintf(me->fichier2, "TEST du DATE\nChrono : %d\nNombre d'erreur : %d\n\n",me->temps,me->erreur);
 		fclose(me->fichier2);
 		me->start = 4;
 	}	
@@ -133,25 +133,6 @@ void affichageMemory(int p,memory *me,carte tableau[12])
 void initStructMemory(memory *me)
 {
 	memset(me, 0, sizeof(*me));
-	/* int i=0;
-    me->lockeur=0;
-    me->clic1=0;
-    me->clic2=0;
-    for (i=0; i<12; i++)   me->validation[i] = 0;
-    me->start=0;
-	me->cpt=0;
-	me->delay=0;
-	me->temps=0;
-	me->tempo=0;
-	me->erreur=0;
-	FILE *fichier2=NULL;
-	me->stop=0;
-
-	memset(me->prenom,0,20);*/
-
-
-	//SI TABLEAU D'IMAGES
-	//Images[0] = chien = lisBMPRGB("chien.bmp");
 	me->chien = lisBMPRGB("chien.bmp");
 	me->poulain = lisBMPRGB("poulain.bmp");
 	me->chat = lisBMPRGB("chat.bmp");

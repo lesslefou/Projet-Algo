@@ -1,6 +1,9 @@
 #ifndef HAFFICHAGE_H_
 #define HAFFICHAGE_H_
 
+#define TAILLE (256)
+#define NBLIGNES (16)
+
 #include <stdlib.h> // Pour pouvoir utiliser exit()
 #include <stdio.h> // Pour pouvoir utiliser printf()
 #include <math.h> // Pour pouvoir utiliser sin() et cos()
@@ -11,6 +14,7 @@
 #include "hTestFB.h"
 #include "hMemory.h"
 #include "hKonami.h"
+#include "hCouleur.h"
 
 // Largeur et hauteur par defaut d'une image correspondant a nos criteres
 #define LargeurFenetre 1200
@@ -30,6 +34,7 @@ typedef enum {Vision=1,Evite=2,Konami=3}
 
 typedef struct gereClicMenu
 {
+	char nom[100];
 	int choix;
 	int choix1;
 	int choix2;
@@ -39,14 +44,37 @@ typedef struct gereClicMenu
 	int bloqueur;
 	int start;
 	int retour;
+	int demande;
+	char prenom[20];
 	
 }menu;
+
+static struct CoordTest
+{
+	int x1, y1, x2, y2;
+} coordTest[] = { 	
+					{100, 340, 480, 640},
+					{360, 600, 480, 640},
+					{620, 840, 480, 640},
+					{860, 1100, 480, 640},
+
+					{100, 340, 310, 460},
+					{360, 600, 310, 460},
+					{620, 840, 310, 460},
+					{860, 1100, 310, 460},
+
+
+					{100, 340, 130, 290},
+					{360, 600, 130, 290},
+					{620, 840, 130, 290},
+					{860, 1100, 130, 290}
+				};
 
 
 void gestionEvenement(EvenementGfx evenement);
 
 menu initMenu(menu m);
-menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,carte tableau[12],int p,int abs, int ord);
+menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,coule *const ur,carte tableau[12],int p,int abs, int ord);
 void affichage1(void);
 void affichageMemoire(void);
 void affichageAnalyse(void);
@@ -57,7 +85,5 @@ menu gereClicMemoire(menu m,int abs,int ord);
 menu gereClicAnalyse(menu m,int abs,int ord);
 menu gereClicLateralite(menu m,int abs,int ord);
 menu gereClicResultat(menu m,int abs,int ord);
-
-menu gereClicStart(menu m);
-
+menu afficheEcranResultat(menu m);
 #endif  /* !HAFFICHAGE_H_ */

@@ -183,9 +183,9 @@ void testFB(test * const fb)
 	{
 		char nom[30];
 		strcpy(nom,fb->prenom);
-		strcat(nom,".txt");
+		strcat(nom,"TestFB.txt");
 		fb->fichier=fopen(nom,"at");
-		fprintf(fb->fichier, "TEST testFB du DATE\nChrono : %d\nNombre d'erreur : %d\n\n",fb->temps,fb->erreur);
+		fprintf(fb->fichier, "TEST du DATE\nChrono : %d\nNombre d'erreur : %d\n\n",fb->temps,fb->erreur);
 		fclose(fb->fichier);
 		fb->start = 4;
 	}	

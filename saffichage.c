@@ -1,17 +1,12 @@
 #include "haffichage.h"
 #include "hTestFB.h"
 #include "hMemory.h"
+#include "hCouleur.h"
 
 menu initMenu(menu m)
 {
-	m.choix=0;
-	m.choix1=0;
-	m.choix2=0;
-	m.choix3=0;
-	m.choix4=0;
-	m.choix5=0;
-	m.start=0;
-	m.retour=0;
+	memset(&m, 0, sizeof(m));
+	
 	return m;
 }
 
@@ -32,7 +27,7 @@ menu gereClicStart(menu m)
 
 
 
-menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,carte tableau[12],int p,int abs, int ord)
+menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,coule *const ur,carte tableau[12],int p,int abs, int ord)
 {
 	switch (m.choix)
 	{
@@ -88,6 +83,16 @@ menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,carte tableau
 					break;
 
 				case Couleur:
+					if (m.retour == 0) 
+					{
+						affichageCouleur(ur);
+						m.bloqueur = 1;
+					}
+					else	
+					{
+						m.choix = 2;
+						m.bloqueur = 0;
+					}
 					break;
 
 				case Hector: 
@@ -125,44 +130,26 @@ menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,carte tableau
 			break;
 
 		case Resultat:
-			affichageResultat();
-			
-			switch (m.choix5)
+			if (m.demande == 0) 
 			{
-				case 1:
-					break;
-				case 2:
-					if (m.retour == 0) afficheChaine("ResultatMemory.txt",20,100,700);
-					else	
-					{
-						m.choix = 5;
-					}
-					break;
-				case 3:
-					break;
-				case 4: 
-					break;
-				case 5: 
-					break;
-				case 6: 
-					break;
-				case 7: 
-					break;
-				case 8: 
-					if (m.retour == 0) afficheChaine("ResultatTestFb.txt",20,100,700);
-					else	
-					{
-						m.choix = 5;
-					}
-					break;
-				case 9: 
-					break;
-				case 10: 
-					break;
-				case 11: 
-					break;
-				case 12: 
-					break;
+				epaisseurDeTrait(3);
+				couleurCourante(0,0,0);
+				afficheChaine("Entrer votre prenom :",30,400,440);
+			}
+			else if (m.demande == 1)   affichageResultat();
+			
+			if (m.bloqueur == 1) 
+			{
+				m = afficheEcranResultat(m);
+				if (m.retour == 1) 
+				{
+					m.demande = 1;
+					m.bloqueur=0;
+				}
+			}
+			else	
+			{
+				m.choix = 5;
 			}
 			break;
 			
@@ -284,11 +271,12 @@ void affichageResultat(void)
 	rectangle(620,480,840,640);
 	rectangle(860,480,1100,640);
 
+	rectangle(1050,0,1200,100);
 	
 	couleurCourante(255,0,0);
-	epaisseurDeTrait(5);
-	afficheChaine("Resultat",40,510,720);
-	ligne(505,710,700,710);
+	epaisseurDeTrait(4);
+	afficheChaine("Resultats",40,510,720);
+	ligne(505,710,690,710);
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(1);
 	afficheChaine("Mnemonique",30,130,550);
@@ -305,6 +293,7 @@ void affichageResultat(void)
 	afficheChaine("Spaciale",30,930,350);
 	afficheChaine("Evite",30,160,220);
 	afficheChaine("Blocs",30,200,170);
+	afficheChaine("Konami",30,400,200);
 
 	afficheChaine("Retour",30,1080,40);
 }
@@ -319,6 +308,7 @@ menu gereClicMenu (menu m,int abs,int ord)
 		else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 4;
 		else if (abs>=0 && abs<=150 && ord>=0 && ord<=100) m.choix = 5;
 	}
+ 	printf("choix5 = %d\n",m.choix5);
 	return m;	
 }
 
@@ -363,28 +353,96 @@ menu gereClicLateralite (menu m,int abs,int ord)
 }
 
 
+
+//le prenom est vide alors qu'il ne devrait pas l'etre
 menu gereClicResultat(menu m, int abs, int ord)
 {
 	if (m.choix == 5 && m.bloqueur == 0)		
 	{
-		if      (abs>=100 && abs<=340 && ord>=130 && ord<=290) m.choix5 = 1;
-		else if (abs>=360 && abs<=600 && ord>=130 && ord<=290) m.choix5 = 2;
-		else if (abs>=620 && abs<=840 && ord>=130 && ord<=290) m.choix5 = 3;
-		else if (abs>=860 && abs<=1100 && ord>=130 && ord<=290) m.choix5 = 4;
+		strcpy(m.nom,m.prenom);
+		for (int i=0; i<12; i++)
+		{
+			if (abs>=coordTest[i].x1 && abs<=coordTest[i].y1 &&  ord>=coordTest[i].x2 && ord<=coordTest[i].y2) m.choix5 = i+1;
+		}
 
-		else if (abs>=100 && abs<=340 && ord>=310 && ord<=460) m.choix5 = 5;
-		else if (abs>=360 && abs<=600 && ord>=310 && ord<=460) m.choix5 = 6;
-		else if (abs>=620 && abs<=840 && ord>=310 && ord<=460) m.choix5 = 7;
-		else if (abs>=860 && abs<=1100 && ord>=310 && ord<=460) m.choix5 = 8;
+		if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 0;
 
-		else if (abs>=100 && abs<=340 && ord>=480 && ord<=640) m.choix5 = 9;
-		else if (abs>=360 && abs<=600 && ord>=480 && ord<=640) m.choix5 = 10;
-		else if (abs>=620 && abs<=840 && ord>=480 && ord<=640) m.choix5 = 11;
-		else if (abs>=860 && abs<=1100 && ord>=480 && ord<=640) m.choix5 = 12;
-
-		else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 0;
+		if (m.choix5 == 1)	strcat(m.nom,"Mnemonique.txt");
+		else if (m.choix5 == 2)	strcat(m.nom,"Memory.txt");
+		else if (m.choix5 == 3)	strcat(m.nom,"Boule.txt");
+		else if (m.choix5 == 4)	strcat(m.nom,"Couleur.txt");
+		else if (m.choix5 == 5)	strcat(m.nom,"Hector.txt");
+		else if (m.choix5 == 6)	strcat(m.nom,"Calcul.txt");
+		else if (m.choix5 == 7)	strcat(m.nom,"Test.txt");
+		else if (m.choix5 == 8)	strcat(m.nom,"Vision.txt");
+		else if (m.choix5 == 9)	strcat(m.nom,"Evite.txt");
+		else if (m.choix5 == 10) strcat(m.nom,"Konami.txt");
+		m.bloqueur = 1;
  	}
+	return m;		
+}
+
+
+menu afficheEcranResultat(menu m)
+{
+	effaceFenetre(255,255,255);
+	couleurCourante(255,0,0);
+	epaisseurDeTrait(5);
+
+	if (m.choix5 == 1)			afficheChaine("M N E M O N I Q U E",40,350,725);
+	else if (m.choix5 == 2)		afficheChaine("M E M O R Y",40,420,725);
+	else if (m.choix5 == 3)		afficheChaine("B O U L E",40,420,725);
+	else if (m.choix5 == 4)		afficheChaine("C O U L E U R",40,420,725);
+	else if (m.choix5 == 5)		afficheChaine("H E C T O R",40,420,725);
+	else if (m.choix5 == 6)		afficheChaine("C A L C U L  M E N T A L",40,220,725);
+	else if (m.choix5 == 7)		afficheChaine("T E S T  F B",40,420,725);
+	else if (m.choix5 == 8)		afficheChaine("V I S I O N  S P A T I A L E",40,200,725);
+	else if (m.choix5 == 9)		afficheChaine("E V I T E  B L O C S ",40,300,725);
+	else if (m.choix5 == 10) 	afficheChaine("K O N A M I",40,420,725);
+
+
+	epaisseurDeTrait(2);
+
+	couleurCourante (200,200,200);
+	rectangle(0,730,100,800);
+
+	couleurCourante(0,0,0);
+	afficheChaine("Retour",20,20,760);
+
+	char tabLignes[NBLIGNES][TAILLE] = {0};
+	int ligneCourante = 0,y=600,stop=0;
+
+	FILE *fichier = fopen(m.nom, "rt");
+	if (fichier != NULL)
+	{
+		char buffer[TAILLE] = {0};
+		//Tant que La Ligne Lue est différente de 0 (soit possède des caractères) 
+		while (fgets(buffer, TAILLE, fichier) != NULL)
+		{
+			//Alors on la copie dans tabLignes
+			strcpy(tabLignes[ligneCourante], buffer);
+			//Buffer tournant (permet de fcopier que les NBLIGNES)
+			ligneCourante = (ligneCourante+1)%NBLIGNES;
+		}
+		fclose(fichier);
+
+		for (int ligneAAfficher = 0; ligneAAfficher < NBLIGNES; ++ligneAAfficher)
+		{
+			//Affiche le continu de la ligne à l'écran
+			if (stop == 0)
+			{
+				for (int i=0; i<NBLIGNES; i++)
+				{
+					afficheChaine(tabLignes[ligneCourante],20,480,y);
+					ligneCourante = (ligneCourante+1)%NBLIGNES;
+					y-=30;
+					stop = 1;
+				}
+			}
+		}
+	}
+	else
+		printf("Fichier %s impossible à ouvrir\n", fichier);
 
 	return m;
-		
 }

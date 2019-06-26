@@ -2,11 +2,13 @@
 
 void initStructKONAMI(kona *const mi)
 {
-	int i=0;
-	mi->suite=0;
-	for (i=0; i<6; i++) 	mi->clic[i]=0;
-
-
+	memset(mi, 0, sizeof(*mi));
+/*	*mi = (kona){.suite = 0,
+		.clic = {0},
+		.lockeurMi = 0,
+		.ordre1 = {2,7,6,4,5,3},
+	};
+*/
 	//mi->ordre1[] = {2,7,6,4,5,3};
 	mi->ordre1[0]=2;
 	mi->ordre1[1]=7;
@@ -22,22 +24,10 @@ void initStructKONAMI(kona *const mi)
 	mi->ordre2[3]=5;
 	mi->ordre2[4]=4;
 	mi->ordre2[5]=3;
-
-
-	mi->lockeurMi=0;
-	mi->resultat=0;
-	mi->delay=0;
-	mi->tempo=0;
-	mi->cpt=0;
-	mi->start=0;
-	mi->temps=0;
-	mi->erreur=0;
-	FILE *fichier=NULL;
 	
 	mi->imkonami = lisBMPRGB("konamiCode.bmp");
+	
 
-
-	memset(mi->prenom,0,20);
 }
 
 void affichageKonami(kona *const mi)
@@ -189,9 +179,9 @@ void affichageKonami(kona *const mi)
 	{
 		char nom[30];
 		strcpy(nom,mi->prenom);
-		strcat(nom,".txt");
+		strcat(nom,"Konami.txt");
 		mi->fichier3=fopen(nom,"at");
-		fprintf(mi->fichier3, "TEST KONAMI du DATE\nChrono : %d\nNombre d'erreur : %d\n\n",mi->temps,mi->erreur);
+		fprintf(mi->fichier3, "TEST du DATE\nChrono : %d\nNombre d'erreur : %d\n\n",mi->temps,mi->erreur);
 		fclose(mi->fichier3);
 		mi->start = 4;
 	}	

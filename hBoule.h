@@ -1,11 +1,11 @@
 #include <stdlib.h> // Pour pouvoir utiliser exit()
 #include <stdio.h> // Pour pouvoir utiliser printf()
 #include <math.h> // Pour pouvoir utiliser sin() et cos()
-#include <string.h>
-#include "../../Documents/GfxLib/GfxLib.h" // Seul cet include est necessaire pour faire du graphique
-#include "../../Documents/GfxLib/BmpLib.h"
-#include "../../Documents/GfxLib/ESLib.h"
 #include <time.h>
+#include <string.h>
+#include "Librairie/GfxLib.h" // Seul cet include est necessaire pour faire du graphique
+#include "Librairie/BmpLib.h"
+
 
 
 

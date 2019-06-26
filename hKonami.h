@@ -45,6 +45,7 @@ typedef struct KONAMI
 	int temps;
 	int erreur;
 	int a;
+	
 	FILE *fichier3;
 	DonneesImageRGB *imkonami;
 	
@@ -55,4 +56,5 @@ typedef struct KONAMI
 void initStructKONAMI (kona *const mi);
 void affichageKonami(kona *const mi);
 void testCode(kona *const mi,int abs,int ord);
+void gereClicCode(kona *const mi,int abs,int ord);
 #endif  /* !HTESTFB_H_ */

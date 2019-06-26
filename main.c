@@ -6,6 +6,7 @@
 #include "hMemory.h"
 #include "haffichage.h"
 #include "hKonami.h"
+#include "hCouleur.h"
 
 static carte tableau[12];
 
@@ -54,6 +55,9 @@ void gestionEvenement(EvenementGfx evenement)
     static kona mi;
     static kona *const pt2 = &mi;
 
+    //Couleur
+    static coule ur;
+    static coule *const pt3 = &ur;
 	
 	switch (evenement)
 	{
@@ -75,6 +79,9 @@ void gestionEvenement(EvenementGfx evenement)
 			//KONAMI
 			initStructKONAMI(pt2);
 
+			//Couleur
+			initStructCOULEUR(pt3);
+
 			break;
 		
 		case Temporisation:
@@ -85,12 +92,8 @@ void gestionEvenement(EvenementGfx evenement)
 			// On part d'un fond d'ecran blanc
 			effaceFenetre (255, 255, 255);
 
-			m = choixMenu(m,pt1,pt,pt2,tableau,p,abs,ord);
+			m = choixMenu(m,pt1,pt,pt2,pt3,tableau,p,abs,ord);
 
-			//affichageMemory(p,pt,tableau);		
-						
-			//testFB(pt1);
-					
 
 			break;
 			
@@ -227,7 +230,40 @@ void gestionEvenement(EvenementGfx evenement)
 						}
 						a=0;
 					}
+
+					//RESULTAT
+					if (m.demande == 1)
+					{
+						for (i=0; i<20; i++)
+						{
+							if (a == 0)
+							{
+								if (pt2->prenom[i] == 0) 
+								{
+									m.prenom[i] = caractereClavier();
+									a++;
+								}
+							}
+						}
+						a=0;
+					}
 					
+					//Couleur
+					if (m.demande == 0)
+					{
+						for (i=0; i<20; i++)
+						{
+							if (a == 0)
+							{
+								if (m.prenom[i] == 0) 
+								{
+									m.prenom[i] = caractereClavier();
+									a++;
+								}
+							}
+						}
+						a=0;
+					}
 
 					break;
 
@@ -235,6 +271,8 @@ void gestionEvenement(EvenementGfx evenement)
 					if (pt->start == 0) 	pt->start = 1;
 					if (pt1->start == 0)    pt1->start = 1;
 					if (pt2->start == 0)    pt2->start = 1;
+					if (pt3->start == 0)    pt3->start = 1;
+					if (m.choix == 5)		m.demande = 1;
 					break;
 
 				case '0':
@@ -303,9 +341,13 @@ void gestionEvenement(EvenementGfx evenement)
 				if (abs>=0 && abs<=100 && ord>=730 && ord<=800) 
 				{
 					m.retour=1;
-					initStructTESTFB(pt1);
 					initStructMemory(pt);
+					initStructTESTFB(pt1);
 					initStructKONAMI(pt2);
+					initStructCOULEUR(pt3);
+					m.bloqueur=0;
+					m.retour=0;
+					m.demande=1;
 				}
 
 				//m = gereClicStart(m);
@@ -343,6 +385,17 @@ void gestionEvenement(EvenementGfx evenement)
 						initStructKONAMI(pt2);
 					}
 					else;
+
+					//Couleur
+					if (pt3->start == 1) 		
+					{
+						pt3->start = 2;
+					}
+					else if (pt3->start == 4)
+					{
+						initStructCOULEUR(pt3);
+					}
+					else;
 				}
 
 				
@@ -369,7 +422,16 @@ void gestionEvenement(EvenementGfx evenement)
 					pt2->lockeurMi++;
 				}
 				
-				
+				//Couleur
+				if (pt3->delay > 0)
+				{	
+					gereClicCouleur(pt3,abs,ord);
+					pt3->lockeurCo=1;
+				}
+
+
+
+
 			}
 			/*
 			if (etatBoutonSouris() == GaucheRelache)	activeGestionDeplacementPassifSouris();
