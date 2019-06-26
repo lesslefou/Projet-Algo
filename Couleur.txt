@@ -50,3 +50,7 @@ TEST du DATE
 Chrono : 33
 Nombre d'erreur : 6
 
+TEST du DATE
+Chrono : 24
+Nombre d'erreur : 1
+

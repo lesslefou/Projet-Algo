@@ -345,9 +345,12 @@ void gestionEvenement(EvenementGfx evenement)
 					initStructTESTFB(pt1);
 					initStructKONAMI(pt2);
 					initStructCOULEUR(pt3);
-					m.bloqueur=0;
-					m.retour=0;
-					m.demande=1;
+					if (m.choix == 5)
+					{
+						m.bloqueur=0;
+						m.retour=0;
+						m.demande=1;
+					}
 				}
 
 				//m = gereClicStart(m);

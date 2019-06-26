@@ -126,7 +126,8 @@ menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,coule *const 
 			}
 			break;
 
-		case General:
+		case Quitter:
+			termineBoucleEvenements();
 			break;
 
 		case Resultat:
@@ -152,7 +153,8 @@ menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,coule *const 
 				m.choix = 5;
 			}
 			break;
-			
+		case General:
+			break;
 	}
 	return m;
 }
@@ -307,8 +309,8 @@ menu gereClicMenu (menu m,int abs,int ord)
 		else if (abs>=850 && abs<=1020 && ord>=470 && ord<=630) m.choix = 3;
 		else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 4;
 		else if (abs>=0 && abs<=150 && ord>=0 && ord<=100) m.choix = 5;
+		else if (abs>=340 && abs<=850 && ord>=160 && ord<=320);
 	}
- 	printf("choix5 = %d\n",m.choix5);
 	return m;	
 }
 
@@ -354,7 +356,6 @@ menu gereClicLateralite (menu m,int abs,int ord)
 
 
 
-//le prenom est vide alors qu'il ne devrait pas l'etre
 menu gereClicResultat(menu m, int abs, int ord)
 {
 	if (m.choix == 5 && m.bloqueur == 0)		

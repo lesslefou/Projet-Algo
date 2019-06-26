@@ -20,7 +20,7 @@
 #define LargeurFenetre 1200
 #define HauteurFenetre 800
 
-typedef enum {MenuPrincipal=0, Memoire=1, Analyse=2, Lateralite=3,General=4,Resultat=5}
+typedef enum {MenuPrincipal=0, Memoire=1, Analyse=2, Lateralite=3,Quitter=4,Resultat=5,General=6}
 	Etats;
 
 typedef enum {Boule=0,Mnemonique=1,Memory=2}
