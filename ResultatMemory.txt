@@ -1,4 +1,0 @@
-TEST de lisa :
-Chrono : 19
-Nombre d'erreur : 6
-

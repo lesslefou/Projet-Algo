@@ -1,4 +1,0 @@
-TEST du DATE
-Chrono : 44
-Nombre d'erreur : 2
-
