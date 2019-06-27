@@ -101,6 +101,7 @@ void affichageKonami(kona *const mi)
 						mi->temps -=2;
 						mi->cpt = 0;
 						mi->lockeurMi = 0;
+						mi->a=0;
 					}
 				}
 				else if (mi->a == 2)
@@ -116,7 +117,6 @@ void affichageKonami(kona *const mi)
 						mi->erreur ++;
 						mi->lockeurMi = 0;
 						mi->tempo = 0;
-						mi->temps -=2;
 						mi->cpt = 0;
 						mi->a=0;
 					}
@@ -136,16 +136,39 @@ void affichageKonami(kona *const mi)
 			afficheChaine("Gauche/Start/B/Bas/Haut/A",30,380,150);
 			if (mi->lockeurMi == 6) 
 			{
-				for (i=0; i<6; i++)
+				if(mi->a == 0)
 				{
-					if (mi->clic[i] == mi->ordre2[i]) mi->cpt++;
-					mi->clic[i] = 0;
+					for (i=0; i<6; i++)
+					{
+						if (mi->clic[i] == mi->ordre2[i]) mi->cpt++;
+						mi->clic[i] = 0;
+						mi->a = 1;
+					}
 				}
-				if (mi->cpt == 6) 
+
+				if (mi->a == 1) 
 				{
 					mi->tempo=2;
-					mi->cpt=0;
+					mi->a=2;
 				}
+
+				if (mi->cpt != 6 && mi->a == 2)
+				{
+					couleurCourante(120,120,120);
+					rectangle(200,200,1000,700);
+					couleurCourante(0,0,0);
+					afficheChaine("P E R D U . . . ",30,320,430);
+					if (mi->tempo > 30)	
+					{
+						for (i=0; i<6; i++) mi->clic[i] = 0;
+						mi->erreur ++;
+						mi->lockeurMi = 0;
+						mi->tempo = 0;
+						mi->cpt = 0;
+						mi->a=0;
+					}
+				}
+
 				if (mi->tempo > 30)	
 				{
 					mi->start = 3;

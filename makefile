@@ -9,11 +9,11 @@ run: projet
 test: projet
 	@valgrind ./projet
 
-projet: main.o sMemory.o sTestFB.o sKonami.o sCouleur.o sBoule.o saffichage.o Librairie/libisentlib.a
-	gcc $(LDFLAGS) main.o sMemory.o sTestFB.o sKonami.o sCouleur.o sBoule.o saffichage.o -o projet   Librairie/libisentlib.a -lm -lglut -lGL -lX11
+projet: main.o sMemory.o sTestFB.o sKonami.o sCouleur.o sMnemonique.o sBoule.o saffichage.o Librairie/libisentlib.a
+	gcc $(LDFLAGS) main.o sMemory.o sTestFB.o sKonami.o sCouleur.o sMnemonique.o sBoule.o saffichage.o -o projet   Librairie/libisentlib.a -lm -lglut -lGL -lX11
 
 
-main.o: main.c Librairie/BmpLib.h Librairie/GfxLib.h hMemory.h hTestFB.h haffichage.h hKonami.h hCouleur.h  hBoule.h
+main.o: main.c Librairie/BmpLib.h Librairie/GfxLib.h hMemory.h hTestFB.h haffichage.h hKonami.h hCouleur.h hMnemonique.h hBoule.h
 	gcc $(CFLAGS) main.c
 
 sMemory.o: sMemory.c hMemory.h
@@ -28,6 +28,9 @@ sKonami.o : sKonami.c hKonami.h
 sCouleur.o: sCouleur.c hCouleur.h
 	gcc $(CFLAGS) sCouleur.c
 
+sMnemonique.o: sMnemonique.c hMnemonique.h
+	gcc $(CFLAGS) sMnemonique.c
+
 s.Boule.o: sBoule.c hBoule.h
 	gcc $(CFLAGS) sBoule.c
 
@@ -35,5 +38,5 @@ saffichage.o: saffichage.c haffichage.h
 	gcc $(CFLAGS) saffichage.c
 
 clean: 
-	rm -f main.o sMemory.o sTestFB.o saffichage.o sKonami.o sBoule.o projet
+	rm -f main.o sMemory.o sTestFB.o saffichage.o sKonami.o sCouleur.o sMnemonique.o sBoule.o projet
 	

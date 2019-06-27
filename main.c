@@ -7,7 +7,9 @@
 #include "haffichage.h"
 #include "hKonami.h"
 #include "hCouleur.h"
+#include "hMnemonique.h"
 
+//AFFICHAGE RESULTAT COULEUR NOPE...
 static carte tableau[12];
 
 int main(int argc, char **argv)
@@ -58,6 +60,10 @@ void gestionEvenement(EvenementGfx evenement)
     //Couleur
     static coule ur;
     static coule *const pt3 = &ur;
+
+    //Mnemonique
+    static mnemo ni;
+    static mnemo *const pt4 = &ni;
 	
 	switch (evenement)
 	{
@@ -82,6 +88,8 @@ void gestionEvenement(EvenementGfx evenement)
 			//Couleur
 			initStructCOULEUR(pt3);
 
+			//Mnemonique
+			initStructMNEMONIQUE(pt4);
 			break;
 		
 		case Temporisation:
@@ -92,9 +100,9 @@ void gestionEvenement(EvenementGfx evenement)
 			// On part d'un fond d'ecran blanc
 			effaceFenetre (255, 255, 255);
 
-			m = choixMenu(m,pt1,pt,pt2,pt3,tableau,p,abs,ord);
+			//m = choixMenu(m,pt1,pt,pt2,pt3,tableau,p,abs,ord);
 
-
+			affichageMnemonique(pt4);
 			break;
 			
 		case Clavier:
@@ -231,16 +239,32 @@ void gestionEvenement(EvenementGfx evenement)
 						a=0;
 					}
 
-					//RESULTAT
-					if (m.demande == 1)
+					//MNEMONIQUE
+					if (pt4->start == 0)
 					{
 						for (i=0; i<20; i++)
 						{
 							if (a == 0)
 							{
-								if (pt2->prenom[i] == 0) 
+								if (pt4->prenom[i] == 0) 
 								{
-									m.prenom[i] = caractereClavier();
+									pt4->prenom[i] = caractereClavier();
+									a++;
+								}
+							}
+						}
+						a=0;
+					}
+
+					if (pt4->lockeurMn == 1)
+					{
+						for (i=0; i<20; i++)
+						{
+							if (a == 0)
+							{
+								if (pt4->mot[i] == 0) 
+								{
+									pt4->mot[i] = caractereClavier();
 									a++;
 								}
 							}
@@ -265,6 +289,23 @@ void gestionEvenement(EvenementGfx evenement)
 						a=0;
 					}
 
+					//RESULTAT
+					if (m.demande == 1)
+					{
+						for (i=0; i<20; i++)
+						{
+							if (a == 0)
+							{
+								if (pt2->prenom[i] == 0) 
+								{
+									m.prenom[i] = caractereClavier();
+									a++;
+								}
+							}
+						}
+						a=0;
+					}
+
 					break;
 
 				case 13:
@@ -272,6 +313,8 @@ void gestionEvenement(EvenementGfx evenement)
 					if (pt1->start == 0)    pt1->start = 1;
 					if (pt2->start == 0)    pt2->start = 1;
 					if (pt3->start == 0)    pt3->start = 1;
+					if (pt4->start == 0)    pt4->start = 1;
+					if (pt4->lockeurMn == 1)	pt4->lockeurMn = 2;
 					if (m.choix == 5)		m.demande = 1;
 					break;
 
@@ -345,6 +388,7 @@ void gestionEvenement(EvenementGfx evenement)
 					initStructTESTFB(pt1);
 					initStructKONAMI(pt2);
 					initStructCOULEUR(pt3);
+					initStructMNEMONIQUE(pt4);
 					if (m.choix == 5)
 					{
 						m.bloqueur=0;
@@ -399,6 +443,17 @@ void gestionEvenement(EvenementGfx evenement)
 						initStructCOULEUR(pt3);
 					}
 					else;
+
+					//Mnemonique
+					if (pt4->start == 1) 		
+					{
+						pt4->start = 2;
+					}
+					else if (pt4->start == 4)
+					{
+						initStructMNEMONIQUE(pt4);
+					}
+					else;
 				}
 
 				
@@ -432,8 +487,8 @@ void gestionEvenement(EvenementGfx evenement)
 					pt3->lockeurCo=1;
 				}
 
-
-
+				//Mnemonique
+				if (pt4->lockeurMn == 1 || pt4->lockeurMn == 2) valide(pt4,abs,ord);
 
 			}
 			/*

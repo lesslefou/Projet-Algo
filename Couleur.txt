@@ -54,3 +54,15 @@ TEST du DATE
 Chrono : 24
 Nombre d'erreur : 1
 
+TEST du DATE
+Chrono : 35
+Nombre d'erreur : 2
+
+TEST du DATE
+Chrono : 20
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 15
+Nombre d'erreur : 0
+

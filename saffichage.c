@@ -2,6 +2,8 @@
 #include "hTestFB.h"
 #include "hMemory.h"
 #include "hCouleur.h"
+#include "hMnemonique.h"
+
 
 menu initMenu(menu m)
 {
@@ -284,8 +286,8 @@ void affichageResultat(void)
 	afficheChaine("Mnemonique",30,130,550);
 	afficheChaine("Memory",30,410,550);
 	afficheChaine("Boules",30,670,550);
+	
 	afficheChaine("Couleur",30,910,550);
-
 	afficheChaine("Hector",30,130,380);
 	afficheChaine("Calcul",30,410,400);
 	afficheChaine("Mental",30,450,350);
@@ -374,7 +376,7 @@ menu gereClicResultat(menu m, int abs, int ord)
 		else if (m.choix5 == 4)	strcat(m.nom,"Couleur.txt");
 		else if (m.choix5 == 5)	strcat(m.nom,"Hector.txt");
 		else if (m.choix5 == 6)	strcat(m.nom,"Calcul.txt");
-		else if (m.choix5 == 7)	strcat(m.nom,"Test.txt");
+		else if (m.choix5 == 7)	strcat(m.nom,"TestFB.txt");
 		else if (m.choix5 == 8)	strcat(m.nom,"Vision.txt");
 		else if (m.choix5 == 9)	strcat(m.nom,"Evite.txt");
 		else if (m.choix5 == 10) strcat(m.nom,"Konami.txt");

@@ -93,7 +93,7 @@ void affichageCouleur(coule *const ur)
 					rectangle(200,200,1000,700);
 					couleurCourante(0,0,0);
 					afficheChaine("B R A V O !  N E X T ",30,320,430);
-					if (ur->tempo > 30)	
+					if (ur->tempo > 25)	
 					{
 						ur->suite ++;
 						ur->tempo = 0;
@@ -108,7 +108,7 @@ void affichageCouleur(coule *const ur)
 					rectangle(200,200,1000,700);
 					couleurCourante(0,0,0);
 					afficheChaine("B R A V O !  N E X T ",30,320,430);
-					if (ur->tempo > 30)	
+					if (ur->tempo > 25)	
 					{
 						ur->start=3;
 						ur->tempo = 0;
