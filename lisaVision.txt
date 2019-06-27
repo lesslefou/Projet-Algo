@@ -1,0 +1,24 @@
+TEST du DATE
+Chrono : 7
+Nombre d'erreur : 186
+
+TEST du DATE
+Chrono : 8
+Nombre d'erreur : 6
+
+TEST du DATE
+Chrono : 14
+Nombre d'erreur : 5
+
+TEST du DATE
+Chrono : 25
+Nombre d'erreur : 1
+
+TEST du DATE
+Chrono : 6
+Nombre d'erreur : 5
+
+TEST du DATE
+Chrono : 10
+Nombre d'erreur : 7
+

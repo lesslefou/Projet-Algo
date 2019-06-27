@@ -70,9 +70,6 @@ void gestionEvenement(EvenementGfx evenement)
     static visi on;
     static visi *const pt5 = &on;
 
-    static int SelectedSquareID=0;  //Carre selectionné par l'utilisateur
-	static int reponse;
-	static int SquareIDOriginal;
 
 	
 	
@@ -104,8 +101,8 @@ void gestionEvenement(EvenementGfx evenement)
 
 			//Vision Spatiale
 			initStructVISION(pt5);
-			reponse = -1;
-			SquareIDOriginal=rand()%4;
+			pt5->reponse = -1;
+			pt5->SquareIDOriginal=rand()%4;
 			initMcolor2();
 			
 			break;
@@ -118,9 +115,9 @@ void gestionEvenement(EvenementGfx evenement)
 			// On part d'un fond d'ecran blanc
 			effaceFenetre (255, 255, 255);
 
-			m = choixMenu(m,pt1,pt,pt2,pt3,pt4,tableau,p,abs,ord);
+			m = choixMenu(m,pt1,pt,pt2,pt3,pt4,pt5,tableau,p,abs,ord);
 
-			//affichageVision(pt5,SquareIDOriginal,SelectedSquareID);
+			
 
 			break;
 			
@@ -328,7 +325,6 @@ void gestionEvenement(EvenementGfx evenement)
 					//RESULTAT
 					if (m.demande == 0)
 					{
-						puts ("coucou");
 						for (i=0; i<20; i++)
 						{
 							if (a == 0)
@@ -541,16 +537,14 @@ void gestionEvenement(EvenementGfx evenement)
 
 
 				//Vision Spatiale
-				SelectedSquareID = gereClicVision(SelectedSquareID);
-				if(SelectedSquareID != gWinningSquareID)
+				gereClicVision(pt5);
+				if(pt5->SelectedSquareID != gWinningSquareID)
 				{
-					printf("Mauvaise Reponse");
 					pt5->reponse = 0;
 					rafraichisFenetre();
 				}
 				else 
 				{
-					printf("Bonne Reponse");
 					pt5->reponse = 1; 
 					rafraichisFenetre();
 				}

@@ -15,7 +15,7 @@ menu initMenu(menu m)
 
 
 
-menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,coule *const ur,mnemo *const ni,carte tableau[12],int p,int abs, int ord)
+menu choixMenu(menu m, test *const fb, memory *me, kona *const mi,coule *const ur,mnemo *const ni,visi *const on,carte tableau[12],int p,int abs, int ord)
 {
 	switch (m.choix)
 	{
@@ -28,9 +28,6 @@ menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,coule *const 
 			affichageMemoire();
 			switch (m.choix1)
 			{
-				case Boule:
-					break;
-
 				case Mnemonique:
 					if (m.retour == 0) 
 					{
@@ -64,9 +61,7 @@ menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,coule *const 
 			affichageAnalyse();
 			switch (m.choix2)
 			{
-				case Calcul:
-					break;
-
+				
 				case TestFB:
 					if (m.retour == 0) 
 					{
@@ -93,9 +88,6 @@ menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,coule *const 
 					}
 					break;
 
-				case Hector: 
-					break;
-
 			}
 			break;
 
@@ -104,6 +96,16 @@ menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,coule *const 
 			switch (m.choix3)
 			{
 				case Vision:
+					if (m.retour == 0) 
+					{
+						affichageVision(on);
+						m.bloqueur = 1;
+					}
+					else	
+					{
+						m.choix = 3;
+						m.bloqueur = 0;
+					}
 					break;
 
 				case Evite:
@@ -184,9 +186,8 @@ void affichage1(void)
 void affichageMemoire(void)
 {
 	couleurCourante(125,125,125);
-	rectangle(490,220,720,390);
-	rectangle(240,480,480,640);
-	rectangle(720,480,960,640);
+	rectangle(240,380,480,540);
+	rectangle(720,380,960,540);
 	rectangle(0,0,150,100);
 	rectangle(1050,0,1200,100);
 	couleurCourante(255,0,0);
@@ -195,9 +196,8 @@ void affichageMemoire(void)
 	ligne(505,710,695,710);
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(1);
-	afficheChaine("Mnemonique",30,270,550);
-	afficheChaine("Memory",30,780,550);
-	afficheChaine("Boules",30,550,290);
+	afficheChaine("Mnemonique",30,270,450);
+	afficheChaine("Memory",30,780,450);
 	afficheChaine("Resultat",30,20,40);
 	afficheChaine("Retour",30,1080,40);
 }
@@ -205,10 +205,8 @@ void affichageMemoire(void)
 void affichageAnalyse(void)
 {
 	couleurCourante(125,125,125);
-	rectangle(240,160,480,320);
-	rectangle(720,160,960,320);
-	rectangle(240,480,480,640);
-	rectangle(720,480,960,640);
+	rectangle(240,380,480,540);
+	rectangle(720,380,960,540);
 	rectangle(0,0,150,100);
 	rectangle(1050,0,1200,100);
 	
@@ -218,10 +216,8 @@ void affichageAnalyse(void)
 	ligne(505,710,700,710);
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(3);
-	afficheChaine("Couleur",30,300,550);
-	afficheChaine("Hector",30,775,550);
-	afficheChaine("Calcul Mental",30,260,230);
-	afficheChaine("Test FB",30,770,230);
+	afficheChaine("Couleur",30,300,450);
+	afficheChaine("Test FB",30,770,450);
 	afficheChaine("Resultat",30,20,40);
 	afficheChaine("Retour",30,1080,40);
 }
@@ -256,20 +252,16 @@ void affichageResultat(void)
 {
 	
 	couleurCourante(125,125,125);
-	rectangle(100,130,340,290);
-	rectangle(360,130,600,290);
-	rectangle(620,130,840,290);
-	rectangle(860,130,1100,290);
+	rectangle(100,230,340,390);
+	rectangle(360,230,600,390);
+	rectangle(620,230,840,390);
+	rectangle(860,230,1100,390);
 
-	rectangle(100,310,340,460);
-	rectangle(360,310,600,460);
-	rectangle(620,310,840,460);
-	rectangle(860,310,1100,460);
+	rectangle(100,460,340,610);
+	rectangle(360,460,600,610);
+	rectangle(620,460,840,610);
+	rectangle(860,460,1100,610);
 
-	rectangle(100,480,340,640);
-	rectangle(360,480,600,640);
-	rectangle(620,480,840,640);
-	rectangle(860,480,1100,640);
 
 	rectangle(1050,0,1200,100);
 	
@@ -279,21 +271,16 @@ void affichageResultat(void)
 	ligne(505,710,690,710);
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(1);
-	afficheChaine("Mnemonique",30,130,550);
-	afficheChaine("Memory",30,410,550);
-	afficheChaine("Boules",30,670,550);
-	
-	afficheChaine("Couleur",30,910,550);
-	afficheChaine("Hector",30,130,380);
-	afficheChaine("Calcul",30,410,400);
-	afficheChaine("Mental",30,450,350);
-	afficheChaine("Test FB",30,670,380);
+	afficheChaine("Mnemonique",30,130,525);
+	afficheChaine("Memory",30,410,525);
+	afficheChaine("Test FB",30,670,525);
+	afficheChaine("Couleur",30,910,525);
 
-	afficheChaine("Vision",30,900,400);
-	afficheChaine("Spaciale",30,930,350);
-	afficheChaine("Evite",30,160,220);
-	afficheChaine("Blocs",30,200,170);
-	afficheChaine("Konami",30,400,200);
+	afficheChaine("Evite",30,670,320);
+	afficheChaine("Blocs",30,710,270);
+	afficheChaine("Vision",30,160,320);
+	afficheChaine("Spatiale",30,180,270);
+	afficheChaine("Konami",30,400,300);
 
 	afficheChaine("Retour",30,1080,40);
 }
@@ -317,9 +304,8 @@ menu gereClicMemoire (menu m,int abs,int ord)
 	if (m.choix == 1 && m.bloqueur == 0)
 	{
 		m.retour=0;
-		if (abs>=490 && abs<=720 && ord>=220 && ord<=390) m.choix1 = Boule;
-		else if (abs>=240 && abs<=480 && ord>=480 && ord<=640) m.choix1 = Mnemonique;
-		else if (abs>=720 && abs<=960 && ord>=480 && ord<=640) m.choix1 = Memory;
+		if (abs>=240 && abs<=480 && ord>=380 && ord<=540) m.choix1 = Mnemonique;
+		else if (abs>=720 && abs<=960 && ord>=380 && ord<=540) m.choix1 = Memory;
 		else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = MenuPrincipal;
 	}
 	return m;
@@ -329,11 +315,8 @@ menu gereClicAnalyse (menu m,int abs,int ord)
 {
 	if (m.choix == 2 && m.bloqueur == 0)		
 	{
-		m.retour=0;
-		if (abs>=240 && abs<=480 && ord>=160 && ord<=320) m.choix2 = Calcul;
-		else if (abs>=720 && abs<=960 && ord>=160 && ord<=320) m.choix2 = TestFB;
-		else if (abs>=240 && abs<=480 && ord>=480 && ord<=640) m.choix2 = Couleur;
-		else if (abs>=720 && abs<=960 && ord>=480 && ord<=640) m.choix2 = Hector;
+		if (abs>=240 && abs<=480 && ord>=380 && ord<=540) m.choix2 = Couleur;
+		else if (abs>=240 && abs<=960 && ord>=380 && ord<=540) m.choix2 = TestFB;
 		else if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = MenuPrincipal;
 	}
 	return m;
@@ -360,23 +343,20 @@ menu gereClicResultat(menu m, int abs, int ord)
 	{
 		printf ("prenom = %s\n",m.prenom);
 		strcpy(m.nom,m.prenom);
-		for (int i=0; i<12; i++)
+		for (int i=0; i<8; i++)
 		{
-			if (abs>=coordTest[i].x1 && abs<=coordTest[i].y1 &&  ord>=coordTest[i].x2 && ord<=coordTest[i].y2) m.choix5 = i+1;
+			if (abs>=coordTest[i].x1 && abs<=coordTest[i].x2 &&  ord>=coordTest[i].y1 && ord<=coordTest[i].y2) m.choix5 = i+1;
 		}
 
 		if (abs>=1050 && abs<=1200 && ord>=0 && ord<=100) m.choix = 0;
 
-		if (m.choix5 == 1)	strcat(m.nom,"Mnemonique.txt");
-		else if (m.choix5 == 2)	strcat(m.nom,"Memory.txt");
-		else if (m.choix5 == 3)	strcat(m.nom,"Boule.txt");
-		else if (m.choix5 == 4)	strcat(m.nom,"Couleur.txt");
-		else if (m.choix5 == 5)	strcat(m.nom,"Hector.txt");
-		else if (m.choix5 == 6)	strcat(m.nom,"Calcul.txt");
+		if (m.choix5 == 5)	strcat(m.nom,"Mnemonique.txt");
+		else if (m.choix5 == 6)	strcat(m.nom,"Memory.txt");
 		else if (m.choix5 == 7)	strcat(m.nom,"TestFB.txt");
-		else if (m.choix5 == 8)	strcat(m.nom,"Vision.txt");
-		else if (m.choix5 == 9)	strcat(m.nom,"Evite.txt");
-		else if (m.choix5 == 10) strcat(m.nom,"Konami.txt");
+		else if (m.choix5 == 8)	strcat(m.nom,"Couleur.txt");
+		else if (m.choix5 == 1)	strcat(m.nom,"Vision.txt");
+		else if (m.choix5 == 2) strcat(m.nom,"Konami.txt");
+		else if (m.choix5 == 3)	strcat(m.nom,"Evite.txt");
 		m.bloqueur = 1;
  	}
 	return m;		
@@ -388,16 +368,13 @@ menu afficheEcranResultat(menu m)
 	effaceFenetre(255,255,255);
 	couleurCourante(255,0,0);
 	epaisseurDeTrait(5);
-	if (m.choix5 == 1)			afficheChaine("M N E M O N I Q U E",40,350,725);
-	else if (m.choix5 == 2)		afficheChaine("M E M O R Y",40,420,725);
-	else if (m.choix5 == 3)		afficheChaine("B O U L E",40,420,725);
-	else if (m.choix5 == 4)		afficheChaine("C O U L E U R",40,420,725);
-	else if (m.choix5 == 5)		afficheChaine("H E C T O R",40,420,725);
-	else if (m.choix5 == 6)		afficheChaine("C A L C U L  M E N T A L",40,220,725);
+	if (m.choix5 == 5)			afficheChaine("M N E M O N I Q U E",40,350,725);
+	else if (m.choix5 == 6)		afficheChaine("M E M O R Y",40,420,725);
 	else if (m.choix5 == 7)		afficheChaine("T E S T  F B",40,420,725);
-	else if (m.choix5 == 8)		afficheChaine("V I S I O N  S P A T I A L E",40,200,725);
-	else if (m.choix5 == 9)		afficheChaine("E V I T E  B L O C S ",40,300,725);
-	else if (m.choix5 == 10) 	afficheChaine("K O N A M I",40,420,725);
+	else if (m.choix5 == 8)		afficheChaine("C O U L E U R",40,420,725);
+	else if (m.choix5 == 1)		afficheChaine("V I S I O N  S P A T I A L E",40,200,725);
+	else if (m.choix5 == 2) 	afficheChaine("K O N A M I",40,420,725);
+	else if (m.choix5 == 3)		afficheChaine("E V I T E  B L O C S ",40,300,725);
 
 
 	epaisseurDeTrait(2);

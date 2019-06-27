@@ -22,24 +22,29 @@ typedef struct VISIONSPATIAL
 	int tempo;
 	int erreur;
 	int reponse;
-
+	int SquareIDOriginal;
+	int SelectedSquareID;
+	int Result;
+	int PatternID;
+	int SquareID;
+	int delay;
+	int lockeurVI;
 	FILE *fichier5;
 }visi;
 
 void initStructVISION(visi *const on);
-void VisionSpatial(int SquareIDOriginal);
-void DessineCarreNoir(int SquareID);
-void DessineCellules(int SquareID);
-void DessineCarreMultiColorRandom(int SquareID);
-void DessineCellulesOriginal(int SquareID);
-void DessineCarreMultiColorOriginal(int PatternID);
+void VisionSpatial(visi *const on);
+void DessineCarreNoir(visi *const on);
+void DessineCellules(visi *const on);
+void DessineCarreMultiColorRandom(visi *const on);
+void DessineCellulesOriginal(visi *const on);
+void DessineCarreMultiColorOriginal(visi *const on);
 void initMcolor2(void);
-//int ChoisirPatternSol();
 void DessineCarreNoirOriginal();
-void DisplayResult(int SelectedSquareID,int SquareIDOriginal, int Result,visi *const on);
-int NextConfiguration(int SquareIDOriginal,visi *const on);
+void DisplayResult(visi *const on);
+void NextConfiguration(visi *const on);
 
-int gereClicVision(int SelectedSquareID);
-void affichageVision(visi *const on,int SquareIDOriginal,int SelectedSquareID);
+void gereClicVision(visi *const on);
+void affichageVision(visi *const on);
 
 #endif  /* !HVISIONSPATIALE_H_ */

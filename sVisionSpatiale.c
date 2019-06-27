@@ -26,7 +26,7 @@ void initStructVISION(visi *const on)
 	memset(on, 0, sizeof(*on));
 }
 
-void affichageVision(visi *const on,int SquareIDOriginal,int SelectedSquareID)
+void affichageVision(visi *const on )
 {
 	int i=0;					
 	effaceFenetre (255, 255, 255);	
@@ -54,13 +54,19 @@ void affichageVision(visi *const on,int SquareIDOriginal,int SelectedSquareID)
 	
 	if (on->start == 2)
 	{		
-		if (on->suite >= 0 && on->suite < 3)
+		on->delay ++;
+		if (on->delay == 45)	
 		{
-	        VisionSpatial(SquareIDOriginal); 
-				
+			on->temps++;
+			on->delay=0;
+		}
+		printf ("suite = %d\n",on->suite);
+		if (on->suite >= 0 && on->suite < 9)
+		{
+	        VisionSpatial(on); 
 			if (on->reponse >= 0)
 			{
-				DisplayResult(SelectedSquareID,SquareIDOriginal,on->reponse,on);
+				DisplayResult(on);
 			}
 		}
 		else on->start =3;
@@ -69,7 +75,7 @@ void affichageVision(visi *const on,int SquareIDOriginal,int SelectedSquareID)
 	{
 		char nom[30];
 		strcpy(nom,on->prenom);
-		strcat(nom,"Memory.txt");
+		strcat(nom,"Vision.txt");
 		on->fichier5=fopen(nom,"at");
 		fprintf(on->fichier5, "TEST du DATE\nChrono : %d\nNombre d'erreur : %d\n\n",on->temps,on->erreur);
 		fclose(on->fichier5);
@@ -102,26 +108,24 @@ void affichageVision(visi *const on,int SquareIDOriginal,int SelectedSquareID)
 }
 
 //Dessine les 5 carrées
-void VisionSpatial(int SquareIDOriginal)
+void VisionSpatial(visi *const on)
 {
-	int SquareID=0;
-	
-	for(SquareID=0; SquareID<4; SquareID++)
+	for(on->SquareID=0; on->SquareID<4; on->SquareID++)
 	{
-		DessineCarreMultiColorRandom(SquareID);
+		DessineCarreMultiColorRandom(on);
 	}
 	
-	//TODO mettre valeur random pour SquareID
-	gWinningSquareID=SquareIDOriginal;
-	DessineCarreMultiColorOriginal(SquareIDOriginal);
+	//choisit l'emplacement de la copie de l'original
+	gWinningSquareID=on->SquareIDOriginal;
+	DessineCarreMultiColorOriginal(on);
 
 }
 
 //Dessine carré noir de droite
-void DessineCarreNoir(int SquareID)
+void DessineCarreNoir(visi *const on)
 {
 	couleurCourante(0, 0, 0);
-	rectangle(Coord[SquareID].xD, Coord[SquareID].yD, Coord[SquareID].xF, Coord[SquareID].yF);
+	rectangle(Coord[on->SquareID].xD, Coord[on->SquareID].yD, Coord[on->SquareID].xF, Coord[on->SquareID].yF);
 }
 
 //Dessine carré noir de gauche
@@ -198,67 +202,66 @@ void initMcolor2()
 
 
 //Place les cellules dans les carrés noirs de droite
-void DessineCellules(int SquareID)
+void DessineCellules(visi *const on)
 {	
 	//Dessine la cellule 1
-
-	couleurCourante(Mcolor2[SquareID][0].c1, Mcolor2[SquareID][0].c2, Mcolor2[SquareID][0].c3);
-	rectangle(Coord[SquareID].xD+10, Coord[SquareID].yD-10, Coord[SquareID].xF-80, Coord[SquareID].yF+80);
+	couleurCourante(Mcolor2[on->SquareID][0].c1, Mcolor2[on->SquareID][0].c2, Mcolor2[on->SquareID][0].c3);
+	rectangle(Coord[on->SquareID].xD+10, Coord[on->SquareID].yD-10, Coord[on->SquareID].xF-80, Coord[on->SquareID].yF+80);
 	
 	//Dessine la cellule 2
 	
-	couleurCourante(Mcolor2[SquareID][1].c1, Mcolor2[SquareID][1].c2, Mcolor2[SquareID][1].c3);
-	rectangle(Coord[SquareID].xD+80, Coord[SquareID].yD-10, Coord[SquareID].xF-10, Coord[SquareID].yF+80);
-
+	couleurCourante(Mcolor2[on->SquareID][1].c1, Mcolor2[on->SquareID][1].c2, Mcolor2[on->SquareID][1].c3);
+	rectangle(Coord[on->SquareID].xD+80, Coord[on->SquareID].yD-10, Coord[on->SquareID].xF-10, Coord[on->SquareID].yF+80);
+	
 	//Dessine la cellule 3
 	
-	couleurCourante(Mcolor2[SquareID][2].c1, Mcolor2[SquareID][2].c2, Mcolor2[SquareID][2].c3);
-	rectangle(Coord[SquareID].xD+80, Coord[SquareID].yD-80, Coord[SquareID].xF-10, Coord[SquareID].yF+10);
+	couleurCourante(Mcolor2[on->SquareID][2].c1, Mcolor2[on->SquareID][2].c2, Mcolor2[on->SquareID][2].c3);
+	rectangle(Coord[on->SquareID].xD+80, Coord[on->SquareID].yD-80, Coord[on->SquareID].xF-10, Coord[on->SquareID].yF+10);
 
 	//Dessine la cellule 4
 	
-	couleurCourante(Mcolor2[SquareID][3].c1, Mcolor2[SquareID][3].c2, Mcolor2[SquareID][3].c3);
-	rectangle(Coord[SquareID].xD+10, Coord[SquareID].yD-80, Coord[SquareID].xF-80, Coord[SquareID].yF+10);
+	couleurCourante(Mcolor2[on->SquareID][3].c1, Mcolor2[on->SquareID][3].c2, Mcolor2[on->SquareID][3].c3);
+	rectangle(Coord[on->SquareID].xD+10, Coord[on->SquareID].yD-80, Coord[on->SquareID].xF-80, Coord[on->SquareID].yF+10);
 }
 
 
 
 // Affiche le fond noir + les 4 carrés de droite
-void DessineCarreMultiColorRandom(int SquareID)
+void DessineCarreMultiColorRandom(visi *const on)
 {
 	
-	DessineCarreNoir(SquareID);
+	DessineCarreNoir(on);
 	
-	DessineCellules(SquareID);	
+	DessineCellules(on);	
 }
 
 //  Affiche le fond noir + le carré de gauche
-void DessineCarreMultiColorOriginal(int SquareIDOriginal)
+void DessineCarreMultiColorOriginal(visi *const on)
 {
 		
 	DessineCarreNoirOriginal();
 	
-	DessineCellulesOriginal(SquareIDOriginal);
+	DessineCellulesOriginal(on);
 }
 
 
 //Place les cellules dans le carré noir de gauche
-void DessineCellulesOriginal(int SquareIDOriginal)
+void DessineCellulesOriginal(visi *const on)
 {
 	//Dessine la cellule 1
-	couleurCourante(Mcolor2[SquareIDOriginal][2].c1, Mcolor2[SquareIDOriginal][2].c2, Mcolor2[SquareIDOriginal][2].c3);
+	couleurCourante(Mcolor2[on->SquareIDOriginal][2].c1, Mcolor2[on->SquareIDOriginal][2].c2, Mcolor2[on->SquareIDOriginal][2].c3);
 	rectangle(100+20, 640-20, 400-160, 340+160);
 
 	//Dessine la cellule 2
-	couleurCourante(Mcolor2[SquareIDOriginal][3].c1, Mcolor2[SquareIDOriginal][3].c2, Mcolor2[SquareIDOriginal][3].c3);
+	couleurCourante(Mcolor2[on->SquareIDOriginal][3].c1, Mcolor2[on->SquareIDOriginal][3].c2, Mcolor2[on->SquareIDOriginal][3].c3);
 	rectangle(100+160, 640-20, 400-20, 340+160);
 
 	//Dessine la cellule 3
-	couleurCourante(Mcolor2[SquareIDOriginal][0].c1, Mcolor2[SquareIDOriginal][0].c2, Mcolor2[SquareIDOriginal][0].c3);
+	couleurCourante(Mcolor2[on->SquareIDOriginal][0].c1, Mcolor2[on->SquareIDOriginal][0].c2, Mcolor2[on->SquareIDOriginal][0].c3);
 	rectangle(100+160, 640-160, 400-20, 340+20);
 
 	//Dessine la cellule 4
-	couleurCourante(Mcolor2[SquareIDOriginal][1].c1, Mcolor2[SquareIDOriginal][1].c2, Mcolor2[SquareIDOriginal][1].c3);
+	couleurCourante(Mcolor2[on->SquareIDOriginal][1].c1, Mcolor2[on->SquareIDOriginal][1].c2, Mcolor2[on->SquareIDOriginal][1].c3);
 	rectangle(100+20, 640-160, 400-160, 340+20);
 }
 
@@ -267,69 +270,75 @@ void DessineCellulesOriginal(int SquareIDOriginal)
 
 
 
-//Affiche le resultat du clique (bon ou mauvais)
-void DisplayResult(int SelectedSquareID, int SquareIDOriginal,int Result,visi *const on)
+//Affiche le on->Resultat du clique (bon ou mauvais)
+void DisplayResult(visi *const on)
 {
-	if(Result==0)
+	if(on->reponse == 0)
 	{
 		couleurCourante(255, 0, 0);
 		epaisseurDeTrait(7);
-		ligne(Coord[SelectedSquareID].xD, Coord[SelectedSquareID].yD, Coord[SelectedSquareID].xF, Coord[SelectedSquareID].yF);
-		ligne(Coord[SelectedSquareID].xD, Coord[SelectedSquareID].yD-150, Coord[SelectedSquareID].xF, Coord[SelectedSquareID].yF+150);		
+		ligne(Coord[on->SelectedSquareID].xD, Coord[on->SelectedSquareID].yD, Coord[on->SelectedSquareID].xF, Coord[on->SelectedSquareID].yF);
+		ligne(Coord[on->SelectedSquareID].xD, Coord[on->SelectedSquareID].yD-150, Coord[on->SelectedSquareID].xF, Coord[on->SelectedSquareID].yF+150);		
 	}
+	if (on->reponse == 0 && on->lockeurVI == 0) 		
+	{
+		on->erreur ++;
+		on->lockeurVI = 1;
+	}
+
 	//juste
-	else if(Result==1)
+	else if(on->reponse == 1)
 	{
 		couleurCourante(0, 255, 0);
 		epaisseurDeTrait(7);
-		ligne(Coord[SelectedSquareID].xD, Coord[SelectedSquareID].yD-75, Coord[SelectedSquareID].xF-75, Coord[SelectedSquareID].yF);
-		ligne(Coord[SelectedSquareID].xD+75, Coord[SelectedSquareID].yD-150, Coord[SelectedSquareID].xF, Coord[SelectedSquareID].yF+150);	
-		on->suite = 1;
+		ligne(Coord[on->SelectedSquareID].xD, Coord[on->SelectedSquareID].yD-75, Coord[on->SelectedSquareID].xF-75, Coord[on->SelectedSquareID].yF);
+		ligne(Coord[on->SelectedSquareID].xD+75, Coord[on->SelectedSquareID].yD-150, Coord[on->SelectedSquareID].xF, Coord[on->SelectedSquareID].yF+150);	
+		on->suite ++ ;
 		on->reponse=-1;
-		SquareIDOriginal=NextConfiguration(SquareIDOriginal,on);
+		NextConfiguration(on);
 	}
 	
 }
 
 //Créer une nouvelle configuration
-int NextConfiguration(int SquareIDOriginal,visi *const on)
+void NextConfiguration(visi *const on)
 {
-	if (on->suite < 5)
+	if (on->suite < 9)
 	{
 		initMcolor2(); //créer de nouvelles couleurs
-		printf("configuration = %d",SquareIDOriginal);
-		SquareIDOriginal=rand()%4; //choisi une nouvelle solution
-		printf("configuration = %d",SquareIDOriginal);
+		//printf("configuration = %d",on->SquareIDOriginal);
+		on->SquareIDOriginal=rand()%4; //choisi une nouvelle solution
+		printf ("IDO = %d\n",on->SquareIDOriginal);
+		//printf("configuration = %d",on->SquareIDOriginal);
 	    rafraichisFenetre();
 	}
 	else on->start =3;
-	return SquareIDOriginal;
 	
 }
 
 //Determine où tu as cliqué
-int gereClicVision(int SelectedSquareID)
+void gereClicVision(visi *const on)
 {
 	//Délimite Carré 1
 	if( abscisseSouris()>739 && ordonneeSouris()>509 && abscisseSouris()<891 && ordonneeSouris()<661)
 	{
-		SelectedSquareID=0;
+		on->SelectedSquareID=0;
 	}
 	//Délimite Carré 2
 	else if( abscisseSouris()>909 && ordonneeSouris()>509 && abscisseSouris()<1061 && ordonneeSouris()<661)
 	{
-		SelectedSquareID=1;
+		on->SelectedSquareID=1;
 	}
 	//Délimite Carré 3
 	else if( abscisseSouris()>909 && ordonneeSouris()>339 && abscisseSouris()<1061 && ordonneeSouris()<491)
 	{
-		SelectedSquareID=2;
+		on->SelectedSquareID=2;
 	}
 	//Délimite Carré 4
 	else if( abscisseSouris()>739 && ordonneeSouris()>339 && abscisseSouris()<891 && ordonneeSouris()<491)
 	{
-		SelectedSquareID=3;
+		on->SelectedSquareID=3;
 	}
-	return SelectedSquareID;
+	on->lockeurVI = 0;
 }
 

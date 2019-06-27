@@ -26,10 +26,10 @@
 typedef enum {MenuPrincipal=0, Memoire=1, Analyse=2, Lateralite=3,Quitter=4,Resultat=5,General=6}
 	Etats;
 
-typedef enum {Boule=0,Mnemonique=1,Memory=2}
+typedef enum {Mnemonique=1,Memory=2}
 	ChoixMemoire;
 
-typedef enum {Calcul=0,TestFB=1,Couleur=2,Hector=3}
+typedef enum {TestFB=1,Couleur=2}
 	ChoixAnalyse;
 
 typedef enum {Vision=1,Evite=2,Konami=3}
@@ -56,28 +56,21 @@ static struct CoordTest
 {
 	int x1, y1, x2, y2;
 } coordTest[] = { 	
-					{100, 340, 480, 640},
-					{360, 600, 480, 640},
-					{620, 840, 480, 640},
-					{860, 1100, 480, 640},
+					{100,230,340,390},
+					{360,230,600,390},
+					{620,230,840,390},
+					{860,230,1100,390},
 
-					{100, 340, 310, 460},
-					{360, 600, 310, 460},
-					{620, 840, 310, 460},
-					{860, 1100, 310, 460},
-
-
-					{100, 340, 130, 290},
-					{360, 600, 130, 290},
-					{620, 840, 130, 290},
-					{860, 1100, 130, 290}
+					{100,460,340,610},
+					{360,460,600,610},
+					{620,460,840,610},
+					{860,460,1100,610}
 				};
-
 
 void gestionEvenement(EvenementGfx evenement);
 
 menu initMenu(menu m);
-menu choixMenu(menu m, test *const fb, memory *me, kona *const mi,coule *const ur,mnemo *const ni,carte tableau[12],int p,int abs, int ord);
+menu choixMenu(menu m, test *const fb, memory *me, kona *const mi,coule *const ur,mnemo *const ni,visi *const on,carte tableau[12],int p,int abs, int ord);
 void affichage1(void);
 void affichageMemoire(void);
 void affichageAnalyse(void);

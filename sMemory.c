@@ -63,7 +63,6 @@ void affichageMemory(int p,memory *me,carte tableau[12])
 	
 	if (me->start == 2)
 	{
-	printf("lock1 = %d\n",me->lockeur);
 		me->delay ++;
 		if (me->delay == 45)	
 		{
