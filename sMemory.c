@@ -37,7 +37,6 @@
 
 void affichageMemory(int p,memory *me,carte tableau[12])
 {
-	printf("lock = %d\n",me->lockeur);
 	int i=0;					
 	effaceFenetre (255, 255, 255);	
 	couleurCourante (200,200,200);

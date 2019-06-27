@@ -103,6 +103,7 @@ void gestionEvenement(EvenementGfx evenement)
 			initStructMNEMONIQUE(pt4);
 
 			//Vision Spatiale
+			initStructVISION(pt5);
 			reponse = -1;
 			SquareIDOriginal=rand()%4;
 			initMcolor2();
@@ -117,32 +118,9 @@ void gestionEvenement(EvenementGfx evenement)
 			// On part d'un fond d'ecran blanc
 			effaceFenetre (255, 255, 255);
 
-			//m = choixMenu(m,pt1,pt,pt2,pt3,pt4,tableau,p,abs,ord);
+			m = choixMenu(m,pt1,pt,pt2,pt3,pt4,tableau,p,abs,ord);
 
-			//Vision Spatiale
-			epaisseurDeTrait(1);
-			couleurCourante(0, 0, 0);
-			ligne(600, 750, 600, 150);
-			couleurCourante (200,200,200);
-			rectangle(170,60,420,120);
-			rectangle(540,60,810,120);
-			rectangle(0,0,100,70);
-			couleurCourante(0,0,0);
-			epaisseurDeTrait(1);
-			afficheChaine("Chronometre : ",20,190,80);
-			afficheChaine("nb d'erreur : ",20,580,80);
-			afficheChaine("Retour",20,20,30);
-			couleurCourante(255,0,0);
-			epaisseurDeTrait(4);
-			afficheChaine("VISION SPATIALE",40,410,760);
-			
-			
-            VisionSpatial(SquareIDOriginal); 
-				
-			if (reponse >= 0)
-			{
-				DisplayResult(SelectedSquareID, reponse);
-			}
+			//affichageVision(pt5,SquareIDOriginal,SelectedSquareID);
 
 			break;
 			
@@ -330,6 +308,23 @@ void gestionEvenement(EvenementGfx evenement)
 						a=0;
 					}
 
+					//Vision
+					if (pt5->start == 0)
+					{
+						for (i=0; i<20; i++)
+						{
+							if (a == 0)
+							{
+								if (pt5->prenom[i] == 0) 
+								{
+									pt5->prenom[i] = caractereClavier();
+									a++;
+								}
+							}
+						}
+						a=0;
+					}
+
 					//RESULTAT
 					if (m.demande == 0)
 					{
@@ -356,6 +351,7 @@ void gestionEvenement(EvenementGfx evenement)
 					if (pt2->start == 0)    pt2->start = 1;
 					if (pt3->start == 0)    pt3->start = 1;
 					if (pt4->start == 0)    pt4->start = 1;
+					if (pt5->start == 0)    pt5->start = 1;
 					if (pt4->lockeurMn == 1)	pt4->lockeurMn = 2;
 					if (m.choix == 5)	m.demande = 1;
 					break;
@@ -496,6 +492,17 @@ void gestionEvenement(EvenementGfx evenement)
 						initStructMNEMONIQUE(pt4);
 					}
 					else;
+
+					//Vision Spatiale
+					if (pt5->start == 1) 		
+					{
+						pt5->start = 2;
+					}
+					else if (pt5->start == 4)
+					{
+						initStructVISION(pt5);
+					}
+					else;
 				}
 
 				
@@ -538,21 +545,17 @@ void gestionEvenement(EvenementGfx evenement)
 				if(SelectedSquareID != gWinningSquareID)
 				{
 					printf("Mauvaise Reponse");
-					reponse = 0;
+					pt5->reponse = 0;
 					rafraichisFenetre();
 				}
 				else 
 				{
 					printf("Bonne Reponse");
-					reponse = 1; 
+					pt5->reponse = 1; 
 					rafraichisFenetre();
 				}
 				
-				if( abscisseSouris()>899 && ordonneeSouris()>59 && abscisseSouris()<1101 && ordonneeSouris()<121)
-				{
-					reponse=-1;
-					SquareIDOriginal=NextConfiguration(SquareIDOriginal,pt5);
-				}
+				
 			}
 				
 			break;

@@ -21,6 +21,86 @@ static struct Mcolor2
 }
 Mcolor2[4][4] ={0};
 
+void initStructVISION(visi *const on)
+{
+	memset(on, 0, sizeof(*on));
+}
+
+void affichageVision(visi *const on,int SquareIDOriginal,int SelectedSquareID)
+{
+	int i=0;					
+	effaceFenetre (255, 255, 255);	
+	couleurCourante (200,200,200);
+	rectangle(170,60,420,120);
+	rectangle(540,60,810,120);
+	rectangle(900,60,1100,120);
+	rectangle(0,730,100,800);
+	couleurCourante(0,0,0);
+	epaisseurDeTrait(1);
+	afficheChaine("Chronometre : ",20,190,80);
+	afficheChaine("nb d'erreur : ",20,580,80);
+	afficheChaine("S T A R T",20,930,80);
+	afficheChaine("Retour",20,20,760);
+	couleurCourante(255,0,0);
+	epaisseurDeTrait(5);
+	afficheChaine("V I S I O N  S P A T I A L E",40,250,720);
+
+	if (on->start == 0)
+	{
+		epaisseurDeTrait(3);
+		couleurCourante(0,0,0);
+		afficheChaine("Entrer votre nom :",30,400,440);
+	}
+	
+	if (on->start == 2)
+	{		
+		if (on->suite >= 0 && on->suite < 3)
+		{
+	        VisionSpatial(SquareIDOriginal); 
+				
+			if (on->reponse >= 0)
+			{
+				DisplayResult(SelectedSquareID,SquareIDOriginal,on->reponse,on);
+			}
+		}
+		else on->start =3;
+	}
+	if (on->start == 3)
+	{
+		char nom[30];
+		strcpy(nom,on->prenom);
+		strcat(nom,"Memory.txt");
+		on->fichier5=fopen(nom,"at");
+		fprintf(on->fichier5, "TEST du DATE\nChrono : %d\nNombre d'erreur : %d\n\n",on->temps,on->erreur);
+		fclose(on->fichier5);
+		on->start = 4;
+	}	
+	
+	if (on->start ==4)
+	{
+		couleurCourante(120,120,120);
+		rectangle(100,180,1100,680);
+		couleurCourante(0,0,0);
+		afficheChaine("F I N  D U  T E S T",30,430,400);
+	}
+
+	char chrono[] = "00";
+	couleurCourante(0,0,0);
+	epaisseurDeTrait(2);
+	sprintf(chrono,"%d s",on->temps);
+	epaisseurDeTrait(2);
+	afficheChaine(chrono,20,350,80);
+
+	char pourcentage[] = "00";
+	couleurCourante(0,0,0);
+	epaisseurDeTrait(2);
+	sprintf(pourcentage,"%d",on->erreur);
+	epaisseurDeTrait(2);
+	afficheChaine(pourcentage,20,730,80);
+
+
+}
+
 //Dessine les 5 carrées
 void VisionSpatial(int SquareIDOriginal)
 {
@@ -121,7 +201,7 @@ void initMcolor2()
 void DessineCellules(int SquareID)
 {	
 	//Dessine la cellule 1
-	
+
 	couleurCourante(Mcolor2[SquareID][0].c1, Mcolor2[SquareID][0].c2, Mcolor2[SquareID][0].c3);
 	rectangle(Coord[SquareID].xD+10, Coord[SquareID].yD-10, Coord[SquareID].xF-80, Coord[SquareID].yF+80);
 	
@@ -188,7 +268,7 @@ void DessineCellulesOriginal(int SquareIDOriginal)
 
 
 //Affiche le resultat du clique (bon ou mauvais)
-void DisplayResult(int SelectedSquareID, int Result)
+void DisplayResult(int SelectedSquareID, int SquareIDOriginal,int Result,visi *const on)
 {
 	if(Result==0)
 	{
@@ -197,18 +277,18 @@ void DisplayResult(int SelectedSquareID, int Result)
 		ligne(Coord[SelectedSquareID].xD, Coord[SelectedSquareID].yD, Coord[SelectedSquareID].xF, Coord[SelectedSquareID].yF);
 		ligne(Coord[SelectedSquareID].xD, Coord[SelectedSquareID].yD-150, Coord[SelectedSquareID].xF, Coord[SelectedSquareID].yF+150);		
 	}
+	//juste
 	else if(Result==1)
 	{
 		couleurCourante(0, 255, 0);
 		epaisseurDeTrait(7);
 		ligne(Coord[SelectedSquareID].xD, Coord[SelectedSquareID].yD-75, Coord[SelectedSquareID].xF-75, Coord[SelectedSquareID].yF);
 		ligne(Coord[SelectedSquareID].xD+75, Coord[SelectedSquareID].yD-150, Coord[SelectedSquareID].xF, Coord[SelectedSquareID].yF+150);	
-		couleurCourante (200,200,200);
-			rectangle(900,60,1100,120);
-			epaisseurDeTrait(1);
-			couleurCourante(0,0,0);
-			afficheChaine("Suivant",20,920,80);	
+		on->suite = 1;
+		on->reponse=-1;
+		SquareIDOriginal=NextConfiguration(SquareIDOriginal,on);
 	}
+	
 }
 
 //Créer une nouvelle configuration
