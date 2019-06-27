@@ -15,6 +15,9 @@
 #include "hMemory.h"
 #include "hKonami.h"
 #include "hCouleur.h"
+#include "hMnemonique.h"
+#include "hVisionSpatiale.h"
+
 
 // Largeur et hauteur par defaut d'une image correspondant a nos criteres
 #define LargeurFenetre 1200
@@ -74,7 +77,7 @@ static struct CoordTest
 void gestionEvenement(EvenementGfx evenement);
 
 menu initMenu(menu m);
-menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,coule *const ur,carte tableau[12],int p,int abs, int ord);
+menu choixMenu(menu m, test *const fb, memory *me, kona *const mi,coule *const ur,mnemo *const ni,carte tableau[12],int p,int abs, int ord);
 void affichage1(void);
 void affichageMemoire(void);
 void affichageAnalyse(void);

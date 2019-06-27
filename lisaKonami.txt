@@ -2,3 +2,15 @@ TEST du DATE
 Chrono : 12
 Nombre d'erreur : 1
 
+TEST du DATE
+Chrono : 23
+Nombre d'erreur : 3
+
+TEST du DATE
+Chrono : 15
+Nombre d'erreur : 6
+
+TEST du DATE
+Chrono : 11
+Nombre d'erreur : 3
+

@@ -66,3 +66,35 @@ TEST du DATE
 Chrono : 15
 Nombre d'erreur : 0
 
+TEST du DATE
+Chrono : 17
+Nombre d'erreur : 1
+
+TEST du DATE
+Chrono : 12
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 14
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 9
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 9
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 12
+Nombre d'erreur : 3
+
+TEST du DATE
+Chrono : 10
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 10
+Nombre d'erreur : 0
+

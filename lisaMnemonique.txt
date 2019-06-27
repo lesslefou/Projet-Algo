@@ -1,0 +1,36 @@
+QQTEST du DATE
+Chrono : 13
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 20
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 13
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 18
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 16
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 8
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 10
+Nombre d'erreur : 0
+
+TEST du DATE
+Chrono : 13
+Nombre de mots justes : 3
+
+TEST du DATE
+Chrono : 15
+Nombre de mots justes : 0
+

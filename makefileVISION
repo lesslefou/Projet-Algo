@@ -9,12 +9,12 @@ run: projet
 test: projet
 	@valgrind ./projet
 
-projet: main.o sMemory.o sTestFB.o sKonami.o sCouleur.o sMnemonique.o sVisionSpatiale.o saffichage.o Librairie/libisentlib.a
-	gcc $(LDFLAGS) $^ -o $@ -lm -lglut -lGL -lX11
+projet: main.o sMemory.o sTestFB.o sKonami.o sCouleur.o sMnemonique.o saffichage.o Librairie/libisentlib.a
+	gcc $(LDFLAGS) main.o sMemory.o sTestFB.o sKonami.o sCouleur.o sMnemonique.o sVisionSpatiale.osaffichage.o -o projet   Librairie/libisentlib.a -lm -lglut -lGL -lX11
 
 
 main.o: main.c Librairie/BmpLib.h Librairie/GfxLib.h hMemory.h hTestFB.h haffichage.h hKonami.h hCouleur.h hMnemonique.h hVisionSpatiale.h
-	gcc $(CFLAGS) $<
+	gcc $(CFLAGS) main.c
 
 sMemory.o: sMemory.c hMemory.h
 	gcc $(CFLAGS) sMemory.c

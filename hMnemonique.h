@@ -30,8 +30,8 @@ typedef struct MNEMONIQUE
 	int temps;
 	int a;
 	int stop;
+	char final[50];
 
-	int clic[20];
 	int resultat;
 	int test1;
 	int test2;

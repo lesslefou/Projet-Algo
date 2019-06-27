@@ -15,28 +15,21 @@
 	
 	\details
 				Description détaillée du code suivant la condition.
-
-
 				"if (me->start == 0)"
 				Condition obligeant l'utilisateur d'entrer son prénom avant d'appuyer sur le bouton star
-
 				"if (me->start == 2)
 				Condition permettant au chrono de commencer uniquement quand le patient clique sur start.
 				A ce moment là le tableau de carte apparait.
-
 				"me->delay ++"
 				Incrémentation du chrono en ms
 				
 				"if (me->delay == 45)"
 				Lorsque delay = 45, 1 seconde c'est écoulée
-
 				"if (me->cpt == 12)"	
 				Permet d'arreter le chrono lorsque les 6 paires d'images a été découverte
 				Laisse les images un micro temps avant l'affichage de fin
-
 				"if (me->start == 3)"
 				Enregistrer les données dans un fichier 1 seule fois.
-
 				"if (me->start == 4)"
 				Affiche l'affichage de fin
 	
@@ -44,6 +37,7 @@
 
 void affichageMemory(int p,memory *me,carte tableau[12])
 {
+	printf("lock = %d\n",me->lockeur);
 	int i=0;					
 	effaceFenetre (255, 255, 255);	
 	couleurCourante (200,200,200);
@@ -59,7 +53,7 @@ void affichageMemory(int p,memory *me,carte tableau[12])
 	afficheChaine("Retour",20,20,760);
 	couleurCourante(255,0,0);
 	epaisseurDeTrait(5);
-	afficheChaine("M E M O R I E S",40,380,720);
+	afficheChaine("M E M O R Y",40,380,720);
 
 	if (me->start == 0)
 	{
@@ -68,8 +62,9 @@ void affichageMemory(int p,memory *me,carte tableau[12])
 		afficheChaine("Entrer votre nom :",30,400,440);
 	}
 	
-	else if (me->start == 2)
+	if (me->start == 2)
 	{
+	printf("lock1 = %d\n",me->lockeur);
 		me->delay ++;
 		if (me->delay == 45)	
 		{
@@ -90,7 +85,7 @@ void affichageMemory(int p,memory *me,carte tableau[12])
 		}
 		else placementDosDeCarte(me);
 	}
-	else if (me->start == 3)
+	if (me->start == 3)
 	{
 		char nom[30];
 		strcpy(nom,me->prenom);
@@ -101,7 +96,7 @@ void affichageMemory(int p,memory *me,carte tableau[12])
 		me->start = 4;
 	}	
 	
-	else if (me->start ==4)
+	if (me->start ==4)
 	{
 		couleurCourante(120,120,120);
 		rectangle(100,180,1100,680);
@@ -109,30 +104,44 @@ void affichageMemory(int p,memory *me,carte tableau[12])
 		afficheChaine("F I N  D U  T E S T",30,430,400);
 	}
 
-	char chrono[6] ;	
-	memset(chrono,0,sizeof(chrono));
+	char chrono[] = "00";
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(2);
 	sprintf(chrono,"%d s",me->temps);
 	epaisseurDeTrait(2);
 	afficheChaine(chrono,20,350,80);
 
-
-	char pourcentage[5];
-	memset(pourcentage,0,sizeof(pourcentage));
+	char pourcentage[] = "00";
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(2);
 	sprintf(pourcentage,"%d",me->erreur);
 	epaisseurDeTrait(2);
 	afficheChaine(pourcentage,20,730,80);
 
-
 }
 
 
 void initStructMemory(memory *me)
 {
-	memset(me, 0, sizeof(*me));
+	int i=0;
+    me->lockeur=0;
+    me->clic1=0;
+    me->clic2=0;
+    for (i=0; i<12; i++)   me->validation[i] = 0;
+    me->start=0;
+	me->cpt=0;
+	me->delay=0;
+	me->temps=0;
+	me->tempo=0;
+	me->erreur=0;
+	FILE *fichier2=NULL;
+	me->stop=0;
+
+	memset(me->prenom,0,20);
+
+
+	//SI TABLEAU D'IMAGES
+	//Images[0] = chien = lisBMPRGB("chien.bmp");
 	me->chien = lisBMPRGB("chien.bmp");
 	me->poulain = lisBMPRGB("poulain.bmp");
 	me->chat = lisBMPRGB("chat.bmp");
@@ -151,11 +160,8 @@ void initStructMemory(memory *me)
 	
 	\details
 				Description détaillée du code suivant la condition.
-
-
 				"première boucle for"
 				Initialise un tableau de 12 cases de 0 à 12 et la variable position d'un tableau de structure à 0.
-
 				"deuxième boucle for"
 				Parcours ce tableau de 12 cases aléatoirement
 				Si la valeur est différente de 40 alors on l'attribue à la position et on la remplace par 40
@@ -264,12 +270,9 @@ void testCarte(carte tableau[12],int p,DonneesImageRGB *image)
 	
 	\details
 				Description détaillée du code suivant la condition.
-
-
 				"première boucle for"
 				Analyse de l'image sélectionnée et enregistrement d'un tableau RGB
 				Si validation =0 et pas de clique sur l'image alors la carte reste retournée
-
 				"deuxième boucle for"
 				Une fois les deux clics effectués, la variable me->stop = 1.
 				Ainsi on parcourt les deux tableaux RGB des deux images sélectionnées.

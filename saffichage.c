@@ -3,6 +3,7 @@
 #include "hMemory.h"
 #include "hCouleur.h"
 #include "hMnemonique.h"
+#include "hVisionSpatiale.h"
 
 
 menu initMenu(menu m)
@@ -12,24 +13,9 @@ menu initMenu(menu m)
 	return m;
 }
 
-/*
-menu gereClicStart(menu m)
-{
-	if (abs>=900 && abs<=1100 && ord>=60 && ord<=120)	
-	{
-		if (m.start == 0) m.start = 1;
-		else if (m.start == 3)
-		{
-			m = initStructTESTFB(m);
-		}
-		else;
-	}
-}
-*/
 
 
-
-menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,coule *const ur,carte tableau[12],int p,int abs, int ord)
+menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,coule *const ur,mnemo *const ni,carte tableau[12],int p,int abs, int ord)
 {
 	switch (m.choix)
 	{
@@ -46,6 +32,16 @@ menu choixMenu(menu m, test * const fb, memory *me, kona *const mi,coule *const 
 					break;
 
 				case Mnemonique:
+					if (m.retour == 0) 
+					{
+						m.bloqueur = 1;
+						affichageMnemonique(ni);
+					}
+					else
+					{
+						m.choix = 1;
+						m.bloqueur = 0;
+					}
 					break;
 
 				case Memory:
@@ -362,6 +358,7 @@ menu gereClicResultat(menu m, int abs, int ord)
 {
 	if (m.choix == 5 && m.bloqueur == 0)		
 	{
+		printf ("prenom = %s\n",m.prenom);
 		strcpy(m.nom,m.prenom);
 		for (int i=0; i<12; i++)
 		{
@@ -391,7 +388,6 @@ menu afficheEcranResultat(menu m)
 	effaceFenetre(255,255,255);
 	couleurCourante(255,0,0);
 	epaisseurDeTrait(5);
-
 	if (m.choix5 == 1)			afficheChaine("M N E M O N I Q U E",40,350,725);
 	else if (m.choix5 == 2)		afficheChaine("M E M O R Y",40,420,725);
 	else if (m.choix5 == 3)		afficheChaine("B O U L E",40,420,725);

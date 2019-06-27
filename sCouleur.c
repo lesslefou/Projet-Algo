@@ -167,6 +167,7 @@ void affichageCouleur(coule *const ur)
 	if (ur->start == 3)
 	{
 		char nom[30];
+		printf("preno m = %s\n",ur->prenom);
 		strcpy(nom,ur->prenom);
 		strcat(nom,"Couleur.txt");
 		ur->fichier4=fopen(nom,"at");

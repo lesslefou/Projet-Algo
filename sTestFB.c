@@ -14,23 +14,33 @@
 	
 	\details
 				Description détaillée du code suivant la condition.
-	
-				"memset(fb, 0, sizeof(*fb))"  
-				Initialise toute la structure à 0
-
 **/
+
 void initStructTESTFB(test *fb)
 {
-	memset(fb, 0, sizeof(*fb));
+	fb->suite=0;
+	fb->chiffre1=0;
+	fb->chiffre2=0;
 	fb->lock=3;
+	fb->resultat=0;
 	fb->test1=15;
 	fb->test2=11;
+	fb->delay=0;
+	fb->tempo=0;
+	fb->cpt=0;
+	fb->start=0;
+	fb->temps=0;
+	fb->erreur=0;
+	FILE *fichier=NULL;
 	fb->test1FB = lisBMPRGB("test1FB.bmp");
 	fb->test2FB = lisBMPRGB("test2FB.bmp");
+
+
+	memset(fb->prenom,0,20);
 	
 }
 
-void testFB(test * const fb)
+void testFB(test *fb)
 {
 	effaceFenetre (255, 255, 255);
 	couleurCourante (200,200,200);
@@ -67,67 +77,42 @@ void testFB(test * const fb)
 	
 		fb->delay ++;
 		if (fb->tempo >= 2) fb->tempo++;
-
 		if (fb->delay == 45)	
 		{
 			fb->temps++;
 			fb->delay=0;
 		}
-
+		if (fb->test1FB == 0) printf ("null\n");
 		if (fb->suite == 0)
 		{
-			if (fb->a == 0)		ecrisImage(50, 180, fb->test1FB->largeurImage, fb->test1FB->hauteurImage, fb->test1FB->donneesRGB);
+			ecrisImage(50, 180, fb->test1FB->largeurImage, fb->test1FB->hauteurImage, fb->test1FB->donneesRGB);
 			
 			if (fb->lock ==0) 
 			{
-				if (fb->a == 0)
+				if (fb->resultat == fb->test1)		
 				{
-					fb->tempo = 2;
-					fb->a = 1;
-				}
-
-				if (fb->resultat == fb->test1 && fb->a == 1)		
-				{
-
-					couleurCourante(120,120,120);
-					rectangle(200,200,1000,700);
-					couleurCourante(255,255,255);
-					rectangle(1000,300,1100,400);
-					couleurCourante(0,0,0);
-					afficheChaine("B R A V O !  N E X T ",30,320,430);
-					
-					if (fb->tempo > 30)	
+					if (fb->cpt==0)
 					{
-						fb->lock=3;
-						fb->tempo = 0;
-						fb->temps -=2;
-						fb->suite = 1;
-						fb->cpt = 1;
-						fb->a=0;
+						fb->tempo=2;
+						fb->cpt=1;
 					}
+					fb->lock=3;
 				}
-				else if (fb->resultat == 2 && fb->a == 1) 
+				if (fb->resultat == 2 ) 
 				{
-					couleurCourante(120,120,120);
-					rectangle(200,200,1000,700);
-					couleurCourante(0,0,0);
-					afficheChaine("P E R D U . . . ",30,320,430);
-					
-					if (fb->tempo > 30)	
-					{
-						fb->erreur++;
-						fb->lock=3;
-						fb->tempo = 0;
-						fb->temps -=2;
-						fb->a=0;
-
-					}
+					fb->erreur++;
+					fb->lock=3;
 				}
 			}	
+			if (fb->tempo > 30)	
+			{
+				fb->suite = 1;
+				fb->tempo=0;
+			}
 		}
-		else if (fb->suite == 1)
+		else if (fb->suite ==1)
 		{
-			if (fb->a == 0)		ecrisImage(50, 180, fb->test2FB->largeurImage, fb->test2FB->hauteurImage, fb->test2FB->donneesRGB);
+			ecrisImage(50, 180, fb->test2FB->largeurImage, fb->test2FB->hauteurImage, fb->test2FB->donneesRGB);
 			
 			if (fb->lock ==0 ) 
 			{
@@ -146,6 +131,7 @@ void testFB(test * const fb)
 					fb->lock=3;
 				}
 			}
+
 			if (fb->tempo > 30)	
 			{
 				fb->suite = 2;
@@ -161,7 +147,7 @@ void testFB(test * const fb)
 	
 
 
-	char chrono[7] ;	
+	char chrono[5] ;	
 	memset(chrono,0,sizeof(chrono));
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(2);
@@ -170,7 +156,7 @@ void testFB(test * const fb)
 	afficheChaine(chrono,20,350,80);
 
 
-	char pourcentage[5];
+	char pourcentage[3];
 	memset(pourcentage,0,sizeof(pourcentage));
 	couleurCourante(0,0,0);
 	epaisseurDeTrait(2);
@@ -178,7 +164,9 @@ void testFB(test * const fb)
 	epaisseurDeTrait(2);
 	afficheChaine(pourcentage,20,730,80);
 
-
+	/*
+	
+	*/
 	if (fb->start == 3)
 	{
 		char nom[30];
@@ -193,19 +181,20 @@ void testFB(test * const fb)
 	if (fb->start == 4)
 	{
 		couleurCourante(120,120,120);
-		rectangle(200,200,1000,700);
+		rectangle(50,180,850,680);
 		couleurCourante(0,0,0);
-		afficheChaine("F I N  D U  T E S T",30,320,430);
+		afficheChaine("F I N  D U  T E S T",30,230,400);
 	}
 }
 
-void afficheResultat(test * const fb)
+void afficheResultat(test *fb)
 {
-	char txt[3] = {0};
+	char txt[2];
 	memset(txt,0,sizeof(txt));
 	couleurCourante(0,0,0);
+	printf ("1 : %d, 2: %d\n",fb->chiffre1,fb->chiffre2);
 	epaisseurDeTrait(2);
-	sprintf(txt,"%1d%1d",fb->chiffre1,fb->chiffre2);
+	sprintf(txt,"%d%d",fb->chiffre1,fb->chiffre2);
 	epaisseurDeTrait(2);
 	afficheChaine(txt,20,1030,370);
 
@@ -236,4 +225,3 @@ void afficheResultat(test * const fb)
 		}
 	}
 }
-

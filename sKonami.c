@@ -3,13 +3,7 @@
 void initStructKONAMI(kona *const mi)
 {
 	memset(mi, 0, sizeof(*mi));
-/*	*mi = (kona){.suite = 0,
-		.clic = {0},
-		.lockeurMi = 0,
-		.ordre1 = {2,7,6,4,5,3},
-	};
-*/
-	//mi->ordre1[] = {2,7,6,4,5,3};
+
 	mi->ordre1[0]=2;
 	mi->ordre1[1]=7;
 	mi->ordre1[2]=6;
@@ -17,7 +11,6 @@ void initStructKONAMI(kona *const mi)
 	mi->ordre1[4]=5;
 	mi->ordre1[5]=3;
 	
-	//mi->ordre2[]= {6,2,1,5,4,3};
 	mi->ordre2[0]=6;
 	mi->ordre2[1]=2;
 	mi->ordre2[2]=1;

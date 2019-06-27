@@ -52,8 +52,10 @@ void affichageMnemonique(mnemo *const ni)
 	}
 	if (ni->start == 2)	
 	{
-		ni->delay ++;
-		if (ni->tempo >= 2) ni->tempo++;
+		if (ni->tempo >= 2) 
+		{
+			ni->tempo++;
+		}
 		if (ni->delay == 45)	
 		{
 			ni->temps++;
@@ -67,55 +69,59 @@ void affichageMnemonique(mnemo *const ni)
 				ni->tempo = 2;
 				ni->minuteur = 1;
 			}
-			
-			if (ni->tempo < 40 && ni->lockeurMn == 0) mnemonique(ni);
+			if (ni->tempo < 600 && ni->lockeurMn == 0) mnemonique(ni);
 			else 
 			{
-				if (ni->stop == 0)		ni->lockeurMn = 1;
+				if (ni->stop == 0)		
+				{
+					ni->lockeurMn = 1;
+					ni->tempo = 0;
+				}
 			}
 
 			if (ni->lockeurMn == 1 || ni->lockeurMn == 2) 
 			{
+				ni->delay ++;
 				ni->stop = 1;
-				ni->tempo = 0;
 				rentretesmots(ni);
-				
-				
+							
 				if (ni->validebouton == 1)
 				{
 					ni->a = 1;
 					
 				}
+		
 				if (ni->a == 1) 
 				{
 					ni->tempo = 2;
 					ni->a = 2;
 				}
 
-				if (ni->a == 2)
+				if (ni->a == 2 && ni->suite == 0)
 				{
 					couleurCourante(120,120,120);
 					rectangle(200,200,1000,700);
 					couleurCourante(0,0,0);
 					afficheChaine("N E X T ",30,320,430);
+					ni->validebouton = 0;
 					if (ni->tempo > 30)	
 					{
-						ni->suite = 2;
-						ni->tempo = 0;
-						ni->cpt = 0;
-						//ni->lockeurMn = 0;
-						ni->a=0;
-						ni->minuteur = 1;
+						ni->resultat = ni->score;
+						ni->score = 0;
+						ni->minuteur = 0;
+						ni->a = 0;
+						ni->suite = 1;
+						ni->lockeurMn = 0;
+						ni->validebouton = 0;
+						ni->debut = 0;
+						ni->stop = 0;
 					}
 				}
-				
-
-				if (ni->tempo > 30)	
+				else if (ni->a == 2 && ni->suite == 1)
 				{
-					ni->suite = 1;
-					ni->tempo = 2;
-					//ni->lockeurMn = 0;
+					ni->start = 3;
 				}
+				
 			}
 		}
 	}
@@ -144,17 +150,21 @@ void affichageMnemonique(mnemo *const ni)
 		strcpy(nom,ni->prenom);
 		strcat(nom,"Mnemonique.txt");
 		ni->fichier4=fopen(nom,"at");
-		fprintf(ni->fichier4, "TEST du DATE\nChrono : %d\nNombre d'erreur : %d\n\n",ni->temps,ni->erreur);
+		fprintf(ni->fichier4, "TEST du DATE\nChrono : %d\nNombre de mots justes : %d\n\n",ni->temps,ni->score);
 		fclose(ni->fichier4);
 		ni->start = 4;
+		memset(ni->final,0,sizeof(ni->final));
+		ni->score += ni->resultat;
 	}	
 
 	if (ni->start == 4)
 	{
+		sprintf(ni->final,"Nombre totale de mots justes : %d",ni->score);
 		couleurCourante(120,120,120);
 		rectangle(200,200,1000,700);
 		couleurCourante(0,0,0);
-		afficheChaine("F I N  D U  T E S T",30,320,430);
+		afficheChaine("F I N  D U  T E S T",30,360,480);
+		afficheChaine(ni->final,30,300,390);
 	}
 }
 
@@ -205,7 +215,7 @@ void mnemonique(mnemo *const ni)
 	}
 	couleurCourante(128,0,0);
 	epaisseurDeTrait(2);
-	afficheChaine("Tu as 30 secondes ",25,650,455);
+	afficheChaine("Tu as 15 secondes ",25,650,455);
 	afficheChaine("pour retenir le plus de mots !",25,650,400);
 } 
 

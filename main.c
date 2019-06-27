@@ -8,6 +8,7 @@
 #include "hKonami.h"
 #include "hCouleur.h"
 #include "hMnemonique.h"
+#include "hVisionSpatiale.h"
 
 //AFFICHAGE RESULTAT COULEUR NOPE...
 static carte tableau[12];
@@ -64,6 +65,16 @@ void gestionEvenement(EvenementGfx evenement)
     //Mnemonique
     static mnemo ni;
     static mnemo *const pt4 = &ni;
+
+    //Vision Spatiale
+    static visi on;
+    static visi *const pt5 = &on;
+
+    static int SelectedSquareID=0;  //Carre selectionné par l'utilisateur
+	static int reponse;
+	static int SquareIDOriginal;
+
+	
 	
 	switch (evenement)
 	{
@@ -90,6 +101,12 @@ void gestionEvenement(EvenementGfx evenement)
 
 			//Mnemonique
 			initStructMNEMONIQUE(pt4);
+
+			//Vision Spatiale
+			reponse = -1;
+			SquareIDOriginal=rand()%4;
+			initMcolor2();
+			
 			break;
 		
 		case Temporisation:
@@ -100,9 +117,33 @@ void gestionEvenement(EvenementGfx evenement)
 			// On part d'un fond d'ecran blanc
 			effaceFenetre (255, 255, 255);
 
-			//m = choixMenu(m,pt1,pt,pt2,pt3,tableau,p,abs,ord);
+			//m = choixMenu(m,pt1,pt,pt2,pt3,pt4,tableau,p,abs,ord);
 
-			affichageMnemonique(pt4);
+			//Vision Spatiale
+			epaisseurDeTrait(1);
+			couleurCourante(0, 0, 0);
+			ligne(600, 750, 600, 150);
+			couleurCourante (200,200,200);
+			rectangle(170,60,420,120);
+			rectangle(540,60,810,120);
+			rectangle(0,0,100,70);
+			couleurCourante(0,0,0);
+			epaisseurDeTrait(1);
+			afficheChaine("Chronometre : ",20,190,80);
+			afficheChaine("nb d'erreur : ",20,580,80);
+			afficheChaine("Retour",20,20,30);
+			couleurCourante(255,0,0);
+			epaisseurDeTrait(4);
+			afficheChaine("VISION SPATIALE",40,410,760);
+			
+			
+            VisionSpatial(SquareIDOriginal); 
+				
+			if (reponse >= 0)
+			{
+				DisplayResult(SelectedSquareID, reponse);
+			}
+
 			break;
 			
 		case Clavier:
@@ -273,15 +314,15 @@ void gestionEvenement(EvenementGfx evenement)
 					}
 					
 					//Couleur
-					if (m.demande == 0)
+					if (pt3->start == 0)
 					{
 						for (i=0; i<20; i++)
 						{
 							if (a == 0)
 							{
-								if (m.prenom[i] == 0) 
+								if (pt3->prenom[i] == 0) 
 								{
-									m.prenom[i] = caractereClavier();
+									pt3->prenom[i] = caractereClavier();
 									a++;
 								}
 							}
@@ -290,13 +331,14 @@ void gestionEvenement(EvenementGfx evenement)
 					}
 
 					//RESULTAT
-					if (m.demande == 1)
+					if (m.demande == 0)
 					{
+						puts ("coucou");
 						for (i=0; i<20; i++)
 						{
 							if (a == 0)
 							{
-								if (pt2->prenom[i] == 0) 
+								if (m.prenom[i] == 0) 
 								{
 									m.prenom[i] = caractereClavier();
 									a++;
@@ -315,7 +357,7 @@ void gestionEvenement(EvenementGfx evenement)
 					if (pt3->start == 0)    pt3->start = 1;
 					if (pt4->start == 0)    pt4->start = 1;
 					if (pt4->lockeurMn == 1)	pt4->lockeurMn = 2;
-					if (m.choix == 5)		m.demande = 1;
+					if (m.choix == 5)	m.demande = 1;
 					break;
 
 				case '0':
@@ -490,16 +532,28 @@ void gestionEvenement(EvenementGfx evenement)
 				//Mnemonique
 				if (pt4->lockeurMn == 1 || pt4->lockeurMn == 2) valide(pt4,abs,ord);
 
-			}
-			/*
-			if (etatBoutonSouris() == GaucheRelache)	activeGestionDeplacementPassifSouris();
-			if (etatBoutonSouris() == DroiteAppuye)
-			{
+
+				//Vision Spatiale
+				SelectedSquareID = gereClicVision(SelectedSquareID);
+				if(SelectedSquareID != gWinningSquareID)
+				{
+					printf("Mauvaise Reponse");
+					reponse = 0;
+					rafraichisFenetre();
+				}
+				else 
+				{
+					printf("Bonne Reponse");
+					reponse = 1; 
+					rafraichisFenetre();
+				}
 				
+				if( abscisseSouris()>899 && ordonneeSouris()>59 && abscisseSouris()<1101 && ordonneeSouris()<121)
+				{
+					reponse=-1;
+					SquareIDOriginal=NextConfiguration(SquareIDOriginal,pt5);
+				}
 			}
-			if (etatBoutonSouris() == DroiteRelache)	activeGestionDeplacementPassifSouris();
-			
-			*/	
 				
 			break;
 		

@@ -19,7 +19,6 @@
  * \author : Lisa DUTERTE
  * \brief Bibliotheque pour utiliser les fonctions permettant de faire fonctionner le Konami\n
  * # Affichage du plateau de test : 
-
  *
  */
 

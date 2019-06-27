@@ -1,4 +1,0 @@
-TEST du DATE
-Chrono : 25
-Nombre d'erreur : 7
-
